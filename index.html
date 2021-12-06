@@ -157,7 +157,7 @@
 
 							<div class="opening-stage-el opening-stage-el--02">
 								<div class="make-id">
-									<input type="text" id="userName" value="캐릭터 이름을 입력해주세요" class="chat-input-txt chat-input-txt-blink">
+									<input type="text" id="userName" value="5자 내로 캐릭터 이름을 입력해주세요" class="chat-input-txt chat-input-txt-blink">
 									<button class="confirm-btn" id="USER_ID_CONF">확인</button>
 								</div>
 							</div>
@@ -166,10 +166,46 @@
 						<div class="main-stage each-s-full">
 							<div class="main-stage-wrapper">
 								<div class="game-screen-square-holder">
+									<div class="screen-left-panel each-panel">
+										<div class="map-info">
+											<div class="map-panel">
+												<img src="img/map_icon.png" alt="">
+												<p class="map-btn">지도 보기</p>
+											</div>
+										</div>
+										<div class="user-info">
+											<p><span class="user-name"></span>님! <br/>환영합니다</p>
+										</div>
+									</div>
+									<div class="screen-right-panel each-panel">
+										<div class="location-info">
+											<div class="flag-panel">
+												<p class="position-top">모이모이포구</p>
+												<p class="position-bottom">광장</p>
+											</div>
+										</div>
+										<div class="select-history">
+											<div class="history-panel">
+												<p class="index-number">
+													<span class="now">1</span> <span class="slash">/</span> <span class="total">16</span>
+												</p>
+												<ul class="quest-list">
+													<li>여인숙 사장과 대화하기</li>
+													<li>제로웨이스트샵에서 아이템 구매하기</li>
+													<li>광장에서 커플과 대화하기</li>
+													<li>도서관에서 학생과 대화하기</li>
+													<li>기지국에서 요원의 부탁들어주기</li>
+													<li>아고라에서 원로위원과 대화하기</li>
+													<li>항구에서 선원 고용하기</li>
+												</ul>
+											</div>
+											
+										</div>
+									</div>
 									<div class="game-screen-square">
 										<img src="https://img.khan.co.kr/spko/storytelling/2017/canyou/square.png" alt="empty" class="square-blank">
 										<div class="game-map">
-											<img src="img/map-sample.jpg" alt="게임지도" class="map-img">
+											<img src="img/map-line.jpg" alt="게임지도" class="map-img">
 											<div class="cover-noise"></div>
 											<div class="npc-holder">
 												<div class="map-el npc-01"></div>
@@ -178,26 +214,27 @@
 											</div>
 										</div>
 										<div class="player-holder">
-											<div class="player"><img src="https://img.khan.co.kr/spko/storytelling/2017/canyou/player-move.gif" alt="나(플레이어)"></div>
+											<div class="player"><img src="img/char_01.gif" alt="나(플레이어)"></div>
 											<p class="userName"></p>
 										</div>
-									</div>
-									<div class="screen-left-panel each-panel">
-										<div class="map-info">지도보기</div>
-										<div class="user-info">
-											<p><span class="user-name"></span>님! <br/>환영합니다</p>
+										<div class="game-frame frame-top"><img src="img/border-top.png" alt=""></div>
+										<div class="game-frame frame-bottom"><img src="img/border-bottom.png" alt=""></div>
+										<div class="game-frame frame-left"><img src="img/border-left.png" alt=""></div>
+										<div class="game-frame frame-right"><img src="img/border-right.png" alt=""></div>
+
+										<div class="game-alert">
+											<div class="alert-border">
+												<div class="alert--basic alert-play-manual">
+													<p>안녕하세요, 이곳은 모이모이 포구입니다.</p>
+													<p>포구 이곳저곳과 건물안에서 주민들을 만나 대화해보세요.</p>
+													<p>키보드의 화살표 키<span class="semi">(←, →,↑,↓)</span>를 이용해 이동하실 수 있습니다.</p>
+													<button class="close" id="PLAY_MANUAL_CLOSE">닫기</button>
+												</div>	
+											</div>
+											
 										</div>
 									</div>
-									<div class="screen-right-panel each-panel">
-										<div class="location-info">
-											<div class="map-flag">모이모이섬</div>
-										</div>
-										<div class="select-history">
-											<p class="index-number">
-												<span class="now">1</span> <span class="slash">/</span> <span class="total">16</span>
-											</p>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>

@@ -153,8 +153,7 @@ z-index: 1;border-radius: 7px; opacity: 0;transition: all 0.3s;border: 2px dotte
 width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; font-size: 1.4rem; }
 .make-id .confirm-btn { position: absolute; top: 0; right:0;height: 100%; display: inline-block; text-align: center; box-sizing: border-box;padding: 0px 20px;  cursor: pointer; font-family: 'DungGeunMo', 'notokr-regular'; font-size: 1.4rem;}
 
-.main-stage { opacity:0; pointer-events: none; z-index:-1; background:#3e3327;
-position: absolute; top: 0; left:0;}
+.main-stage { opacity:0; pointer-events: none; z-index:-1;position: absolute; top: 0; left:0;}
 .main-stage-on { z-index:1; pointer-events: auto; }
 .main-stage-wrapper {width:100%; height:100%; position: relative;}
 .game-screen-square-holder { position: relative;}
@@ -162,17 +161,29 @@ position: absolute; top: 0; left:0;}
 .square-blank { height:100%;}
 .game-map {}
 .each-panel {}
-.screen-left-panel { position: absolute; left:0; top: 0;}
-.map-info {box-sizing: border-box; padding: 5%; background: #fb872f; font-size: 1.4rem;}
-.user-info { color: #fff;  box-sizing: border-box; padding:5%; background: #000000; font-size: 1.4rem;}
-.screen-right-panel { position: absolute; right:0; top: 0;}
-.location-info {}
+.screen-left-panel { position: absolute; left:0; top: 0;    height: 100%;}
+.map-info { }
+.map-panel {cursor: pointer; box-sizing: border-box; padding: 5%; background: url("../img/map_back.png") no-repeat;width:200px;height:200px; background-size: 100% auto;}
+.map-panel > img { width:50%; padding-top: 15%; margin: 0 auto; display:block; }
+.map-panel > p { font-size: 1.2rem; text-align: center; margin-top: 2%;}
+
+.user-info { color: #fff;  box-sizing: border-box; padding:5%; background: #000000; font-size: 1.4rem;display: none;}
+.screen-right-panel { position: absolute; right:0; top: 0;    height: 100%;}
+.location-info {position: relative; right: 1%; margin-top: 10%;}
 .location-info .map-flag { box-sizing: border-box; padding: 5%; background: #fbcd2f;font-size: 1.4rem;}
-.select-history {}
-.select-history .index-number { font-size: 1.4rem;box-sizing: border-box; padding: 5%; background: #ddd; color: #111;}
-.select-history .index-number .now { font-size: 1.6rem; margin-right: 5px;font-weight: bold;color: #00135d; }
+.flag-panel {box-sizing: border-box; padding: 10%; background: url("../img/position_back.png") no-repeat;width:200px;height:110px; background-size: 100% auto;}
+.flag-panel .position-top {font-size: 1.1rem; text-align: left; } 
+.flag-panel .position-bottom {font-size: 1.3rem;text-align: left; margin-top: 5%;}
+
+.select-history {  position: absolute; bottom: 0; left: 2%;height: 70%;    width: 100%;}
+.select-history .history-panel { box-sizing: border-box; padding: 10%; background: url("../img/quest_list_back.png") no-repeat;width: 140%;height:100%; background-size: 100% 100%;}
+.select-history .index-number { font-size: 1.4rem;box-sizing: border-box; padding: 5%;  color: #111;}
+.select-history .index-number .now { font-size: 2rem; margin-right: 5px;font-weight: bold;color: #691f00;}
 .select-history .index-number .slash { font-size: 1rem; opacity: 0.5; }
 .select-history .index-number .total { margin-left: 1%; }
+.select-history ul { box-sizing: border-box; padding: 0 5%;}
+.select-history ul li {  font-size: 1rem; margin: 5% 0;}
+
 .game-map { width: 100%; height: 100%; position: absolute; top:0px; left: 0px; }
 .game-map .map-img { transition:all 0.3s ease 0s; position: relative; top: 0; left: 0; }
 .game-map .npc-holder { transition:all 0.3s ease 0s; position: absolute; top: 0; left: 0;}
@@ -180,7 +191,28 @@ position: absolute; top: 0; left:0;}
 .map-el { position: absolute;cursor: pointer; }
 .player-holder { width: 100px; height: 100px;  position: absolute; top: 45%; left: 15%; }
 .player img { width: 100%; height: 100%; }
-.player-holder .userName{ position: absolute; font-size: 1.5rem; bottom: -16%; text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
+.player-holder .userName{ position: absolute; font-size: 1.2rem; top: -14%; text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
+
+.game-frame { position: absolute; }
+.game-frame img { display: block;}
+.frame-top {  width:100%; top:0; left:0; right:0; height: 10px;}
+.frame-top img { width:100%; vertical-align: top;}
+.frame-bottom { width:100%; bottom: 0; left:0; right:0; height: 10px;}
+.frame-bottom img { width:100%; vertical-align: bottom;}
+.frame-left { height:100%; top:0; bottom: 0; left:0; }
+.frame-left img { height:100%; }
+.frame-right { height:100%;top:0; bottom: 0; right:0; }
+.frame-right img { height:100%; }
+
+.game-alert { position: absolute;  top: 0; left: 0;  width: 100%;  height: 100%; }
+.game-alert .alert-border { position: absolute; width: 50%; left: 50%; top: 50%;  margin-left: -25%; margin-top: -15%; background: url("../img/alert-back.jpg") no-repeat; background-size: 100% 100%;}
+.game-alert .alert-border .alert--basic { box-sizing:border-box; padding:10%; }
+.game-alert .alert-border .alert--basic p { margin: 2% 0 ;}
+.game-alert .alert-border .alert--basic p span.semi {  font-size: 0.8rem; opacity: 0.5;}
+.game-alert .alert-border .alert--basic button { font-family: 'DungGeunMo', 'notokr-regular'; width: 50%; background: #e4bc81; cursor: pointer;color: #111;
+font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 3%; margin: 2% auto 0px;}
+
+.game-alert .alert-border .alert--basic button:hover { background:#daae6c; }
 
 /*---------------------------------------*/
 /******* 전체 기본 CSS - 모바일 기준*******/
