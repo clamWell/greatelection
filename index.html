@@ -38,12 +38,14 @@
 	<!--library-->
 	<script type="text/javascript" src="https://static.khan.co.kr/plugin/jquery/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="https://static.khan.co.kr/plugin/jquery/jquery.easing.1.3.js"></script>
+	<script src="js/typed.js"></script>
 	<!--library-->
 
 	<script type="text/javascript" src="https://static.khan.co.kr/js/khan/storytelling/common/digiReco.js"></script>
 
 	<script type="text/javascript" src="https://www.khan.co.kr/spko/js/khan_analystics.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79840639-2"></script>
+
 	<!-- Google Tag Manager -->
 	<script>
 	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -176,6 +178,31 @@
 										<div class="user-info">
 											<p><span class="user-name"></span>님! <br/>환영합니다</p>
 										</div>
+										
+										<div class="game-opt-setting">
+											<div class="sound-panel">
+												<p><span class="mute">음소거</span> / <span class="muteoff">음악켜기</span></p>
+											</div>
+										</div>
+
+										<div class="user-select-preview user-select-preview-left">
+											<div class="select-preview-panel">
+												<ul>
+													<li data-preview="1">
+														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<p class="opt-name">기본주택</p>
+														<p class="opt-desc">국가로부터 주택을 30년 이상 임대받을 수 있다. 단, 토지는 공공이 보유한다.</p>
+														<div class="desc-more-btn">설명 더보기</div>
+													</li>
+													<li data-preview="2">
+														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<p class="opt-name">장기공공임대</p>
+														<p class="opt-desc">십년 이상 살 수 있는 장기 공공 임대 주택을 20%까지 늘린다. 전체 국민의 절반이 공공주택에 살게한다.</p>
+														<div class="desc-more-btn">설명 더보기</div>
+													</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 									<div class="screen-right-panel each-panel">
 										<div class="location-info">
@@ -190,8 +217,8 @@
 													<span class="now">1</span> <span class="slash">/</span> <span class="total">16</span>
 												</p>
 												<ul class="quest-list">
+													<li>첨성대에서 아이템구매하기</li>
 													<li>여인숙 사장과 대화하기</li>
-													<li>제로웨이스트샵에서 아이템 구매하기</li>
 													<li>광장에서 커플과 대화하기</li>
 													<li>도서관에서 학생과 대화하기</li>
 													<li>기지국에서 요원의 부탁들어주기</li>
@@ -199,39 +226,137 @@
 													<li>항구에서 선원 고용하기</li>
 												</ul>
 											</div>
-											
+										</div>
+										<div class="user-select-preview user-select-preview-right">
+											<div class="select-preview-panel">
+												<ul>
+													<li data-preview="3">
+														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<p class="opt-name">원가주택</p>
+														<p class="opt-desc">5년 안에 250만호를 공급하고 이중 30만호를 시세보다 싸게 분양한다. 청년, 신혼부부는 주택 가격의 80%까지 돈을 빌려준다.</p>
+														<div class="desc-more-btn">설명 더보기</div>
+													</li>
+													<li data-preview="4">
+														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<p class="opt-name">토지임대부 안심주택</p>
+														<p class="opt-desc">무주택 실소유자들에겐 45년 초장기로 이용할 수 있는 모기지론 도입한다.</p>
+														<div class="desc-more-btn">설명 더보기</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="building-exit">
+											<div class="exit-panel">
+												<p>나가기</p>
+											</div>
 										</div>
 									</div>
 									<div class="game-screen-square">
 										<img src="https://img.khan.co.kr/spko/storytelling/2017/canyou/square.png" alt="empty" class="square-blank">
 										<div class="game-map">
-											<img src="img/map-line.jpg" alt="게임지도" class="map-img">
+											
+											<img src="img/map-3.png" alt="게임지도" class="map-img">
 											<div class="cover-noise"></div>
-											<div class="npc-holder">
+											
+											<div class="map-el-holder">
 												<div class="map-el npc-01"></div>
-												<div class="map-el building"><img src="img/b1.png" alt=""></div>
-
+												<div class="map-el building b2"><img src="img/b2.png" alt=""></div>
 											</div>
+
 										</div>
 										<div class="player-holder">
 											<div class="player"><img src="img/char_01.gif" alt="나(플레이어)"></div>
 											<p class="userName"></p>
 										</div>
+
+
+										<!--건물안-->
+										<div class="inside-building">
+											<div class="building-wrap">
+												<div class="background">
+													<div class="background-b2"></div>
+												</div>
+												<div class="npc-panel">
+													<div class="npc-chat-box-holder">
+														<div class="npc-holder">
+															<div class="npc-thumbs">
+																<img src="img/b2-npc-01.png" alt="">
+															</div>
+															<div class="npc-name">
+																<p></p>
+															</div>
+														</div>
+														<div class="chat-box">
+															<div class="typed-holder">
+																
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="user-panel">
+													<div class="chat-box">
+														<div class="typed-holder">
+
+														</div>
+														<div class="chat-inner-btn chat-bottom-btn chat-next-btn"><span class="arrow"><img src="img/arrow-dot.png" alt=""></span>다음</div>
+														<div class="chat-inner-btn chat-bottom-btn exit-building-btn"><span class="arrow"><img src="img/arrow-dot.png" alt=""></span>퀘스트 완료</div>
+
+														<div class="chat-inner-btn user-chat-select">
+															<ul>
+																<li class="opt1" data-opt="1">명재국</li>
+																<li class="opt3" data-opt="2">열석국</li>
+																<li class="opt3" data-opt="3">안수국</li>
+																<li class="opt4" data-opt="4">상심국</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--건물안 끝-->
+
 										<div class="game-frame frame-top"><img src="img/border-top.png" alt=""></div>
 										<div class="game-frame frame-bottom"><img src="img/border-bottom.png" alt=""></div>
 										<div class="game-frame frame-left"><img src="img/border-left.png" alt=""></div>
 										<div class="game-frame frame-right"><img src="img/border-right.png" alt=""></div>
 
 										<div class="game-alert">
-											<div class="alert-border">
-												<div class="alert--basic alert-play-manual">
+											<div class="alert-border alert-play-manual">
+												<div class="alert--basic">
 													<p>안녕하세요, 이곳은 모이모이 포구입니다.</p>
 													<p>포구 이곳저곳과 건물안에서 주민들을 만나 대화해보세요.</p>
 													<p>키보드의 화살표 키<span class="semi">(←, →,↑,↓)</span>를 이용해 이동하실 수 있습니다.</p>
 													<button class="close" id="PLAY_MANUAL_CLOSE">닫기</button>
 												</div>	
 											</div>
-											
+
+											<div class="alert-border alert-enter-building">
+												<div class="alert--basic">
+													<p>이곳은 <span class="building-name">모이모이 제로웨이스트샵</span> 입니다!</p>
+													<p>입장합니다.</p>
+													<button class="close" data-btn-type="enter-building">확인</button>
+												</div>	
+											</div>
+
+											<div class="alert-border alert-block-enter-building">
+												<div class="alert--basic">
+													<p>이미 퀘스트가 완료된 공간입니다.</p>
+													<p>다른 곳으로 이동해주세요.</p>
+													<button class="close" data-btn-type="block-enter-building">확인</button>
+												</div>	
+											</div>
+
+											<div class="alert-border alert-exit-building">
+												<div class="alert--basic">
+													<p>퀘스트를 마치지 않은 채 대화 중에 나가면 대화내용이 모두 초기화됩니다.</p>
+													<p>나가시겠습니까?</p>
+													
+													<button class="close" data-btn-type="stay-building">나가지 않기</button>
+													<button class="close" data-btn-type="exit-building">나가기</button>
+												</div>	
+											</div>
+
 										</div>
 									</div>
 									

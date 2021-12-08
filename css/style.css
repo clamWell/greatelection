@@ -163,17 +163,24 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .each-panel {}
 .screen-left-panel { position: absolute; left:0; top: 0;    height: 100%;}
 .map-info { }
-.map-panel {cursor: pointer; box-sizing: border-box; padding: 5%; background: url("../img/map_back.png") no-repeat;width:200px;height:200px; background-size: 100% auto;}
+.map-panel {cursor: pointer; box-sizing: border-box; padding: 5%; background: url("../img/map_back.png") no-repeat;width:200px;height:180px; background-size: 100% auto;}
 .map-panel > img { width:50%; padding-top: 15%; margin: 0 auto; display:block; }
-.map-panel > p { font-size: 1.2rem; text-align: center; margin-top: 2%;}
+.map-panel > p { font-size: 1.2rem; text-align: center; width: 55%; margin: 2% auto;}
+.map-panel:hover > p { background:#111; color:#fff;}
 
 .user-info { color: #fff;  box-sizing: border-box; padding:5%; background: #000000; font-size: 1.4rem;display: none;}
 .screen-right-panel { position: absolute; right:0; top: 0;    height: 100%;}
-.location-info {position: relative; right: 1%; margin-top: 10%;}
+.location-info {position: relative; right: 1%; margin-top: 5%;}
 .location-info .map-flag { box-sizing: border-box; padding: 5%; background: #fbcd2f;font-size: 1.4rem;}
-.flag-panel {box-sizing: border-box; padding: 10%; background: url("../img/position_back.png") no-repeat;width:200px;height:110px; background-size: 100% auto;}
-.flag-panel .position-top {font-size: 1.1rem; text-align: left; } 
-.flag-panel .position-bottom {font-size: 1.3rem;text-align: left; margin-top: 5%;}
+.flag-panel {box-sizing: border-box; padding: 10%; background: url("../img/position_back.png") no-repeat;width:100%; background-size: 100% 100%;}
+.flag-panel .position-top {font-size: 1rem; text-align: left; } 
+.flag-panel .position-bottom {font-size: 1.1rem;text-align: left; margin-top: 3%;}
+
+.game-opt-setting {position: absolute; left: 5%; bottom: 0%; }
+.sound-panel {box-sizing: border-box; padding: 10%; background: url("../img/panel-back.png") no-repeat;width:200px;height:90px; background-size: 100% auto;}
+.sound-panel p { }
+.sound-panel p span { display:inline-block; padding: 0 1%; cursor: pointer;font-size: 1rem;}
+.sound-panel p span:hover{ background:#111; color:#fff;}
 
 .select-history {  position: absolute; bottom: 0; left: 2%;height: 70%;    width: 100%;}
 .select-history .history-panel { box-sizing: border-box; padding: 10%; background: url("../img/quest_list_back.png") no-repeat;width: 140%;height:100%; background-size: 100% 100%;}
@@ -185,15 +192,18 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .select-history ul li {  font-size: 1rem; margin: 5% 0;}
 
 .game-map { width: 100%; height: 100%; position: absolute; top:0px; left: 0px; }
-.game-map .map-img { transition:all 0.3s ease 0s; position: relative; top: 0; left: 0; }
-.game-map .npc-holder { transition:all 0.3s ease 0s; position: absolute; top: 0; left: 0;}
-.building { top: 600px; left:600px; }
-.map-el { position: absolute;cursor: pointer; }
-.player-holder { width: 100px; height: 100px;  position: absolute; top: 45%; left: 15%; }
-.player img { width: 100%; height: 100%; }
+.game-map .map-img { transition:all 0.3s ease 0s; position: relative; top: 0; left: 0;; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none; }
+.game-map .map-el-holder { transition:all 0.3s ease 0s; position: absolute; top: 0; left: 0;}
+.map-el { position: absolute; }
+.map-el img { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;}
+.building {  }
+.player-holder { width: 100px; height: 100px;  position: absolute; top: 0%; left: 0; }
+.player img { width: 100%; height: 100%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;}
 .player-holder .userName{ position: absolute; font-size: 1.2rem; top: -14%; text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
+.b2 {}
+.b2 img { width:100%; }
 
-.game-frame { position: absolute; }
+.game-frame { position: absolute; z-index: 9999;}
 .game-frame img { display: block;}
 .frame-top {  width:100%; top:0; left:0; right:0; height: 10px;}
 .frame-top img { width:100%; vertical-align: top;}
@@ -204,15 +214,82 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .frame-right { height:100%;top:0; bottom: 0; right:0; }
 .frame-right img { height:100%; }
 
-.game-alert { position: absolute;  top: 0; left: 0;  width: 100%;  height: 100%; }
+.game-alert { position: absolute;  top: 0; left: 0;  width: 100%;  height: 100%; z-index: 9999;background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); }
 .game-alert .alert-border { position: absolute; width: 50%; left: 50%; top: 50%;  margin-left: -25%; margin-top: -15%; background: url("../img/alert-back.jpg") no-repeat; background-size: 100% 100%;}
 .game-alert .alert-border .alert--basic { box-sizing:border-box; padding:10%; }
 .game-alert .alert-border .alert--basic p { margin: 2% 0 ;}
 .game-alert .alert-border .alert--basic p span.semi {  font-size: 0.8rem; opacity: 0.5;}
 .game-alert .alert-border .alert--basic button { font-family: 'DungGeunMo', 'notokr-regular'; width: 50%; background: #e4bc81; cursor: pointer;color: #111;
 font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 3%; margin: 2% auto 0px;}
-
 .game-alert .alert-border .alert--basic button:hover { background:#daae6c; }
+.game-alert .alert-border { display:none; }
+.game-alert .alert-play-manual { display:block; }
+
+.inside-building{ position: absolute; top:0; left:0; z-index:999; display:none; background:#111;width:100%; height:100%; }
+.inside-building .building-wrap { width:100%; height:100%; position: relative; }
+.inside-building .building-wrap .background { position: absolute; top:0; left:0; width:100%; height:100%;  }
+.inside-building .building-wrap .background .background-b2{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b2-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
+
+.inside-building .building-wrap .npc-panel{ width:100%; box-sizing:border-box; padding:5%;height:55%;  }
+.npc-panel .npc-chat-box-holder { width: 65%; position: relative; left:35%; }
+.npc-panel .npc-chat-box-holder .npc-holder { position: absolute; left: -60%; width: 65%; opacity:0;}
+.npc-panel .npc-chat-box-holder .npc-holder .npc-thumbs {width:100%;}
+.npc-panel .npc-chat-box-holder .npc-holder .npc-thumbs img {width: 100%; display: block;}
+.npc-panel .npc-chat-box-holder .npc-holder .npc-name { box-sizing: border-box; padding: 10%; background: url("../img/panel-back.png") no-repeat;
+width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute; }
+.npc-panel .npc-chat-box-holder .npc-holder .npc-name p {  text-align: center;}
+.inside-building .chat-box { opacity:0; width: 100%; background: url("../img/alert-back.jpg") no-repeat; background-size: 100% 100%;position: relative;box-sizing:border-box; padding:5%;}
+.inside-building .chat-box p { font-size: 1.1rem;line-height: 1.8rem;margin: 0.5rem auto;word-break: keep-all;text-shadow: 1px 1px 1px rgb(255 255 255 / 50%);}
+.inside-building .chat-box .chat-bottom-btn { display:none; position: absolute; bottom: 10%; right: 5%; color: #743e00; width:15%;  text-align: right;cursor: pointer; animation: next 1s linear infinite normal;    box-sizing: border-box;padding: 2%;}
+.inside-building .chat-box .chat-bottom-btn span {margin-right: 5%;  display: inline-block; width: 30%; }
+.inside-building .chat-box .chat-bottom-btn span img { width: 100%;vertical-align: middle;}
+.inside-building .chat-box .chat-bottom-btn:hover { background: #d9c697;}
+
+.inside-building .chat-box p { font-family: 'Noto Sans KR', 'notokr-regular'; font-weight: 500; }
+.inside-building .chat-box .exit-building-btn {width: 20%;}
+
+.npc-panel .chat-box {position: relative;padding: 5% 8%;}
+.user-panel { position: absolute; bottom: 0%; left:0%; width:100%; height:35%;}
+.user-panel .chat-box {  width: 80%; height: 85%; margin: 0 auto;box-sizing: border-box;  padding: 5%;}
+.user-panel .chat-box .typed-holder { width:100%; }
+.user-panel .chat-box .typed-holder p  { width:100%; font-size: 1.2rem; line-height: 1.8rem; }
+.building-exit {cursor: pointer;position: absolute; bottom: 5%; left: -10%; width: 100%; display:none;  }
+.exit-panel {  box-sizing: border-box; padding: 10%; background: url("../img/panel-back.png") no-repeat;width:100%; background-size: 100% 100%;}
+.exit-panel p {font-size: 1rem; text-align: center;  box-sizing: border-box;padding: 10%;}
+.building-exit:hover { left: -5%;} 
+
+@keyframes next {
+	0% {
+		right: 7%; 
+	}
+	100% {
+		right: 5%; 
+	}
+}
+
+.typed-cursor{display:none;}
+
+.inside-building .chat-box .user-chat-select { display:none; position: absolute; width:100%; bottom: 15%; left:0; }
+.user-chat-select ul { width: 100%; position: relative; box-sizing: border-box; padding: 2% 10%; overflow:hidden; }
+.user-chat-select ul li { float:left; width:48%; margin:1%; box-sizing: border-box; padding: 2%;background: #e4bc81;    box-shadow: 2px 2px 0px #7f4c00;cursor: pointer; color: #111;font-size: 1rem;   letter-spacing: -0.07rem; text-align: center;}
+.user-chat-select ul::after { clear: both; content:""; display:block; }
+.user-chat-select ul li:hover { background: #d6a65f; transform: translate(1px, 1px);}
+
+.alert-exit-building button {display: inline-block;  width: 48%; margin: 2% 1%;}
+.alert-exit-building button::after { clear: both; content:""; display:block; }
+
+.user-select-preview{ width:100%; display:none; position: absolute; top: 15%;}
+.user-select-preview-left{ left: -4%; }
+.user-select-preview-right{ right:-4%;}
+.user-select-preview .select-preview-panel {width: 100%;}
+.user-select-preview .select-preview-panel ul { width:100%; }
+.user-select-preview .select-preview-panel ul li { position: relative; width: 100%; height: 200px;overflow: hidden; margin: 4% 0; background: url("../img/item-back.png") no-repeat; background-size: 100% 100%;box-sizing: border-box; padding: 5%;}
+.user-select-preview .select-preview-panel ul li .opt-thumbs { width: 30%; margin: 5% auto;  }
+.user-select-preview .select-preview-panel ul li .opt-thumbs img { width:100%; }
+.user-select-preview .select-preview-panel ul li .opt-name { text-align: center;font-size: 1rem;  color: #521b0d; box-sizing: border-box;  padding: 0% 4%;}
+.user-select-preview .select-preview-panel ul li .opt-desc { font-size: 0.8rem; font-family: 'Noto Sans KR', 'notokr-regular';  box-sizing: border-box;  padding: 1% 4%;}
+.user-select-preview .select-preview-panel ul li .desc-more-btn{position: absolute;bottom: 0%; right: 0%; font-size: 0.8rem;display: inline;box-sizing: border-box;padding: 2%;cursor: pointer; background: #e4bc81;  color: #111; border: 1px solid #111;}
+.user-select-preview .select-preview-panel ul li .desc-more-btn:hover { background: #d6a65f;}
 
 /*---------------------------------------*/
 /******* 전체 기본 CSS - 모바일 기준*******/
