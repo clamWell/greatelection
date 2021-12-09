@@ -157,15 +157,15 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .main-stage-on { z-index:1; pointer-events: auto; }
 .main-stage-wrapper {width:100%; height:100%; position: relative;}
 .game-screen-square-holder { position: relative;}
-.game-screen-square { position: relative;  margin: 0 auto; background: #fff;box-sizing: border-box;  overflow: hidden;}
+.game-screen-square { position: relative;  margin: 0 auto;background: #111;box-sizing: border-box;  overflow: hidden;}
 .square-blank { height:100%;}
 .game-map {}
 .each-panel {}
-.screen-left-panel { position: absolute; left:0; top: 0;    height: 100%;}
+.screen-left-panel { position: absolute; left:0; top: 0; height: 100%;}
 .map-info { }
-.map-panel {cursor: pointer; box-sizing: border-box; padding: 5%; background: url("../img/map_back.png") no-repeat;width:200px;height:180px; background-size: 100% auto;}
-.map-panel > img { width:50%; padding-top: 15%; margin: 0 auto; display:block; }
-.map-panel > p { font-size: 1.2rem; text-align: center; width: 55%; margin: 2% auto;}
+.map-panel {cursor: pointer; box-sizing: border-box; padding: 20%; background: url("../img/map_back.png") no-repeat;width:100%; background-size: 100% 100%;}
+.map-panel > img { width:70%; margin: 0 auto; display:block; }
+.map-panel > p { font-size: 1.2rem; text-align: center; width: 100%; margin: 0% auto;margin-top: 10%;}
 .map-panel:hover > p { background:#111; color:#fff;}
 
 .user-info { color: #fff;  box-sizing: border-box; padding:5%; background: #000000; font-size: 1.4rem;display: none;}
@@ -177,7 +177,7 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .flag-panel .position-bottom {font-size: 1.1rem;text-align: left; margin-top: 3%;}
 
 .game-opt-setting {position: absolute; left: 5%; bottom: 0%; }
-.sound-panel {box-sizing: border-box; padding: 10%; background: url("../img/panel-back.png") no-repeat;width:200px;height:90px; background-size: 100% auto;}
+.sound-panel {box-sizing: border-box; padding: 10%; background: url("../img/panel-back.png") no-repeat;width:100%; background-size: 100% 100%;}
 .sound-panel p { }
 .sound-panel p span { display:inline-block; padding: 0 1%; cursor: pointer;font-size: 1rem;}
 .sound-panel p span:hover{ background:#111; color:#fff;}
@@ -198,16 +198,20 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .map-el img { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;}
 .building {  }
 .player-holder { width: 100px; height: 100px;  position: absolute; top: 0%; left: 0; }
-.player img { width: 100%; height: 100%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;}
-.player-holder .userName{ position: absolute; font-size: 1.2rem; top: -14%; text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
-.b2 {}
+.player img {  position: relative; top: -0.8rem; width: 100%; height: 100%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;}
+.player-holder .userName{ position: absolute; font-size: 1.2rem;  top: -1.7rem;text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
+.b2 {display:none;}
 .b2 img { width:100%; }
+
+.portal { width: 60px; }
+.portal img { width:100%; display:block; margin: 0 auto; }
+.portal-b2 {}
 
 .game-frame { position: absolute; z-index: 9999;}
 .game-frame img { display: block;}
-.frame-top {  width:100%; top:0; left:0; right:0; height: 10px;}
+.frame-top {  width:100%; top:0; left:0; right:0; }
 .frame-top img { width:100%; vertical-align: top;}
-.frame-bottom { width:100%; bottom: 0; left:0; right:0; height: 10px;}
+.frame-bottom { width:100%; bottom: 0; left:0; right:0; }
 .frame-bottom img { width:100%; vertical-align: bottom;}
 .frame-left { height:100%; top:0; bottom: 0; left:0; }
 .frame-left img { height:100%; }
@@ -283,13 +287,24 @@ width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute;
 .user-select-preview-right{ right:-4%;}
 .user-select-preview .select-preview-panel {width: 100%;}
 .user-select-preview .select-preview-panel ul { width:100%; }
-.user-select-preview .select-preview-panel ul li { position: relative; width: 100%; height: 200px;overflow: hidden; margin: 4% 0; background: url("../img/item-back.png") no-repeat; background-size: 100% 100%;box-sizing: border-box; padding: 5%;}
+.user-select-preview .select-preview-panel ul li { position: relative; width: 100%; height: 200px;overflow: hidden; margin: 4% 0; background: url("../img/item-back.png") no-repeat; background-size: 100% 100%;box-sizing: border-box; padding: 7%;}
 .user-select-preview .select-preview-panel ul li .opt-thumbs { width: 30%; margin: 5% auto;  }
 .user-select-preview .select-preview-panel ul li .opt-thumbs img { width:100%; }
-.user-select-preview .select-preview-panel ul li .opt-name { text-align: center;font-size: 1rem;  color: #521b0d; box-sizing: border-box;  padding: 0% 4%;}
-.user-select-preview .select-preview-panel ul li .opt-desc { font-size: 0.8rem; font-family: 'Noto Sans KR', 'notokr-regular';  box-sizing: border-box;  padding: 1% 4%;}
+.user-select-preview .select-preview-panel ul li .opt-name { text-align: center;font-size: 1rem;  color: #521b0d; box-sizing: border-box;  padding: 0% 4%;margin-top: 5%;}
+.user-select-preview .select-preview-panel ul li .opt-desc { font-size: 0.8rem; font-family: 'Noto Sans KR', 'notokr-regular';  box-sizing: border-box;  padding: 1% 5%;}
 .user-select-preview .select-preview-panel ul li .desc-more-btn{position: absolute;bottom: 0%; right: 0%; font-size: 0.8rem;display: inline;box-sizing: border-box;padding: 2%;cursor: pointer; background: #e4bc81;  color: #111; border: 1px solid #111;}
 .user-select-preview .select-preview-panel ul li .desc-more-btn:hover { background: #d6a65f;}
+
+.item-more-info-layer { display:none; width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: rgba(0,0,0,0.5);  backdrop-filter: blur(2px); }
+.item-more-info-layer .info-panel {position: absolute;width: 80%; left: 10%; top: 20%; background: url("../img/info-panel-back-big.png") no-repeat; background-size: 100% 100%;border: 2px solid #392200;box-shadow: 5px 5px 20px rgb(0 0 0 / 50%);}
+.info-panel-inner-wrap { width:100%; box-sizing:border-box; padding: 5%; } 
+.item-more-info-layer .info-panel .thumbs {width: 10%;  margin: 0% auto;margin-bottom: 3%;}
+.item-more-info-layer .info-panel .thumbs img { width:100%; }
+.item-more-info-layer .info-panel .name { text-align: center;font-size: 1.2rem; color: #521b0d;  box-sizing: border-box;  padding: 0% 4%;}
+.item-more-info-layer .info-panel .desc {font-size: 1rem; font-family: 'Noto Sans KR', 'notokr-regular';  box-sizing: border-box;  padding: 3% 4%;}
+.item-more-info-layer .info-panel .info-layer-close {font-family: 'DungGeunMo', 'notokr-regular'; width: 30%; background: #e4bc81; cursor: pointer;color: #111;
+font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 2%; margin: 2% auto 0px;}
+.item-more-info-layer .info-panel .info-layer-close:hover { background:#daae6c; }
 
 /*---------------------------------------*/
 /******* 전체 기본 CSS - 모바일 기준*******/
@@ -304,12 +319,12 @@ width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute;
 
 /***** 모바일 Portraits ****/
 @media screen and (max-width: 800px) {
-
+.loading-gif { top: 35%; }
 
 }
 
 @media( orientation: portrait ){
-  /*  html {
+    html {
       transform: rotate(-90deg);
       transform-origin: top left;
       position: absolute;
@@ -317,7 +332,8 @@ width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute;
       left: 0;
       width: 100vh;
       height: 100vw;
-    }*/
+    }
+
 }
 
 /****** 모바일 Landscape *****/
