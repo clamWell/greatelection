@@ -80,7 +80,6 @@
 
 	<!-- wrap (S) -->
     <div class="wrap">
-		<div class="cover-pattern"></div>
 		<!-- Loading page (S)-->
 		<div class="loading-page">
 			<div class="loading-gif">
@@ -214,16 +213,17 @@
 										<div class="select-history">
 											<div class="history-panel">
 												<p class="index-number">
-													<span class="now">1</span> <span class="slash">/</span> <span class="total">16</span>
+													<span class="now">0</span> <span class="slash">/</span> <span class="total">7</span>
 												</p>
+												<h3>퀘스트 목록</h3>
 												<ul class="quest-list">
-													<li>첨성대에서 아이템구매하기</li>
-													<li>여인숙 사장과 대화하기</li>
-													<li>광장에서 커플과 대화하기</li>
-													<li>도서관에서 학생과 대화하기</li>
-													<li>기지국에서 요원의 부탁들어주기</li>
-													<li>아고라에서 원로위원과 대화하기</li>
-													<li>항구에서 선원 고용하기</li>
+													<li data-q-index="2"><span class="done-icon">완료</span>웨이스트제로샵에서 아이템 구매하기</li>
+													<li data-q-index="3"><span class="done-icon">완료</span>여인숙 직원과 대화하기</li>
+													<li data-q-index="4"><span class="done-icon">완료</span>광장에서 커플과 대화하기</li>
+													<li data-q-index="5"><span class="done-icon">완료</span>도서관에서 학생들과 대화하기</li>
+													<li data-q-index="6"><span class="done-icon">완료</span>기지국에서 요원의 부탁 들어주기</li>
+													<li data-q-index="7"><span class="done-icon">완료</span>아고라에서 원로위원과 대화하기</li>
+													<li data-q-index="8"><span class="done-icon">완료</span>항구에서 선원 고용하기</li>
 												</ul>
 											</div>
 										</div>
@@ -260,9 +260,23 @@
 											<div class="cover-noise"></div>
 											
 											<div class="map-el-holder">
-												<div class="map-el npc-01"></div>
-												<div class="map-el building b2"><img src="img/b2.png" alt=""></div>
 												<div class="map-el portal portal-b2"><img src="img/portal2.gif" alt=""></div>
+												<div class="map-el portal portal-b3"><img src="img/portal2.gif" alt=""></div>
+												<div class="map-el portal portal-b5"><img src="img/portal2.gif" alt=""></div>
+												<div class="map-el portal portal-b6"><img src="img/portal2.gif" alt=""></div>
+												<div class="map-el portal portal-b7"><img src="img/portal2.gif" alt=""></div>
+												<div class="map-el map-npc npc-01" data-npc-index="7">
+													<img src="img/npc-agora-stil.png" alt="원로위원">
+													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
+												</div>
+												<div class="map-el map-npc npc-02" data-npc-index="4">
+													<img src="img/npc-people.png" alt="광장커플">
+													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
+												</div>
+												<div class="map-el map-npc npc-03" data-npc-index="8">
+													<img src="img/npc-sailors.png" alt="선원">
+													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
+												</div>
 											</div>
 
 										</div>
@@ -270,7 +284,37 @@
 											<div class="player"><img src="img/char_01.gif" alt="나(플레이어)"></div>
 											<p class="userName"></p>
 										</div>
+										
+										<div class="minimap-layer">
+											<div class="minimap-panel">
+												<div class="minimap-wrapper">
+													<img src="img/map_small.png" class="minimap-img" alt="">
+													<div class="user-minimap">
+														<div class="user-icon"></div>
+														<p>나</p>
+													</div>
+												</div>
+												<div class="minimap-close">
+													<button class="close" id="MINIMAP_CLOSE">닫기</button>
+												</div>
+											</div>
+										</div>
 
+										<div class="quest-info-layer">
+											<div class="quest-info-panel">
+												<div class="quest-wrapper">
+													<img src="img/qu-info-b2.png" alt="" class="quest-thumb">
+													<p class="quest-title">웨이스트제로샵에서 아이템 구매하기</p>
+													<div class="quest-desc">
+														<p>모이모이 웨이스트 제로샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두가지 아이템을 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>
+														<p>모이모이 웨이스트 제로샵은 지도의 왼쪽, 위에 위치해있습니다.</p>
+													</div>
+													<div class="quest-info-close">
+														<button class="close" id="QUEST_CLOSE">닫기</button>
+													</div>
+												</div>
+											</div>
+										</div>
 
 										<!--건물안-->
 										<div class="inside-building">
@@ -350,11 +394,35 @@
 												</div>	
 											</div>
 
+											<div class="alert-border alert-chat-npc">
+												<div class="alert--basic">
+													<p><span class="npc-name"></span>를 만났습니다!</p>
+													<p>대화를 시작합니다.</p>
+													<p>(사실 아직 개발중입니다)</p>
+													<button class="close" data-btn-type="chat-npc">확인</button>
+												</div>	
+											</div>
+
 											<div class="alert-border alert-block-enter-building">
 												<div class="alert--basic">
 													<p>이미 퀘스트가 완료된 공간입니다.</p>
 													<p>다른 곳으로 이동해주세요.</p>
 													<button class="close" data-btn-type="block-enter-building">확인</button>
+												</div>	
+											</div>
+
+											<div class="alert-border alert-block-chat-npc">
+												<div class="alert--basic">
+													<p>이미 퀘스트가 완료되었습니다.</p>
+													<p>다른 곳으로 이동해주세요.</p>
+													<button class="close" data-btn-type="block-chat-npc">확인</button>
+												</div>	
+											</div>
+
+											<div class="alert-border alert-waiting">
+												<div class="alert--basic">
+													<p>아직 공사중입니다...ㅜㅜ</p>
+													<button class="close" data-btn-type="block-waiting">확인</button>
 												</div>	
 											</div>
 

@@ -203,12 +203,12 @@ $(function(){
 			[1,1,1,1,2,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,1,1,1,1,1], //11
 			[1,1,1,1,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1], //12
 			[1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //13 //광장위
-			[1,1,1,1,0,0,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,4,4,4,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //14
-			[1,1,1,1,0,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,4,4,4,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //15
+			[1,1,1,1,0,0,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //14
+			[1,1,1,1,0,0,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,4,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //15
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //16
 			[1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //17
 			[1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //18
-			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1], //19 //아고라지붕
+			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1], //19 //아고라
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,1,1], //20
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,1,1,1,1], //21
 			[1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,1,1,1,1], //22
@@ -221,9 +221,9 @@ $(function(){
 			[1,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1], //29
 			[1,1,1,1,1,1,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1], //30
 			[1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //31
-			[1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //32 // 밑으로 항구벽돌
-			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //33 // 항구 벽돌
-			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //34
+			[1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //32 
+			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //33 항구 벽돌
+			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,8,8,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //34
 			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //35
 			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //36
 			[1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //37
@@ -273,12 +273,20 @@ $(function(){
             $(".player-holder").css({"top": this.move*this.adjustValue+"px", "left": this.move*this.adjustValue+"px"});
 			$(".game-map").css({"top": (this.move*this.adjustValue)+"px", "left": (this.move*this.adjustValue)+"px"});
 
-			//웨이스트제로샵
-			$(".b2").css({"width": this.mapW *198/2500});
-			$(".b2").css({"top":2*this.move+"px", "left": 2.5*this.move+"px"});
+			//포탈
 			$(".portal").css({"width": this.move});
-			$(".portal-b2").css({"top":10.5*this.move+"px", "left": 4*this.move+"px"});
-           
+			$(".portal-b2").css({"top":10.5*this.move+"px", "left": 4*this.move+"px"}); // 11, 5
+            $(".portal-b3").css({"top":26.5*this.move+"px", "left": 12*this.move+"px"}); //13, 27
+            $(".portal-b5").css({"top":27.5*this.move+"px", "left": 27*this.move+"px"}); //28, 28
+            $(".portal-b6").css({"top":5.5*this.move+"px", "left": 44*this.move+"px"}); //45, 6
+            $(".portal-b7").css({"top":24.5*this.move+"px", "left": 44*this.move+"px"}); //45, 25
+            
+            //NPC
+            $(".npc-01").css({"width": this.move, "top":24*this.move+"px", "left": 43*this.move+"px" });//원로
+            $(".npc-02").css({"width": this.move*3, "top":13*this.move+"px", "left": 30*this.move+"px" });//커플
+            $(".npc-03").css({"width": this.move*2, "top":32*this.move+"px", "left": 25*this.move+"px" });//선원들
+            $(".map-npc .question-icon").css({"width": this.move/2});
+            
 			
 			//맵 초기 위치
             $(".map-img").css({left : "-=" + this.move * (28)+ "px", top : "-=" + this.move * (15)+ "px"});
@@ -396,8 +404,13 @@ $(function(){
 
 		
 		}else if(closeAlertType == "exit-building"){
-			exitBuilding(buildingIndex);
-		}
+			exitBuilding(buildingIndex, false);
+		}else if(closeAlertType == "block-waiting"){ //개발중
+            GameMap.freezed = false;
+			GameMap.movedown(true);
+        }else if(closeAlertType == "chat-npc"){
+            GameMap.freezed = false;
+        }
 		
 		$(this).parent("div").parent(".alert-border").hide();
 		$(".game-alert").hide();
@@ -862,7 +875,7 @@ $(function(){
 
 	//채팅 내 나가기 버튼 클릭
 	$(".exit-building-btn").on("click",function(e){
-		exitBuilding(buildingIndex);
+		exitBuilding(buildingIndex, true);
 	});
 
 	function animateChatBox(){
@@ -877,9 +890,23 @@ $(function(){
 		$(".alert-exit-building").show();
 	});
 
+    var QueDonLength = 0; 
 	// building 요소들 모두 초기화
-	function exitBuilding(b){
+	function exitBuilding(bi, questDone){
 		
+        if(questDone==true){
+            var biStr = "b"+bi;
+			var checkObj = userSelectData[biStr];
+			if( Object.values(checkObj).includes(null) ){ //완료되지 않음
+			    //무언가 오류가 났다는 의미 
+			}else{ // 퀘스트 완료  
+                QueDonLength+=1;
+                $(".select-history .index-number .now").html(QueDonLength);
+			    console.log(bi+"번째 퀘스트완료")
+                var q_list_index = (bi*1)-2; 
+                $(".select-history ul li").eq(q_list_index).addClass("done");
+			} 
+        }
 		var b = b || 2;
 		setCharAfterExitBuilding(b);
 		
@@ -928,7 +955,7 @@ $(function(){
 		$(".npc-name P").html("NPC이름");
 	};
 
-
+    //사운드조절
 	$(".mute").on("click",function(){
 		 mute();
 	});
@@ -948,7 +975,34 @@ $(function(){
 		}
 		
 	}
+    //사운드조절
 
+    //미니맵
+    function checkMinimapUserPos(){
+        var minimapMove =$(".game-screen-square").width()*0.9/50;
+       // console.log(minimapMove);
+        console.log(GameMap.playerX, GameMap.playerY);
+        $(".minimap-layer .user-minimap").css({"left": (GameMap.playerX * minimapMove)+"px", "top": (GameMap.playerY * minimapMove)+"px"});
+    };
+
+	$(".map-panel").on("click",function(e){
+        e.preventDefault();
+		if( $(this).hasClass("panel-block") ){
+            
+        }else{
+            $(this).addClass("panel-block");
+            $(".history-panel").addClass("panel-block");
+            checkMinimapUserPos();
+            $(".minimap-layer").show();
+        }
+	});
+    $(".minimap-layer .minimap-close button").on("click",function(e){
+        e.preventDefault();
+        $(".map-panel").removeClass("panel-block");
+        $(".history-panel").removeClass("panel-block");
+        $(".minimap-layer").hide();
+    });
+    //미니맵
 	
 	function checkUserId(id){
 		//console.log(typeof(id));
@@ -1021,6 +1075,37 @@ $(function(){
 		};
 	}
 	
+    //퀘스트
+    function makeQuestInfoLayer(qi){
+        /*
+        $(".quest-title").html("");
+        $(".quest-thumb").attr("src", "img/qu-info-b2.png");
+        $(".quest-desc").html("");*/
+        console.log("퀘스트 안내 텍스트 준비되면 추가");
+    };
+
+	$(".select-history ul li").on("click",function(e){
+        e.preventDefault();
+		if( $(this).hasClass("done") ){
+            
+        }else{
+            var qi = $(this).attr("data-q-index");
+            $(".map-panel").addClass("panel-block");
+            $(".history-panel").addClass("panel-block");
+            makeQuestInfoLayer(qi)
+            $(".quest-info-layer").show();
+        }
+	});
+    $(".quest-info-close button").on("click",function(e){
+        e.preventDefault();
+        $(".map-panel").removeClass("panel-block");
+        $(".history-panel").removeClass("panel-block");
+        $(".quest-info-layer").hide();
+    });
+    //퀘스트
+
+
+    // 빌딩 검사 관련
 	var buildingIndex;
 	var chatIndex = 0;
 	var userClearQuest = false; 
@@ -1037,20 +1122,40 @@ $(function(){
 	var npcNameObj = {
 		2: "툰베리",
 		3: "벨보이 잭",
-		4: "커플 A",
+		4: "광장에 나온 A",
 		5: "오티스",
 		6: "요원K",
 		7: "아리스토텔레스",
 		8: "루피"
 	};
 
+   
+
+    $(".map-npc").on("click",function(e){
+        e.preventDefault();
+        var bi = $(this).attr("data-npc-index");       
+		if( $(this).hasClass("map-npc-done") ){
+            
+        }else{
+            GameMap.freezed = false;
+            showChatNpcAlert(bi);
+        }
+	});
+    
+    function showChatNpcAlert(bi){
+        $(".alert-chat-npc .npc-name").html( npcNameObj[bi]);
+        gameSound.alert.play();
+        $(".alert-chat-npc").attr("data-building-idx", bi);
+		$(".game-alert").show();
+        $(".alert-chat-npc").show();
+    }
 
 	function checkBuilding(){
 
 		//건물 2~8
 		if(GameMap.map[GameMap.playerY][GameMap.playerX]>=2 && GameMap.map[GameMap.playerY][GameMap.playerX]<9){
 
-		   // GameMap.Xcompleted = GameMap.freezed = false;
+            /* 개발중에 잠시 막음
 			GameMap.freezed = true;
 			
 			var map_idx = GameMap.map[GameMap.playerY][GameMap.playerX];
@@ -1064,8 +1169,28 @@ $(function(){
 			
 			}else{ // 퀘스트 완료 
 				showBlockBuildingAlert(map_idx);
-			}  
+			} */
+            if(GameMap.map[GameMap.playerY][GameMap.playerX]==2){
+                GameMap.freezed = true;
 			
+                var map_idx = GameMap.map[GameMap.playerY][GameMap.playerX];
+
+                //이미 퀘스트 완료가 된 공간인지 체크
+                var biStr = "b"+map_idx;
+                var checkObj = userSelectData[biStr];
+                if( Object.values(checkObj).includes(null) ){ //완료되지 않음
+                    buildingIndex = map_idx; 
+                    showEnterBuildingAlert(buildingIndex);
+                
+                }else{ // 퀘스트 완료 
+                    showBlockBuildingAlert(map_idx);
+                }
+
+            }else{
+                GameMap.freezed = true;
+                showAlertWaiting(map_idx);
+            }
+
 		}else if(GameMap.map[GameMap.playerY][GameMap.playerX]== 9){
 			GameMap.freezed = true;
 			showBlockSailingAlert();
@@ -1073,12 +1198,19 @@ $(function(){
 			GameMap.freezed = false;
 		}
 	}
+    
+    function showAlertWaiting(bi){
+		gameSound.alert.play();
+		$(".game-alert").show();
+		$(".alert-enter-building").attr("data-building-idx", bi);
+		$(".alert-waiting").show();
+	};
+    
 
 	function showEnterBuildingAlert(bi){
 		var buildingName = buildingNameObj[bi];
 		$(".alert-enter-building .building-name").html(buildingName);
 		gameSound.alert.play();
-		$(".game-alert").show();
 		$(".game-alert").show();
 		$(".alert-enter-building").attr("data-building-idx", bi);
 		$(".alert-enter-building").show();
