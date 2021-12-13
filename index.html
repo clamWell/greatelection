@@ -1,6 +1,8 @@
 <?php
 	$css = "css/style.css?" . filemtime("css/style.css");
 	$js = "js/custom.js?" . filemtime("js/custom.js");
+	$chatData = "js/chatData.js?" . filemtime("js/chatData.js");
+	$itemData = "js/itemData.js?" . filemtime("js/itemData.js");
 ?>
 
 <!doctype html>
@@ -210,7 +212,13 @@
 												<p class="position-bottom">광장</p>
 											</div>
 										</div>
-										<div class="select-history">
+										<div class="quest-info">
+											<div class="quest-panel">
+												<p>퀘스트 목록</p>
+											</div>
+										</div>
+										
+										<div class="select-history select-history-pc">
 											<div class="history-panel">
 												<p class="index-number">
 													<span class="now">0</span> <span class="slash">/</span> <span class="total">7</span>
@@ -225,6 +233,9 @@
 													<li data-q-index="7"><span class="done-icon">완료</span>아고라에서 원로위원과 대화하기</li>
 													<li data-q-index="8"><span class="done-icon">완료</span>항구에서 선원 고용하기</li>
 												</ul>
+												<div class="quest-list-close">
+													<button class="close" id="QUEST_CLOSE">닫기</button>
+												</div>
 											</div>
 										</div>
 										<div class="user-select-preview user-select-preview-right">
@@ -252,6 +263,27 @@
 											</div>
 										</div>
 									</div>
+									<div class="select-history-back"></div>
+									<div class="select-history select-history-mobile">
+											<div class="history-panel">
+												<p class="index-number">
+													<span class="now">0</span> <span class="slash">/</span> <span class="total">7</span>
+												</p>
+												<h3>퀘스트 목록</h3>
+												<ul class="quest-list">
+													<li data-q-index="2"><span class="done-icon">완료</span>웨이스트제로샵에서 아이템 구매하기</li>
+													<li data-q-index="3"><span class="done-icon">완료</span>여인숙 직원과 대화하기</li>
+													<li data-q-index="4"><span class="done-icon">완료</span>광장에서 커플과 대화하기</li>
+													<li data-q-index="5"><span class="done-icon">완료</span>도서관에서 학생들과 대화하기</li>
+													<li data-q-index="6"><span class="done-icon">완료</span>기지국에서 요원의 부탁 들어주기</li>
+													<li data-q-index="7"><span class="done-icon">완료</span>아고라에서 원로위원과 대화하기</li>
+													<li data-q-index="8"><span class="done-icon">완료</span>항구에서 선원 고용하기</li>
+												</ul>
+												<div class="quest-list-close">
+													<button class="close" id="QUEST_CLOSE">닫기</button>
+												</div>
+											</div>
+										</div>
 									<div class="game-screen-square">
 										<img src="https://img.khan.co.kr/spko/storytelling/2017/canyou/square.png" alt="empty" class="square-blank">
 										<div class="game-map">
@@ -440,6 +472,18 @@
 									</div>
 									
 								</div>
+								<div class="screen-bottom-panel">
+									<div class="keyboard-holder">
+										<div class="keyboard-1">
+											<div class="key-up key-btn" data-key="38"><img src="img/key-up.png" alt="키보드 위"></div>
+										</div>
+										<div class="keyboard-2 col-holder">
+											<div class="key-left key-btn" data-key="37"><img src="img/key-left.png" alt="키보드 위"></div>
+											<div class="key-down key-btn" data-key="40"><img src="img/key-down.png" alt="키보드 아래"></div>
+											<div class="key-right key-btn" data-key="39"><img src="img/key-right.png" alt="키보드 아래"></div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -455,7 +499,10 @@
 	</div>
 	<!--// wrap (E)-->
 
+	<script type="text/javascript" src="<?php echo $chatData; ?>"></script>	
+	<script type="text/javascript" src="<?php echo $itemData; ?>"></script>	
 	<script type="text/javascript" src="<?php echo $js; ?>"></script>
+
 	<!-- imp 2021.10 YJ 추가-->
 	 <SCRIPT type="text/javaSCRIPT">
 	 var impTp = "";

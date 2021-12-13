@@ -25,9 +25,9 @@ checkMobile();
 
 /******** 모바일 전용 조정 ********/
 if(isMobile==true){
-	
+	$(".select-history-pc").remove();
 }else{
-
+	$(".select-history-mobile").remove();
 }
 /******** 모바일 전용 조정 ********/
 
@@ -96,17 +96,20 @@ $(function(){
 			var gw, gh, mt_gap;
 			var $gameVP = $(".script-width");
 			if(isMobile==true){
-				gh = screenWidth-30;
-				gw = gh*3/2;
-				mt_gap = 15;
+
+				gw = screenWidth;
+				gh = screenHeight;
+				//mt_gap = 35;
 				this.gameViewPortMode = "mobile";
 				console.log(gw, gh, mt_gap);
-				$gameVP.css({"width": gw+"px", "height": gh+"px","top": mt_gap+"px"});
-				$("html, body").css("font-size", (gw * 16 / 1200) + "px");
+				$gameVP.css({"width": gw+"px", "height": gh+"px"});
+				$("html, body").css("font-size", (gw * 16 / 800) + "px");
 
-				var panel_width = (gw - gh)/2;
-				$(".game-screen-square").css({"width": gh+"px", "height": gh+"px"});
-				$(".each-panel").css({"width": panel_width+"px"});
+				
+				
+				$(".game-screen-square").css({"width": gw+"px", "height": gw+"px"});
+				/*var panel_width = (gw - gh)/2;
+				$(".each-panel").css({"width": panel_width+"px"});*/
 				
 			}else{
 				if(screenWidth < 1200){
@@ -251,8 +254,8 @@ $(function(){
         completed: false,
         Xcompleted: false,
         freezed: true,
-		multipleValue: 9,
-		adjustValue: 4,
+		multipleValue: (isMobile==true)? 7:9,
+		adjustValue: (isMobile==true)? 3:4,
 
         defaultPositionSetting: function(){
 			/*
@@ -394,29 +397,43 @@ $(function(){
 		UserData.pageStage = 2; 
 	});
 
+
 	$(".game-alert .close").on("click",function(){
-		gameSound.click.play();
 		var closeAlertType = $(this).attr("data-btn-type");
-		
-		if( closeAlertType == "enter-building"){
-			enterBuilding(buildingIndex);
-		}else if(closeAlertType == "stay-building"){
-
-		
-		}else if(closeAlertType == "exit-building"){
-			exitBuilding(buildingIndex, false);
-		}else if(closeAlertType == "block-waiting"){ //개발중
-            GameMap.freezed = false;
-			GameMap.movedown(true);
-        }else if(closeAlertType == "chat-npc"){
-            GameMap.freezed = false;
-        }
-		
-		$(this).parent("div").parent(".alert-border").hide();
-		$(".game-alert").hide();
-
+		clsoeAlertLayer();
+		if(closeAlertType=="stay-building" || closeAlertType=="exit-building"){
+			afterCloseAlert(closeAlertType);
+		}
+		afterCloseAlert(alertLayerType);
 		
  	});
+	
+	function clsoeAlertLayer(){
+		gameSound.click.play();
+		$(".alert-border").hide();
+		$(".game-alert").hide();
+	};
+
+	function afterCloseAlert(type){
+		var closeAlertType = type; 
+		if(closeAlertType == "play-manual"){//시작매뉴얼 닫기
+		
+		}else if( closeAlertType == "enter-building"){ //빌딩입장
+			enterBuilding(buildingIndex);
+		}else if(closeAlertType == "stay-building"){//빌딩잔류
+
+		
+		}else if(closeAlertType == "exit-building"){//빌딩퇴장
+			exitBuilding(buildingIndex, false);
+		}else if(closeAlertType == "wait"){ //개발중
+            GameMap.freezed = false;
+			GameMap.movedown(true);
+        }else if(closeAlertType == "block-building"){ //이미 완료가 장소
+			GameMap.freezed = false;
+		}else if(closeAlertType == "chat-npc"){ //NPC와채팅
+            GameMap.freezed = false;
+        }
+	}
 
 
 	
@@ -451,162 +468,7 @@ $(function(){
 	
 	
 	//채팅 내용을 담고 있는 객체 
-	var chatData = {
-		"b2": {
-			1: {
-				msg: ["<p>아이고~ 어서 오시게나. 행색을 보아하니 다른 나라로 떠나는 여행자인 것 같은데... 쉬어 갈텐가? 하루 숙박은 300골드라네!</p>","<p>쉬는 건 차차 생각해볼텐데… 왜 반말을 하시지요?</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: false
-
-			},
-			2: {
-				msg: ["<p>게임 컨셉에 몰두하다보니 실례를 범했습니다. 우선 짐부터 내려놓으셔요.</p>","<p>마을에 민가가 별로 없어 여기서 쉴 것 같긴 한데… 다른 나라도 비슷한가 보죠?</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: false
-			},
-			3: {
-				msg: ["<p>주먹만한 섬마을에 민가가 있어야 얼마나 있겠습니까. G4는 각각 다르다고는 하는데, 거기도 사정들이 다 복잡한가봐요. 집 지을 땅 찾는 게 어디 쉽습니까?</p>","<p>소개 좀 해주세요.</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: false
-			},
-			4: {
-				msg: ["<p>좋소~ 자...명재국부터 알려드리지요. 명재국은 5년 안에 주택 250만호 공급, 무주택자면 누구나 입주할 수 있는 집을 짓겠다고 합디다. ‘기본주택’이라는 건데 30년 이상 임대할 수 있는 것도 있고, 토지는 공공이 보유하고 주택만 분양하는 형태도 있다더라구요.</p>","<p>명재국이라... 자세한 정보는 왼쪽에서 확인해야겠다</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: true,
-			},
-			5: {
-				msg: ["<p>열석국은 현재 5%인 장기 공공임대주택을 5년 내 20%까지 늘려 집 없는 가구 44% 중 절반이 공공주택에서 살게 한다고 합니다. 집을 소유하고 싶으면 ‘토지임대부’로 공공자가주택을 이용하면 되고 집을 빌린 사람들이 계속 거주할 권리(계약갱신청구권)를 넓히고, 임대료 상한제 적용도 확대한다고 들었습니다.</p>","<p>열석국이라... 자세한 정보는 왼쪽에서 확인해야겠다.</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: true
-			},
-			6: {
-				msg: ["<p>안수국도 5년 안에 250만호를 공급한다고 합니다. 그 중 30만호는 시세보다 싸게 분양해 ‘원가주택’이라고 부른다네요. 거주 5년차부터는 원할 경우 국가에 되팔고 차익 70%이상을 가져갈 수 있답니다. 다른 20만호는 청년·신혼부부, 무주택자들에겐 역세권에 공공분양주택으로 제공할하고, 이들에겐 주택담보대출비율도 80%로 완화한다더라구요.</p>","<p>안수국이라... 자세한 정보는 오른쪽에서 확인해야겠다</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: true
-			},
-			7: {
-				msg: ["<p>상심국은 향후 5년동안 수도권에 150만호, 전국 250만호를 공급한다고 합니다. 이 중 100만호를 토지임대부 안심주택으로 하고, 그 중 절반인 50만호를 청년들에게 우선 공급한다네요. 무주택 실소유자들에겐 45년 초장기로 이용할 수 있는 모기지론도 도입한답니다.</p>","<p>상심국이라... 자세한 정보는 오른쪽에서 확인해야겠다.</p>"],
-				type: "normal",
-				phase:1,
-				showItemPanel: true
-			},
-			8: {
-				msg: ["<p>어떻소, 이 중 어떤 나라의 상황이 가장 좋은 것 같소?</p>","<p>나는...(선택은 번복할 수 없다. 신중히 결정하자)</p>"],
-				type: "userSelect", //userselect 타입에서는 다음 버튼 사라지고, 4개의 선택 버튼 뜨도록.
-				showItemPanel: true,
-				phase:1,
-				optStrList: [
-					{
-						owner: 1,
-						opt: "명재국 - 기본주택"
-					},
-					{
-						owner: 2,
-						opt: "열석국 - 장기공공임대"
-					},
-					{
-						owner: 3,
-						opt: "안수국 - 원가주택"
-					},
-					{
-						owner: 4,
-						opt: "상심국 - 토지임대부 안심주택"
-					}
-				]
-			},
-			9: {
-				msg: ["<p>지당한 선택이십니다. 자자, 이제 어떤 방에 묵으실...</p>","<p>주택 정책에는 공급만 있는 게 아닌데. 혹시 부동산 세금 제도도 좀 아십니까?</p>"],
-				type: "normal", 
-				phase:2,
-				showItemPanel: false
-			},
-			10: {
-				msg: ["<p>아이고 손님~ 얘기만 하다 날밤 새겠습니다. 잠은 언제 주무시려고…</p>","<p>날도 좋은데 오늘은 구름 덮고 별 보면서 자야지요.</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: false
-			},
-			11: {
-				msg: ["<p>제가 또 관련업에 종사하다보니 정보가 좀 있습니다. 이거는 아무한테나 안 알려드리는 건데…</p>","<p>이게 다 무엇이죠?</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: true
-			},
-			12: {
-				msg: ["<p>G4에서 목숨 걸고 빼돌린 부동산 세제 기밀문서입니다. 어디 함부로 꺼낼 물건들이 아닌데 특별히 관심이 있어보이시니…</p>","<p>한번 설명을 해주시지요.</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: true
-			},
-			13: {
-				msg: ["<p>○○국에서 가져온 ‘국토보유세의 서’입니다. 0.17% 수준인 부동산 보유 실효세율을 1%까지 끌어올려 투기 수요를 억제하는 방안이 담겨 있습니다.</p>","<p>(‘국토보유세의 서’라… 자세한 정보는 왼쪽에서 확인해야겠다.)</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: true
-			},
-			14: {
-				msg: ["<p> □□국에서 가져온 ‘세 부담 완화의 서’입니다. 토지·주택에 매기는 종합부동산세, 집 팔 때 내는 양도소득세 등을 낮추는 방안이 담겨있습니다.</p>","<p>(‘세 부담 완화의 서’라… 자세한 정보는 왼쪽에서 확인해야겠다.)</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: true
-			},
-			15: {
-				msg: ["<p>△△국에서 가져온 ‘토지초과이득세의 서’입니다. 2주택부터 세금 중과, 3주택 이상은 임대사업등록을 의무화하고 땅값이 올라 이득을 보면 토지초과이득세를 내는 방안입니다.</p>","<p>(‘토지초과이득세의 서’라… 자세한 정보는 오른쪽에서 확인해야겠다.)</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: true
-			},
-			16: {
-				msg: ["<p>마지막으로 ◇◇국에서 가져온 ‘$$$%%의 서’입니다. 내용 보충</p>","<p>(‘$$$%%의 서’라… 자세한 내용은 오른쪽에서 확인해야겠다.)</p>"],
-				type: "normal",
-				phase:2,
-				showItemPanel: true
-			},
-			17: {
-				msg: ["<p>손님께서는 어떤 기밀문서에 가장 혹하시오?</p>","<p>나는...(선택은 번복할 수 없다. 신중히 결정하자)</p>"],
-				type: "userSelect", //userselect 타입에서는 다음 버튼 사라지고, 4개의 선택 버튼 뜨도록.
-				showItemPanel: true,
-				phase:2,
-				optStrList: [
-					{
-						owner: 1,
-						opt: "국토보유세의 서"
-					},
-					{
-						owner: 2,
-						opt: "세 부담 완화의 서"
-					},
-					{
-						owner: 3,
-						opt: "토지초과이득세의 서"
-					},
-					{
-						owner: 4,
-						opt: "$$$%%의 서"
-					}
-				]
-			},
-			18: {
-				msg: ["<p>어찌 도움이 좀 되셨을까요? 그럼 이제 방은 309호로…</p>","<p>아이고! 내 정신 좀 봐. 밥부터 먹고 온다는 걸 깜박했네! 이거 미안합니다. 내 금방 볼일 보고 돌아올게요!</p>"],
-				type: "normal",
-				phase:3,
-				showItemPanel: false
-			},
-			19: {
-				msg: ["<p>거, 거기 서!!!</p>","<p>(도망가자!!!!)</p>"],
-				type: "userExit", // 여기서는 다음이 사라지고 퇴장으로 or 다음버튼이 퇴장기능
-				phase:3,
-				showItemPanel: false
-			}
-		}
-
-	};
+	//외부화
 
 	//사용자의 선택 값을 담는 객체
 	var userSelectData = {
@@ -644,74 +506,6 @@ $(function(){
 		}
 	};
 
-	var ItemData = {
-		"b2":{
-			"phase1": [
-				{
-					owner:1,
-					name:"기본주택",
-					thumb:false,
-					desc:"국가로부터 주택을 30년 이상 임대받을 수 있다. 단, 토지는 공공이 보유한다.",
-					descFull:"기본주택에 대한 긴 설명. 임기 내 주택 250만호를 공급하고 그중 100만호를 중산층을 포함한 무주택자 누구에게나 공급하는 '기본주택'을 공약했다. 이는 중산층까지 거주할 수 있는 공공임대주택을 값싸게 공급하는 것을 목표로 한다. 시세 절반 이하인 건설원가 수준의 저렴한 임대료로 30년 이상 살 수 있는 양질의 공공주택을 공급하면 주거 불안이 해소된다고 주장한다. 공공임대는 13평 정도였다면 33평형까지 해서 네 가족이 평생 역세권에서, 지금 금액으로 하면 월세 60만여 원 정도로 원하면 얼마든지 살 수 있을 것."
-				},
-				{
-					owner:2,
-					name:"장기공공임대",
-					thumb:false,
-					desc:"십년 이상 살 수 있는 장기 공공 임대 주택을 20%까지 늘린다. 전체 국민의 절반이 공공주택에 살게한다.",
-					descFull:"장기공공임대에 대한 설명. 거주할 수 있는 공공임대주택을 값싸게 공급하는 것을 목표로 한다. 시세 절반 이하인 건설원가 수준의 저렴한 임대료로 30년 이상 살 수 있는 양질의 공공주택을 공급하면 주거 불안이 해소된다고 주장한다. 공공임대는 13평 정도였다면 33평형까지 해서 네 가족이 평생 역세권에서, 지금 금액으로 하면 월세 60만여 원 정도로 원하면 얼마든지 살 수 있을 것."
-				},
-				{
-					owner:3,
-					name:"원가주택",
-					thumb:false,
-					desc:"5년 안에 250만호를 공급하고 이중 30만호를 시세보다 싸게 분양한다. 청년, 신혼부부는 주택 가격의 80%까지 돈을 빌려준다.",
-					descFull:"원가주택에 대한 설명. 거주할 수 있는 공공임대주택을 값싸게 공급하는 것을 목표로 한다. 시세 절반 이하인 건설원가 수준의 저렴한 임대료로 30년 이상 살 수 있는 양질의 공공주택을 공급하면 주거 불안이 해소된다고 주장한다. 공공임대는 13평 정도였다면 33평형까지 해서 네 가족이 평생 역세권에서, 지금 금액으로 하면 월세 60만여 원 정도로 원하면 얼마든지 살 수 있을 것."
-				},
-				{
-					owner:4,
-					name:"토지임대부 안심주택",
-					thumb:false,
-					desc:"무주택 실소유자들에겐 45년 초장기로 이용할 수 있는 모기지론 도입한다.",
-					descFull:"토지임대부 안심주택에 대한 설명. 거주할 수 있는 공공임대주택을 값싸게 공급하는 것을 목표로 한다. 시세 절반 이하인 건설원가 수준의 저렴한 임대료로 30년 이상 살 수 있는 양질의 공공주택을 공급하면 주거 불안이 해소된다고 주장한다. 공공임대는 13평 정도였다면 33평형까지 해서 네 가족이 평생 역세권에서, 지금 금액으로 하면 월세 60만여 원 정도로 원하면 얼마든지 살 수 있을 것"
-				}
-			
-			],
-			"phase2": [
-				{
-					owner:1,
-					name:"국토보유세의 서",
-					thumb:"b2-pha2-item01.png",
-					desc:"국가로부터 주택을 30년 이상 임대받을 수 있다. 단, 토지는 공공이 보유한다.",
-					descFull:"국토보유세의 서에 대한 설명. 명재국은 5년 안에 주택 250만호를 공급한다. 무주택자면 누구나 입주할 수 있는 집으로 국민이 국가로부터 30년 이상 임대할 수 있는 것도 있고, 토지는 공공이 보유하고 주택만 분양하는 형태도 있다."
-				},
-				{
-					owner:2,
-					name:"세 부담 완화의 서",
-					thumb:"b2-pha2-item01.png",
-					desc:"십년 이상 살 수 있는 장기 공공 임대 주택을 20%까지 늘린다. 전체 국민의 절반이 공공주택에 살게한다.",
-					descFull:"세 부담 완화의 서에 대한 설명. 명재국은 5년 안에 주택 250만호를 공급한다. 무주택자면 누구나 입주할 수 있는 집으로 국민이 국가로부터 30년 이상 임대할 수 있는 것도 있고, 토지는 공공이 보유하고 주택만 분양하는 형태도 있다."
-				},
-				{
-					owner:3,
-					name:"토지초과이득세의 서",
-					thumb:"b2-pha2-item01.png",
-					desc:"5년 안에 250만호를 공급하고 이중 30만호를 시세보다 싸게 분양한다. 청년, 신혼부부는 주택 가격의 80%까지 돈을 빌려준다.",
-					descFull:"토지초과이득세의 서에 대한 설명. 명재국은 5년 안에 주택 250만호를 공급한다. 무주택자면 누구나 입주할 수 있는 집으로 국민이 국가로부터 30년 이상 임대할 수 있는 것도 있고, 토지는 공공이 보유하고 주택만 분양하는 형태도 있다."
-				},
-				{
-					owner:4,
-					name:"$$$%%의 서",
-					thumb:"b2-pha2-item01.png",
-					desc:"무주택 실소유자들에겐 45년 초장기로 이용할 수 있는 모기지론 도입한다.",
-					descFull:"$$$%%의 서에 대한 설명. 명재국은 5년 안에 주택 250만호를 공급한다. 무주택자면 누구나 입주할 수 있는 집으로 국민이 국가로부터 30년 이상 임대할 수 있는 것도 있고, 토지는 공공이 보유하고 주택만 분양하는 형태도 있다"
-				}
-			
-			]
-		
-		}
-	
-	}
 
 	function drawChatBox(bi,ci){
 		var biStr = "b"+bi;
@@ -727,13 +521,14 @@ $(function(){
 		$npcChat.html("");
 		$userChat.html("");
 
+		//console.log(chatSetObj);
 		/*
-		
 		$npcChat.typed({strings: [ chatSetObj.msg[0]  ], typeSpeed: 30, callback: function(){
 			$userChat.typed({strings: [ chatSetObj.msg[1] ], typeSpeed: 30});
 		} });*/
-		$npcChat.html(chatSetObj.msg[0]);
-		$userChat.typed({strings: [ chatSetObj.msg[1] ], typeSpeed: 0});
+		$npcChat.html("<p>"+chatSetObj.msgN+"</p>");
+		var msgUser = "<p>"+chatSetObj.msgU+"</p>";
+		$userChat.typed({strings:[msgUser], typeSpeed: 0});
 
 		var phase = chatSetObj.phase;
 		if(chatSetObj.type == "normal"){
@@ -770,7 +565,7 @@ $(function(){
 		var biStr = "b"+bi;
 		var chatIndex = String(ci*1+1);
 		var phaseStr = "phase"+phase;
-		var itemDataArr= ItemData[biStr][phaseStr];
+		var itemDataArr= itemData[biStr][phaseStr];
 	
 		$(".user-select-preview .select-preview-panel ul").html(""); //초기화
 		$(".user-select-preview .select-preview-panel ul").attr("data-phase", phaseStr);
@@ -807,7 +602,7 @@ $(function(){
 	function makeItemInfoPanel(bi, pi, ii){
 		EnterPassMsg= false
 		var biStr = "b"+bi;
-		var itemDataObj =ItemData[biStr][pi][ii-1];
+		var itemDataObj =itemData[biStr][pi][ii-1];
 		if( itemDataObj.thumb == false || itemDataObj.thumb == "FALSE"){
 			$(".item-more-info-layer .thumbs").hide();
 			$(".item-more-info-layer .thumbs").find("img").attr("src", "");
@@ -887,6 +682,8 @@ $(function(){
 	//화면 우측하단 나가기
 	$(".building-exit").on("click",function(e){
 		$(".game-alert").show();
+		alertLayerType = "stayOrExit";
+		alertLayerOn = false;
 		$(".alert-exit-building").show();
 	});
 
@@ -951,7 +748,7 @@ $(function(){
 		$(".user-panel .chat-box .chat-inner-btn").hide();
 		$(".inside-building .background").find("div").hide();
 		$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "");
-		$(".flag-panel .position-bottom").html("건물명");
+		$(".flag-panel .position-bottom").html("광장");
 		$(".npc-name P").html("NPC이름");
 	};
 
@@ -994,6 +791,7 @@ $(function(){
             $(".history-panel").addClass("panel-block");
             checkMinimapUserPos();
             $(".minimap-layer").show();
+			GameMap.freezed = true;
         }
 	});
     $(".minimap-layer .minimap-close button").on("click",function(e){
@@ -1001,6 +799,7 @@ $(function(){
         $(".map-panel").removeClass("panel-block");
         $(".history-panel").removeClass("panel-block");
         $(".minimap-layer").hide();
+		GameMap.freezed = false;
     });
     //미니맵
 	
@@ -1035,6 +834,12 @@ $(function(){
 		$(".main-stage").animate({"opacity":"1"},1000);
         $(".main-stage").addClass("main-stage-on");
         gameSound.bgm.play();
+
+		// 게임시작 매뉴얼 레이어창
+		alertLayerOn = true;
+		alertLayerType = "play-manual";
+		$(".alert-play-manual").show();
+		$(".game-alert").show();
 		
 		console.log( "한칸의 크기:"+ GameMap.move)
 		console.log( "시작점: "+((GameMap.playerX*1)+1), (GameMap.playerY*1)+1)
@@ -1075,13 +880,51 @@ $(function(){
 		};
 	}
 	
+	
+	var questInfoData = [
+	  {
+		"queTitle": "웨이스트제로샵에서 책자 구매하기",
+		"queThumb": "qu-info-b2.png",
+		"queDesc": "<p>모이모이 웨이스트 제로샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두가지 책자를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>\n<p>모이모이 웨이스트 제로샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
+	  },
+	  {
+		"queTitle": "여인숙 직원에게 부동산 정보 얻기",
+		"queThumb": "qu-info-b3.png",
+		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 모이모이섬의 여인숙이 부동산에 대한 정보가 가장 빠르다고 합니다. 여인숙에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여인숙은 지도의 왼편, 아래에 위치해있습니다.</p>"
+	  },
+	  {
+		"queTitle": "광장에서 커플과 대화하기",
+		"queThumb": "qu-info-b4.png",
+		"queDesc": "<p>이곳 중앙광장에서는 매주 다양한 퍼레이드가 열립니다. 오늘은 어떤 퍼레이드가 열렸을까요? 광장에서 퍼레이드에 참석한 이들과 대화해보세요. 맛있는 다과와 차도 준비되어 있다고 합니다.</p>\n<p>중앙광장은 지도의 중앙, 윗쪽에 위치해있습니다.</p>"
+	  },
+	  {
+		"queTitle": "도서관에서 세미나 구경하기",
+		"queThumb": "qu-info-b5.png",
+		"queDesc": "<p>모이모이 학생들은 사회 이슈에 관심이 많습니다. 모이모이 도서관에서 학생들은 다양한 세미나를 개최하지요. 도서관에 방문해 학생들이 개최한 세미나에 대한 소개도 듣고 구경도 해보세요.</p>\n<p>도서관은 지도의 중앙, 아래에 위치해있습니다.</p>"
+	  },
+	  {
+		"queTitle": "기지국에서 요원의 부탁 들어주기",
+		"queThumb": "qu-info-b6.png",
+		"queDesc": "<p>기지국에서는 모이모이 섬의 다양한 외교 정사를 책임지고 있습니다. 기지국의 비밀요원 K가 아무래도 당신을 찾고 있는 것 같아요. 무슨 일인지는 모르겠지만...한번 직접 가보시겠어요?</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
+	  },
+	  {
+		"queTitle": "아고라에서 원로위원 선택하기",
+		"queThumb": "qu-info-b7.png",
+		"queDesc": "<p>매일 원로위원들의 치열한 의견공방이 벌어지고 있는 모이모이 아고라. 그곳에서 원로위원을 선택해야, 그 원로위원이 당신의 항해를 도와줄 겁니다. 어떤 원로위원을 선택하느냐에 따라 당신의 항해의 목적지가 달라질 수도 있어요! 어떻게 선택하느냐구요? 아마..말씀만 들어도 바로 원로위원들의 성향을 알 수 있을 겁니다.</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
+	  },
+	  {
+		"queTitle": "항구에서 선원 고용하기",
+		"queThumb": "qu-info-b8.png",
+		"queDesc": "<p>항해에는 자고로 선원이 필요하죠! 선원들을 고용하기 위해서는 항구의 마당발인 루피를 만나야 합니다. 루피가 당신에게 다양한 선원들을 소개시켜줄거에요.</p>\n<p>루피는 지도의 왼편, 아래 항구 인근에 위치해있습니다.</p>"
+	  }
+	];
+
     //퀘스트
     function makeQuestInfoLayer(qi){
-        /*
-        $(".quest-title").html("");
-        $(".quest-thumb").attr("src", "img/qu-info-b2.png");
-        $(".quest-desc").html("");*/
-        console.log("퀘스트 안내 텍스트 준비되면 추가");
+		var qData = questInfoData[qi];
+        $(".quest-title").html(qData.queTitle);
+        $(".quest-thumb").attr("src", "img/"+qData.queThumb);
+        $(".quest-desc").html(qData.queDesc);
     };
 
 	$(".select-history ul li").on("click",function(e){
@@ -1089,19 +932,39 @@ $(function(){
 		if( $(this).hasClass("done") ){
             
         }else{
-            var qi = $(this).attr("data-q-index");
+            //var qi = $(this).attr("data-q-index");
+			var qi = $(this).index();
             $(".map-panel").addClass("panel-block");
             $(".history-panel").addClass("panel-block");
             makeQuestInfoLayer(qi)
             $(".quest-info-layer").show();
+			GameMap.freezed = true;
+
         }
 	});
     $(".quest-info-close button").on("click",function(e){
         e.preventDefault();
-        $(".map-panel").removeClass("panel-block");
         $(".history-panel").removeClass("panel-block");
         $(".quest-info-layer").hide();
     });
+
+	 $(".quest-panel").on("click",function(e){
+        e.preventDefault();
+		$(".map-panel").addClass("panel-block");
+		GameMap.freezed = true;
+		$(".select-history-back").show();
+		$(".select-history").show();
+
+      
+    });
+	$(".history-panel .quest-list-close").on("click",function(e){
+        e.preventDefault();
+		$(".map-panel").removeClass("panel-block");
+		GameMap.freezed = false;
+		$(".select-history-back").hide();
+		$(".select-history").hide();
+    });
+
     //퀘스트
 
 
@@ -1145,6 +1008,8 @@ $(function(){
     function showChatNpcAlert(bi){
         $(".alert-chat-npc .npc-name").html( npcNameObj[bi]);
         gameSound.alert.play();
+		alertLayerOn = true;
+		alertLayerType = "chat-npc";
         $(".alert-chat-npc").attr("data-building-idx", bi);
 		$(".game-alert").show();
         $(".alert-chat-npc").show();
@@ -1203,7 +1068,9 @@ $(function(){
 		gameSound.alert.play();
 		$(".game-alert").show();
 		$(".alert-enter-building").attr("data-building-idx", bi);
+		alertLayerType = "wait";
 		$(".alert-waiting").show();
+		
 	};
     
 
@@ -1212,6 +1079,7 @@ $(function(){
 		$(".alert-enter-building .building-name").html(buildingName);
 		gameSound.alert.play();
 		$(".game-alert").show();
+		alertLayerType = "enter-building";
 		$(".alert-enter-building").attr("data-building-idx", bi);
 		$(".alert-enter-building").show();
 	};
@@ -1219,6 +1087,7 @@ $(function(){
 	function showBlockBuildingAlert(map_idx){
 		gameSound.alert.play();
 		$(".game-alert").show();
+		alertLayerType = "block-building";
 		$(".alert-block-enter-building").show();
 		setCharAfterExitBuilding(map_idx);
 	};
@@ -1238,6 +1107,9 @@ $(function(){
    var currentKey = 40; // 디폴트는 아래
    var isChrDirChange = false; 
    var EnterPassMsg = true; 
+   var alertLayerOn = false; 
+   var alertLayerType; 
+
 
    $(window).keydown(function(e){
 		//console.log("키누름");
@@ -1266,7 +1138,7 @@ $(function(){
             //key코드에 있는 키값이 입력되었을 때만 동작
             if (KEY_CODES[keyCode]) {
 		        e.preventDefault();
-				//console.log(keyCode);
+				console.log(keyCode);
 				if(currentKey==keyCode){
 					isChrDirChange = false;
 					
@@ -1293,6 +1165,10 @@ $(function(){
 					console.log( GameMap.map[GameMap.playerY][GameMap.playerX] )
 					
                 }
+				if(keyCode ==13 && alertLayerOn==true){ //엔터
+					clsoeAlertLayer();
+					afterCloseAlert(alertLayerType);
+				}
             }
 	
         }else if(UserData.pageStage == 4&& event.keyCode == 13 &&EnterPassMsg==true ){ //유저 대화중
@@ -1316,6 +1192,33 @@ $(function(){
         }
 
     });
+
+	//모바일 이동
+	$(".keyboard-holder .key-btn").on("click touchstart", function(e){
+		e.preventDefault();
+		if(UserData.pageStage == 3 &&  GameMap.freezed == false){
+			var keyCode = $(this).attr("data-key");
+
+			console.log(keyCode);
+			if(currentKey==keyCode){
+				isChrDirChange = false;
+			}else{
+				isChrDirChange = true;
+				currentKey = keyCode;
+			}
+
+			if(keyCode == "38"){
+				GameMap.moveup(isChrDirChange); 
+			}else if(keyCode == "40"){
+				GameMap.movedown(isChrDirChange); 
+			}else if(keyCode == "37"){
+				 GameMap.moveleft(isChrDirChange);
+			}else if(keyCode == "39"){
+				GameMap.moveright(isChrDirChange);
+			}
+		}
+	});
+
 
 
 });

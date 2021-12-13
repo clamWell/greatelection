@@ -141,7 +141,8 @@ z-index: 1;border-radius: 7px; opacity: 0;transition: all 0.3s;border: 2px dotte
 .ment-box .box-bg { width: 100%;  height: 100%; background: #fff;box-sizing: border-box;}
 .ment-box .box-inner { box-sizing: border-box;padding: 5%; width: 100%; height: 100%; border: 1px solid #222;}
 .ment-box .box-inner .box-txt { }
-.ment-box .box-inner .box-txt p {  margin: 13px 0; font-size: 1.1rem;line-height: 1.7rem; font-weight: 400;color:#26262a;word-break: keep-all; text-shadow: 2px 1px 0px rgba(255,255,255,0.7); } 
+.ment-box .box-inner .box-txt p {  margin: 13px 0; font-size: 1.1rem;line-height: 1.7rem; font-weight: 400;color:#26262a;word-break: keep-all; text-shadow: 2px 1px 0px rgba(255,255,255,0.7); 
+font-family: 'Noto Sans KR'; font-weight: bold;} 
 .ment-box .box-inner .box-txt p.strong { color: #ca7d00; font-weight:500; }
 .opening-stage .btn-holder { margin-top:5%;}
 .opening-stage-el--01 { display:block;}
@@ -231,7 +232,7 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .frame-right { height:100%;top:0; bottom: 0; right:0; }
 .frame-right img { height:100%; }
 
-.game-alert { position: absolute;  top: 0; left: 0;  width: 100%;  height: 100%; z-index: 9999;background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); }
+.game-alert { display:none; position: absolute;  top: 0; left: 0;  width: 100%;  height: 100%; z-index: 9999;background: rgba(0,0,0,0.3); backdrop-filter: blur(2px); }
 .game-alert .alert-border { position: absolute; width: 50%; left: 50%; top: 50%;  margin-left: -25%; margin-top: -15%; background: url("../img/alert-back.jpg") no-repeat; background-size: 100% 100%;}
 .game-alert .alert-border .alert--basic { box-sizing:border-box; padding:10%; }
 .game-alert .alert-border .alert--basic p { margin: 2% 0 ;}
@@ -240,7 +241,6 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 3%; margin: 2% auto 0px;}
 .game-alert .alert-border .alert--basic button:hover { background:#daae6c; }
 .game-alert .alert-border { display:none; }
-.game-alert .alert-play-manual { display:block; }
 
 .panel-block {cursor: default; pointer-events: none;  }
 
@@ -354,6 +354,10 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 	80% {transform: translate(0, 0px); }
 	100% {transform: translate(0, 0px); }
 }
+ 
+.screen-bottom-panel { display:none; }
+.select-history-back{ display:none; }
+.quest-info{ display:none; }
 
 /*---------------------------------------*/
 /******* 전체 기본 CSS - 모바일 기준*******/
@@ -368,27 +372,93 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 
 /***** 모바일 Portraits ****/
 @media screen and (max-width: 800px) {
+body { width:100%; height:100%; }
 .loading-gif { top: 35%; }
-.interactive-header {display:none;}
+.interactive-header { height: 35px;padding: 0px 5px;}
+.interactive-header .khan_btn img { width: 70px; }
+.interactive-header .page-title{ line-height: 30px;}
+.after-load { width:100%; height:100%; }
+.container { width: 100%; height: 100%;overflow-x: hidden; }
 
-.opening-stage-el { top: 15%; }
-.ment-box {width: 70%; margin-left: -35%;}
-.ment-box .box-inner .box-txt p { font-size: 1.6rem; line-height:2.1rem; }
-.btn-holder .btn{font-size: 2rem;}
+.opening-back{ background-position: top center;}
+.game-title-holder{width: 75%;}
+.btn-holder .btn { width: 50%; font-size: 2rem; padding: 4% 0; }
 
-.game-alert .alert-border {width: 70%;margin-left: -35%; top: 35%; font-size: 1.7rem; line-height:2.1rem;}
-.map-panel > p { font-size: 1.6rem;}
-.flag-panel .position-bottom {font-size: 2rem;margin-top: 0;}
-.sound-panel p span { font-size: 2rem;  padding: 5% 5%;}
-/*
-.select-history .history-panel { width: 140%; }
-.select-history {  height: 85%; }
-.select-history ul li { font-size:1.5rem;}*/
+.opening-stage-back {background-position: top center; }
+.opening-stage-el { top: 10%; }
+.ment-box {width: 90%; left: 0; margin-left: 5%;}
+.ment-box .box-inner .box-txt p {font-size: 1.8rem;line-height: 2.6rem; font-family: 'Noto Sans KR'; font-weight: bold; }
+.opening-stage-el--02{ top: 40%;}
+.make-id{ width: 90%; max-width: inherit; padding: 4%; }
+.make-id .chat-input-txt{font-size: 1.8rem;line-height: 2.6rem;}
+.make-id .confirm-btn { font-size: 1.8rem; }
+.main-stage-wrapper{  width: 100%; height: 100%; position: relative; box-sizing: border-box; }
+
+.main-stage{  box-sizing: border-box;padding-top: 35px;}
+.game-alert .alert-border {width: 90%; left: 5%; margin-left: 0; top: 35%; font-size: 1.7rem; line-height:2.1rem;}
+.game-alert .alert-border .alert--basic { padding: 30px; }
+.alert-play-manual {font-family: 'Noto Sans KR'; }
+.game-alert .alert-border .alert--basic button{ margin-top:20px;font-size: 1.4rem; }
+
+
+.screen-bottom-panel { display:block; } 
+.game-frame{ z-index:1;}
+.frame-left img{ width: 6px; }
+.frame-right img{ width: 6px; }
+.screen-left-panel{ z-index:11; }
+.screen-right-panel{z-index:11; }
+.map-info { width: 100px; position: relative;left: -5px;margin-top: 5px; }
+.map-panel{ padding: 20px;}
+.map-panel > img { width: 50%;}
+.map-panel > p { margin-top: 5px;font-size: 1.4rem;}
+
+
+.sound-panel p span { font-size: 1.4rem;    padding: 3px;}
+.location-info{  margin-top: 10px; width: 120px; right: -10px;}
+.flag-panel .position-top { font-size: 1.4rem; }
+.flag-panel .position-bottom{ font-size: 1.4rem;  font-weight: bold;  margin-top: 5px;}
+.game-opt-setting { bottom: 10px; left: -5px;}
+
+.quest-info { display:block;width: 100px; position: relative; right: -20px; margin-top: 5px;} 
+.quest-info .quest-panel {box-sizing: border-box; padding: 10%; background: url("../img/position_back.png") no-repeat;width:100%; background-size: 100% 100%;}
+.quest-info .quest-panel p {font-size: 1.4rem; text-align: left; } 
+
+.select-history { display: none;  }
+.keyboard-holder{ display: block; padding: 20px 0; width: 190px; margin: 0 auto;}
+.keyboard-holder .keyboard-1 { margin-bottom: 5px; }
+.keyboard-holder .keyboard-2 {  }
+.keyboard-holder .keyboard-2::after { clear: both; content:""; display:block; }
+.key-up { margin: 0 auto; }
+.key-up img { display: block; margin: 0 auto;}
+.key-left { float: left; }
+.key-down {float: left;  margin-right: 5px; margin-left:5px  }
+.key-right{ float: left;}
+.key-btn { width: 60px; cursor: pointer; }
+.key-btn img { width: 100%; position: relative; top: 0; left: 0; width: 60px;height: 60px;}
+
+.select-history-back{  position: absolute;top: 0;left: 0;  width: 100%; height: 100%; z-index: 12; background: rgba(0,0,0,0.3);  }
+.select-history{ z-index:13; bottom: auto; top: 0%; width: 300px;left: auto; right:0px; height: 100%;}
+.history-panel{ width:100%;}
+.select-history .history-panel{ padding:10px; width:100%;}
+.select-history .index-number {padding: 10px;padding-right: 10px; font-size: 2rem;}
+.select-history .index-number .now { font-size: 2.5rem;}
+.select-history h3 {  font-size: 1.6rem;  margin-bottom: 10px;    margin-top: 10px;}     
+.select-history ul li {font-family: 'Noto Sans KR';font-weight: 500; font-size: 1.5rem;margin: 5px 0; padding: 6px 10px; background: rgba(255,255,255,0.5); border-radius: 8px;}
+.select-history ul li:hover{ background: rgba(255,255,255,0.5);} 
+.quest-list-close { margin-top: 10px; }
+.select-history .history-panel .quest-list-close button{ font-family: 'DungGeunMo', 'notokr-regular'; width: 30%; background: #e4bc81; cursor: pointer;color: #111;font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; padding: 3%; margin: 20px auto;}
+.quest-info-layer .quest-info-panel{ width: 90%; left: 5%; top: 5%;}
+.quest-info-layer .quest-info-panel .quest-wrapper { padding: 20px; }
+.quest-info-layer .quest-info-panel .quest-wrapper > img { width: 40%;}
+.quest-info-layer .quest-info-panel .quest-wrapper .quest-title { font-size: 1.8rem;}
+.quest-info-layer .quest-info-panel .quest-wrapper .quest-desc { font-size: 1.6rem;}
+.quest-info-layer .quest-info-panel .quest-wrapper .quest-desc p { margin: 10px 0; }
+.quest-info-layer .quest-info-panel .quest-info-close button { margin-top: 0;}
 
 }
 
 @media( orientation: portrait ){
-    html {
+/*     html {
       transform: rotate(-90deg);
       transform-origin: top left;
       position: absolute;
@@ -396,7 +466,7 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
       left: 0;
       width: 100vh;
       height: 100vw;
-    }
+    } */
 
 }
 
