@@ -377,7 +377,7 @@ $(function(){
 
 	var UserData = {
 		pageStage:0,
-		userName:"모이모이"
+		userName:"무가당"
 	};
 		
 	/***** 오프닝 *****/
@@ -453,9 +453,23 @@ $(function(){
 		drawBuildingEl(b); //건물 안 요소들 채우기
 		drawChatBox(b, chatIndex) //대화내용 채우기 
 		animateChatBox(); //대화 박스 애니메이션 
+
+		if(isMobile){
+			mobileBottomPanelSwitch();
+		}
 		
 	}
 
+	// 모바일 하단 패널 영역 교체 
+	function mobileBottomPanelSwitch(){
+		if(UserData.pageStage==4){
+			$(".keyboard-holder").hide();
+		}else if(UserData.pageStage==3){
+			$(".keyboard-holder").show();
+		}
+		
+	}
+	
 	function drawBuildingEl(b){
 		$(".inside-building .background").find("div").hide();
 		$(".inside-building .background").find(".background-b"+b).show();
@@ -506,6 +520,7 @@ $(function(){
 		}
 	};
 
+	var m_selectBottomOpt = false;
 
 	function drawChatBox(bi,ci){
 		var biStr = "b"+bi;
@@ -539,9 +554,17 @@ $(function(){
 			EnterPassMsg = false;
 			$(".chat-bottom-btn").hide();
 			//사용자 채팅 내 선택 버튼 만들기
-			var optArr = chatSetObj.optStrList;
-			makeUserChatSelectBtn(optArr, phase);
-			$(".user-panel .chat-box .user-chat-select").show();
+			if(isMobile){ 
+				$(".opt-full-desc-panel .each-opt-desc-list ul").addClass("clickable");
+				$(".bottom-option-panel-holder").addClass("up");
+				m_selectBottomOpt = true;
+
+			}else{
+				var optArr = chatSetObj.optStrList;
+				makeUserChatSelectBtn(optArr, phase);
+				console.log(optArr);
+				$(".user-panel .chat-box .user-chat-select").show();
+			}
 		}else if(chatSetObj.type == "userExit"){
 			EnterPassMsg = false;
 			$(".user-chat-select").hide();
@@ -554,8 +577,10 @@ $(function(){
 			//아이템 미리보기 패널
 			makeItemPreviewPanel(bi,ci, phase);
 			$(".user-select-preview").show();
+			if(isMobile){ $(".bottom-option-panel-holder").show(); }
 		}else if( chatSetObj.showItemPanel == false){
 			$(".user-select-preview").hide();
+			if(isMobile){ $(".bottom-option-panel-holder").hide(); }
 		}
 
 	}
@@ -571,11 +596,16 @@ $(function(){
 		$(".user-select-preview .select-preview-panel ul").attr("data-phase", phaseStr);
 		itemDataArr.forEach(function(v,i,a){
 			var $ItemHolder;
-			if(i<2){
-				$ItemHolder = $(".user-select-preview-left").find(".select-preview-panel ul");
+			if(isMobile){
+				$ItemHolder = $(".bottom-option-panel").find(".select-preview-panel ul");
 			}else{
-				$ItemHolder =  $(".user-select-preview-right").find(".select-preview-panel ul");
+				if(i<2){
+					$ItemHolder = $(".user-select-preview-left").find(".select-preview-panel ul");
+				}else{
+					$ItemHolder =  $(".user-select-preview-right").find(".select-preview-panel ul");
+				}
 			}
+			
 			if( v.thumb == false || v.thumb == "FALSE"){
 				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div></li>";
 			}else{
@@ -584,18 +614,19 @@ $(function(){
 			
 			$ItemHolder.append(itemStr);
 		})
-
-		$(".user-select-preview .select-preview-panel ul li").css({"height":  ($(".user-select-preview").width()*1.25) +"px" });
+		if(isMobile){
+		//	$(".user-select-preview .select-preview-panel ul li").css({"height":"auto" });
+		}else{
+			$(".user-select-preview .select-preview-panel ul li").css({"height":($(".user-select-preview").width()*1.25) +"px" });
+		}
+		
 	};
-
-
 
 	$(".user-select-preview .select-preview-panel ul").on("click", "li .desc-more-btn", function(e){
 		e.preventDefault();
 		var itemIdx = $(this).parent("li").attr("data-preview");
 		var phaseIdx = $(this).parent("li").parent("ul").attr("data-phase");
 		makeItemInfoPanel(buildingIndex,phaseIdx,itemIdx)
-	
 	});
 
 	// 설명 더보기 아이템 창
@@ -622,14 +653,51 @@ $(function(){
 		EnterPassMsg= true;
 	});
 
+	//설명 더보기 모바일 창
+	$("#MORE_OPT_DESC_MOBILE").on("click", function(e){
+		e.preventDefault();
+		var phaseIdx = $(this).parent("div").siblings("ul").attr("data-phase");
+		makeFullItemDescMobile(buildingIndex,phaseIdx)
+	
+	});
+
+	function makeFullItemDescMobile(bi, pi){
+		EnterPassMsg= false
+		var biStr = "b"+bi;
+		var itemDataObjArr =itemData[biStr][pi];
+			
+		$(".opt-full-desc-panel .each-opt-desc-list ul").html("");//초기화
+
+		itemDataObjArr.forEach(function(v,i,a){
+			if( v.thumb == false || v.thumb == "FALSE"){
+				var itemStr = "<li><div class='inner-wrap'><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
+			}else{
+				var itemStr = "<li><div class='inner-wrap'><div class='thumbs'><img src='img/"+ v.thumb +"' alt=''></div><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
+			}	
+			$(".opt-full-desc-panel .each-opt-desc-list ul").append(itemStr);
+		})
+		$(".opt-full-desc-panel .each-opt-desc-list ul li").eq(3).addClass("last");
+		$(".opt-full-desc-panel").scrollTop(0);
+		$(".opt-full-desc-mobile-layer").show();
+	};
+	$(".opt-full-desc-close").on("click", function(e){ //닫기
+		e.preventDefault();
+		$(".opt-full-desc-mobile-layer").hide();
+		$(".opt-full-desc-panel .each-opt-desc-list ul").html("");
+		
+	});
+
+
 
 	//사용자 채팅 내 선택 버튼 만들기
 	function makeUserChatSelectBtn(optArr, phase){
-		var _optArr = optArr;
+		var _optArr = optArr.split(",");
+		console.log(_optArr);
 		$(".user-chat-select ul").html("");//초기화
 		$(".user-chat-select ul").attr("data-phase", phase);
 		_optArr.forEach(function(v,i,a){
-			var optStr = "<li class='opt' data-opt='"+v.owner+"'>"+v.opt+"</li>";
+			var owner = (Number(i)+1);
+			var optStr = "<li class='opt' data-opt='"+owner+"'>"+v+"</li>";
 			$(".user-chat-select ul").append(optStr);
 		})
 	};
@@ -665,6 +733,31 @@ $(function(){
 		chatIndex = chatIndex+1;
 		drawChatBox(buildingIndex, chatIndex);
 	});
+	
+	//모바일 채팅 내 대신 하단의 옵션 선택하도록
+	$(".bottom-option-panel .user-select-preview").on("click","ul li",function(e){
+		e.preventDefault();
+		if( m_selectBottomOpt == true){
+			var userSelectIndex = $(this).attr("data-preview");
+			var phaseIndex = $(this).parent("ul").attr("data-phase");
+			phaseIndex = Number(phaseIndex.replace("phase",""))
+
+			//사용자의 선택 값 객체에 추가하기
+			putUserSelectOpt(userSelectIndex, buildingIndex, phaseIndex);
+			gameSound.click.play();
+
+			$(".opt-full-desc-panel .each-opt-desc-list ul").removeClass("clickable");
+			$(".bottom-option-panel-holder").removeClass("up");
+			m_selectBottomOpt = false;
+			$(".chat-inner-btn").hide();
+			chatIndex = chatIndex+1;
+			drawChatBox(buildingIndex, chatIndex);
+		}
+
+	});
+
+
+
 
 
 
@@ -680,12 +773,13 @@ $(function(){
 	}
 	
 	//화면 우측하단 나가기
-	$(".building-exit").on("click",function(e){
+	$(".building-exit, .building-exit-mobile").on("click",function(e){
 		$(".game-alert").show();
 		alertLayerType = "stayOrExit";
 		alertLayerOn = false;
 		$(".alert-exit-building").show();
 	});
+
 
     var QueDonLength = 0; 
 	// building 요소들 모두 초기화
@@ -722,6 +816,8 @@ $(function(){
 
 		eraseBuilding();
 		$(".inside-building").fadeOut(1000);
+		mobileBottomPanelSwitch();
+
 	
 	};
 
@@ -885,12 +981,12 @@ $(function(){
 	  {
 		"queTitle": "웨이스트제로샵에서 책자 구매하기",
 		"queThumb": "qu-info-b2.png",
-		"queDesc": "<p>모이모이 웨이스트 제로샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두가지 책자를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>\n<p>모이모이 웨이스트 제로샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
+		"queDesc": "<p>무가당 웨이스트 제로샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두가지 책자를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>\n<p>무가당 웨이스트 제로샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "여인숙 직원에게 부동산 정보 얻기",
 		"queThumb": "qu-info-b3.png",
-		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 모이모이섬의 여인숙이 부동산에 대한 정보가 가장 빠르다고 합니다. 여인숙에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여인숙은 지도의 왼편, 아래에 위치해있습니다.</p>"
+		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 무가당 포구의 여인숙이 부동산에 대한 정보가 가장 빠르다고 합니다. 여인숙에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여인숙은 지도의 왼편, 아래에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "광장에서 커플과 대화하기",
@@ -900,17 +996,17 @@ $(function(){
 	  {
 		"queTitle": "도서관에서 세미나 구경하기",
 		"queThumb": "qu-info-b5.png",
-		"queDesc": "<p>모이모이 학생들은 사회 이슈에 관심이 많습니다. 모이모이 도서관에서 학생들은 다양한 세미나를 개최하지요. 도서관에 방문해 학생들이 개최한 세미나에 대한 소개도 듣고 구경도 해보세요.</p>\n<p>도서관은 지도의 중앙, 아래에 위치해있습니다.</p>"
+		"queDesc": "<p>이곳 학생들은 사회 이슈에 관심이 많습니다. 무가당 도서관에서 학생들은 다양한 세미나를 개최하지요. 도서관에 방문해 학생들이 개최한 세미나에 대한 소개도 듣고 구경도 해보세요.</p>\n<p>도서관은 지도의 중앙, 아래에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "기지국에서 요원의 부탁 들어주기",
 		"queThumb": "qu-info-b6.png",
-		"queDesc": "<p>기지국에서는 모이모이 섬의 다양한 외교 정사를 책임지고 있습니다. 기지국의 비밀요원 K가 아무래도 당신을 찾고 있는 것 같아요. 무슨 일인지는 모르겠지만...한번 직접 가보시겠어요?</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
+		"queDesc": "<p>기지국에서는 무가당 포구의 다양한 외교 정사를 책임지고 있습니다. 기지국의 비밀요원 K가 아무래도 당신을 찾고 있는 것 같아요. 무슨 일인지는 모르겠지만...한번 직접 가보시겠어요?</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "아고라에서 원로위원 선택하기",
 		"queThumb": "qu-info-b7.png",
-		"queDesc": "<p>매일 원로위원들의 치열한 의견공방이 벌어지고 있는 모이모이 아고라. 그곳에서 원로위원을 선택해야, 그 원로위원이 당신의 항해를 도와줄 겁니다. 어떤 원로위원을 선택하느냐에 따라 당신의 항해의 목적지가 달라질 수도 있어요! 어떻게 선택하느냐구요? 아마..말씀만 들어도 바로 원로위원들의 성향을 알 수 있을 겁니다.</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
+		"queDesc": "<p>매일 원로위원들의 치열한 의견공방이 벌어지고 있는 무가당 아고라. 그곳에서 원로위원을 선택해야, 그 원로위원이 당신의 항해를 도와줄 겁니다. 어떤 원로위원을 선택하느냐에 따라 당신의 항해의 목적지가 달라질 수도 있어요! 어떻게 선택하느냐구요? 아마..말씀만 들어도 바로 원로위원들의 성향을 알 수 있을 겁니다.</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "항구에서 선원 고용하기",
@@ -946,6 +1042,10 @@ $(function(){
         e.preventDefault();
         $(".history-panel").removeClass("panel-block");
         $(".quest-info-layer").hide();
+		if(!isMobile){
+			GameMap.freezed = false;
+			$(".map-panel").removeClass("panel-block");
+		}
     });
 
 	 $(".quest-panel").on("click",function(e){
@@ -973,10 +1073,10 @@ $(function(){
 	var chatIndex = 0;
 	var userClearQuest = false; 
 	var buildingNameObj = {
-		2: "모이모이 제로웨이스트샵",
-		3: "모이모이 여인숙",
-		4: "모이모이 광장",
-		5: "모이모이 도서관",
+		2: "제로웨이스트샵",
+		3: "호텔을 꿈꾸는 여인숙",
+		4: "무가당 광장",
+		5: "무가당 도서관",
 		6: "모이 기지국",
 		7: "모이고라",
 		8: "모이포구"
@@ -1035,9 +1135,8 @@ $(function(){
 			}else{ // 퀘스트 완료 
 				showBlockBuildingAlert(map_idx);
 			} */
-            if(GameMap.map[GameMap.playerY][GameMap.playerX]==2){
+            if(GameMap.map[GameMap.playerY][GameMap.playerX]==2 || GameMap.map[GameMap.playerY][GameMap.playerX]==3){
                 GameMap.freezed = true;
-			
                 var map_idx = GameMap.map[GameMap.playerY][GameMap.playerX];
 
                 //이미 퀘스트 완료가 된 공간인지 체크
