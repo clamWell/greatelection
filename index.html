@@ -196,13 +196,13 @@
 											<div class="select-preview-panel">
 												<ul>
 													<li data-preview="1">
-														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<div class="opt-thumbs"><img src="img/b2-p1-item01.png" alt=""></div>
 														<p class="opt-name">기본주택</p>
 														<p class="opt-desc">국가로부터 주택을 30년 이상 임대받을 수 있다. 단, 토지는 공공이 보유한다.</p>
 														<div class="desc-more-btn">설명 더보기</div>
 													</li>
 													<li data-preview="2">
-														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<div class="opt-thumbs"><img src="img/b2-p1-item01.png" alt=""></div>
 														<p class="opt-name">장기공공임대</p>
 														<p class="opt-desc">십년 이상 살 수 있는 장기 공공 임대 주택을 20%까지 늘린다. 전체 국민의 절반이 공공주택에 살게한다.</p>
 														<div class="desc-more-btn">설명 더보기</div>
@@ -246,13 +246,13 @@
 											<div class="select-preview-panel">
 												<ul>
 													<li data-preview="3">
-														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<div class="opt-thumbs"><img src="img/b2-p1-item01.png" alt=""></div>
 														<p class="opt-name">원가주택</p>
 														<p class="opt-desc">5년 안에 250만호를 공급하고 이중 30만호를 시세보다 싸게 분양한다. 청년, 신혼부부는 주택 가격의 80%까지 돈을 빌려준다.</p>
 														<div class="desc-more-btn">설명 더보기</div>
 													</li>
 													<li data-preview="4">
-														<div class="opt-thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<div class="opt-thumbs"><img src="img/b2-p1-item01.png" alt=""></div>
 														<p class="opt-name">토지임대부 안심주택</p>
 														<p class="opt-desc">무주택 실소유자들에겐 45년 초장기로 이용할 수 있는 모기지론 도입한다.</p>
 														<div class="desc-more-btn">설명 더보기</div>
@@ -313,6 +313,14 @@
 													<img src="img/npc-sailors.png" alt="선원">
 													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
 												</div>
+												<div class="map-el map-npc npc-04" data-npc-index="111">
+													<img src="img/npc-sugar-stil.png" alt="무가당">
+													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
+												</div>
+
+												<div class="map-el map-button btn-01" data-npc-index="222">
+													<img src="img/btn-go-sailing.png" alt="항해떠나기">
+												</div>
 											</div>
 
 										</div>
@@ -358,6 +366,7 @@
 												<div class="background">
 													<div class="background-b2"></div>
 													<div class="background-b3"></div>
+													<div class="background-b4"></div>
 													<div class="background-b5"></div>
 													<div class="background-b6"></div>
 													<div class="background-b7"></div>
@@ -402,7 +411,7 @@
 											<div class="item-more-info-layer">
 												<div class="info-panel">
 													<div class="info-panel-inner-wrap">
-														<div class="thumbs"><img src="img/b2-pha1-item01.png" alt=""></div>
+														<div class="thumbs"><img src="img/b2-p1-item01.png" alt=""></div>
 														<p class="name">원가주택</p>
 														<p class="desc">5년 안에 250만호를 공급하고 이중 30만호를 시세보다 싸게 분양한다. 청년, 신혼부부는 주택 가격의 80%까지 돈을 빌려준다.</p>
 														<div class="info-layer-close">닫기</div>
@@ -417,14 +426,49 @@
 										</div>
 										<!--건물안 끝-->
 
+										<!--항해중-->
+										<div class="sailing-scene">
+											<div class="sailing-scene-wrap">
+												<div class="ocean-back"></div>
+												<div class="user-boat">
+													<img src="img/boat-pixel.png" alt="">
+												</div>
+												<div class="ocean-wave">
+													<img src="img/ocean-wave.png" alt="">
+												</div>
+											</div>
+
+										</div>
+										<!--항해중-->
+
+										<!--도착화면-->
+										<div class="arriving-scene">
+											<div class="arriving-scene-wrap">
+												<div class="arriving-back"></div>
+	
+												<div class="arriving-people">
+													<img src="img/people-lee.gif" alt="">
+												</div>
+
+												<div class="arriving-user-boat">
+													<img src="img/arriving-user-boat.png" alt="">
+												</div>
+
+												<div class="go-ending-page-btn">
+													<button id="GO_ENDING">항해 결과보기</button>
+												</div>
+											</div>
+
+										</div>
+										<!--도착화면-->
+								
+
 										<div class="game-frame frame-top"><img src="img/border-top.png" alt=""></div>
 										<div class="game-frame frame-bottom"><img src="img/border-bottom.png" alt=""></div>
 										<div class="game-frame frame-left"><img src="img/border-left.png" alt=""></div>
 										<div class="game-frame frame-right"><img src="img/border-right.png" alt=""></div>
 										
 										
-
-
 										<div class="game-alert">
 											<div class="alert-border alert-play-manual">
 												<div class="alert--basic">
@@ -487,6 +531,24 @@
 													<button class="close" data-btn-type="exit-building">나가기</button>
 												</div>	
 											</div>
+
+											<div class="alert-border alert-all-quest-done">
+												<div class="alert--basic">
+													<p>모든 퀘스트를 완료하였습니다.</p>
+													<p>항해를 위해 배가 위치한 항구로 이동합니다.</p>
+													<button class="close" data-btn-type="sent-to-boat">확인</button>
+												</div>	
+											</div>
+
+											<div class="alert-border alert-before-go-sailing">
+												<div class="alert--basic alert--special">
+													<p><b>위대한 그대여, 모든 준비를 마치었군요!</b></p>
+													<p>정보를 모으고 비품을 수집하고, 선원을 모으느라 고생 많았습니다. 이제 4인의 지도자가 이끄는 네 개의 나라 중 한 곳을 향해 항해를 시작합니다. 이곳에서 획득한 정보와 비품, 그리고 선원들이 항해의 목적지를 정해줄겁니다.</p>
+													<p>항해를 떠나겠습니까?</p>
+													<button class="close" data-btn-type="accept-sail">떠날래!</button>
+													<button class="close close-bottom" data-btn-type="reject-sail">좀 더 둘러보다 올래..</button>
+												</div>	
+											</div>
 										</div>
 									</div>
 									
@@ -537,6 +599,40 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="ending-stage">
+							<div class="ending-stage-wrap">
+								<div class="ending-stage-back"></div>
+								<div class="user-result-panel">
+									<div class="user-matched-candidate">
+										<div class="desc-para-box">
+											<div class="para-holder">
+												<p>당신의 항해 도착지는 ‘예 나라’로, ‘이재명’ 후보자가 그리는 나라입니다. 당신의 선택과 이재명 후보자의 정책 매칭율은 52.5% 입니다.</p>
+											</div>
+										</div>
+										<div class="matched-candidate-info">
+											<div class="cand-thumb-box">
+												<div class="thumb-img"><img src="img/cand-pixel-lee.png" alt=""></div>
+												<p class="nametag">이재명</p>
+											</div>
+											<div class="cand-match-score">
+												<p class="head">매칭율 <span class="score-value">52.2%</span></p>
+											</div>
+										</div>
+									</div>
+									
+									<div class="other-candidate">
+									</div>
+								</div>
+								<div class="bottom-game-button-panel">
+									<div class="button-col-2">
+										<button class="replay-game" id="REPLAY_BTN">게임 다시하기</button>
+										<button class="go-to-candidates-page" id="GO_CAND_PAGE">후보자 탐구 페이지로 가기</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 				<!--// holding-area (E)-->

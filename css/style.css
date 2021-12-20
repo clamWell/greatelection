@@ -13,7 +13,7 @@ img { border:0; vertical-align:bottom; }
 		 url('https://img.khan.co.kr/spko/fonts/notokr-regular.eot?#iefix') format('embedded-opentype'),
          url('https://img.khan.co.kr/spko/fonts/notokr-regular.woff') format('woff'),
          url('https://img.khan.co.kr/spko/fonts/notokr-regular.ttf') format('truetype'),
-         url('https://img.khan.co.kr/spko/fonts/notokr-regular.svg#notokr-regular') format('svg');
+         url('https://img.khan.co    font-size: 1rem;.kr/spko/fonts/notokr-regular.svg#notokr-regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -82,8 +82,7 @@ body { height:100vh; }
 
 
 /* Header */
-.interactive-header { position: fixed;padding: 0px 10px;box-sizing: border-box;top: 0px; left: 0px; width: 100%; height: 45px; z-index: 100;
-background: #000;}
+.interactive-header { position: fixed;padding: 0px 10px;box-sizing: border-box;top: 0px; left: 0px; width: 100%; height: 45px; z-index: 100;}
 .interactive-header .headerWrap { width: 100%; height: 100%; }
 .interactive-header .header_container { margin: 0 auto; width: 100%; height: 100%; position: relative; overflow: hidden; }
 .interactive-header .header_container .toggle-btn{ display:none; }
@@ -132,12 +131,12 @@ background: #000;}
 .btn-animation::after {content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;
 z-index: 1;border-radius: 7px; opacity: 0;transition: all 0.3s;border: 2px dotted rgba(255,255,255,0.9);transform: scale(1.2,1.2);box-sizing: border-box; }
 .btn-animation:hover::after {opacity: 1;transform: scale(1,1);}
-.opening-back { opacity: 0.85; width:100%; height:100%; position: absolute; top: 0; left:0; z-index:1;  background: url("../img/opening-background-dot.png") no-repeat; background-size: cover;  
+.opening-back { opacity: 0.85; width:100%; height:100%; position: absolute; top: 0; left:0; z-index:1;  background: url("../img/main-game-cover-graphic.jpg") no-repeat; background-size: cover;  
 /* background: rgba(255,255,255,0.5);background: radial-gradient(#ffb479, transparent); */ }
 
 .opening-stage {display:none;}
 .opening-stage-el {position: relative;top: 25%;z-index: 2;}
-.opening-stage-back {width:100%; height:100%; position: absolute; top: 0; left:0; z-index:1; background: url("../img/open-stage-background-dot.png") no-repeat; background-size: cover; }
+.opening-stage-back {width:100%; height:100%; position: absolute; top: 0; left:0; z-index:1; background: url("../img/opening-stage-each-party.png") no-repeat; background-size: cover; }
 .ment-box  {width: 50%;left: 50%; margin-left: -25%;  position: relative;  z-index: 4;}
 .ment-box .box-outer {   width: 100%;height: 100%; background: rgb(101 84 73 / 30%); box-sizing: border-box; padding: 10px; }
 .ment-box .box-bg { width: 100%;  height: 100%; background: #fff;box-sizing: border-box;}
@@ -177,7 +176,7 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .location-info .map-flag { box-sizing: border-box; padding: 5%; background: #fbcd2f;font-size: 1.4rem;}
 .flag-panel {box-sizing: border-box; padding: 10%; background: url("../img/position_back.png") no-repeat;width:100%; background-size: 100% 100%;}
 .flag-panel .position-top {font-size: 1rem; text-align: left; } 
-.flag-panel .position-bottom {font-size: 1.1rem;text-align: left; margin-top: 3%;}
+.flag-panel .position-bottom {font-size: 1rem;text-align: left; margin-top: 3%;}
 
 .game-opt-setting {position: absolute; left: 5%; bottom: 0%; width: 100%;}
 .sound-panel {box-sizing: border-box; padding: 10%; background: url("../img/panel-back.png") no-repeat;width:100%; background-size: 100% 100%;}
@@ -213,6 +212,19 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .player-holder .userName{ position: absolute; font-size: 1.2rem;  top: -1.7rem;text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
 .map-npc { cursor: pointer; }
 .map-npc img { width:100%;-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;  }
+.map-button { cursor: pointer; }
+.map-button img { width:100%;-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;  }
+.btn-01 img{ position: relative; right:5%; animation: next 1s cubic-bezier(0, 0.5, 0.5, 1) infinite; }
+.btn-01 { display:none;}
+@keyframes next {
+	0% {
+		right: 8%; 
+	}
+	100% {
+		right: 5%; 
+	}
+}
+
 .question-icon { position: absolute; width: 50px; top: 0rem; left: 50%;margin-left: -25px;}
 .question-icon img { animation: jump 0.8s cubic-bezier(0, 0.5, 0.5, 1) infinite; }
 .npc-02 .question-icon {  top: -1.8rem; }
@@ -242,10 +254,13 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .game-alert .alert-border .alert--basic button { font-family: 'DungGeunMo', 'notokr-regular'; width: 50%; background: #e4bc81; cursor: pointer;color: #111;
 font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 3%; margin: 5% auto 0px;}
 .game-alert .alert-border .alert--basic button:hover { background:#daae6c; }
+.game-alert .alert-border .alert--basic button.close-bottom {  margin-top: 2%;}
+
 .game-alert .alert-border { display:none; }
-
-.game-alert .alert-play-manual {width: 70%; margin-left: -35%;top: 35%; font-family: 'Noto Sans KR', 'notokr-regular';}
-
+.game-alert .alert-play-manual {width: 70%; margin-left: -35%;top: 35%; font-family: 'Noto Sans KR', 'notokr-regular';word-break: keep-all;}
+.game-alert .alert-before-go-sailing { width: 70%; margin-left: -35%;top: 35%; font-family: 'Noto Sans KR', 'notokr-regular';word-break: keep-all;
+background: url("../img/bottom-option-panel-back-2.png") no-repeat; background-size: 100% 100%;}
+.game-alert .alert-border .alert--special { padding: 7%;text-align: center;}
 .panel-block {cursor: default; pointer-events: none;  }
 
 .inside-building{ position: absolute; top:0; left:0; z-index:999; display:none; background:#111;width:100%; height:100%; }
@@ -253,7 +268,7 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 .inside-building .building-wrap .background { position: absolute; top:0; left:0; width:100%; height:100%;  }
 .inside-building .building-wrap .background .background-b2{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b2-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
 .inside-building .building-wrap .background .background-b3{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b3-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
-.inside-building .building-wrap .background .background-b4{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b4-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
+.inside-building .building-wrap .background .background-b4{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b4-background-2.png") no-repeat; background-size: 100% auto; background-position: top center;  }
 .inside-building .building-wrap .background .background-b5{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b5-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
 .inside-building .building-wrap .background .background-b6{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b6-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
 .inside-building .building-wrap .background .background-b7{  position: absolute; top:0; left:0; width:100%; height:100%; background: url("../img/b7-background.png") no-repeat; background-size: 100% auto; background-position: top center;  }
@@ -289,14 +304,7 @@ width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute;
 .exit-panel p {font-size: 1rem; text-align: center;  box-sizing: border-box;padding: 10%;}
 .building-exit:hover { left: -5%;} 
 
-@keyframes next {
-	0% {
-		right: 7%; 
-	}
-	100% {
-		right: 5%; 
-	}
-}
+
 
 .typed-cursor{display:none;}
 
@@ -368,6 +376,57 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 	100% {transform: translate(0, 0px); }
 }
  
+.sailing-scene { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none;}
+.sailing-scene-wrap {width:100%; height:100%;position: relative; }
+.sailing-scene-wrap .ocean-back { width:100%; height:100%; position: absolute; top:0; left:0; background: url("../img/sailing-back.png") no-repeat; background-size: cover; }
+.sailing-scene-wrap .user-boat { width: 30%; position: absolute; bottom: 40%; left:80%;}
+.sailing-scene-wrap .user-boat img {animation: wave 3s 0.4s infinite linear; }
+.sailing-scene-wrap .ocean-wave { width: 100%; height:50%; bottom: 0; left:0;position: absolute;}
+.sailing-scene-wrap .ocean-wave img { width:120%; position: relative; left:-10%; top:0;animation: wave 3s 0s infinite linear;}
+@keyframes wave {
+	0%{ 
+	-webkit-transform:rotateZ(0deg) translate3d(0,2%,0) rotateZ(0deg);
+	transform:rotateZ(0deg) translate3d(0,2%,0) rotateZ(0deg)
+	}
+	
+	100%{
+	-webkit-transform:rotateZ(360deg) translate3d(0,2%,0) rotateZ(-360deg);
+	transform:rotateZ(360deg) translate3d(0,2%,0) rotateZ(-360deg)
+	}
+}
+
+
+.arriving-scene { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none;}
+.arriving-scene-wrap {width:100%; height:100%;position: relative; }
+.arriving-scene-wrap .arriving-back { width:100%; height:100%; position: absolute; top:0; left:0; background: url("../img/arriving-back-sq.png") no-repeat; background-size: cover;background-position: center; }
+.arriving-scene-wrap .arriving-user-boat { width: 100%; position: absolute; bottom: 0; left:0;}
+.arriving-scene-wrap .arriving-user-boat img {width:120%; position: relative; left:-10%; animation: wave 4s 0.4s infinite linear; }
+.arriving-scene-wrap .arriving-people { position: absolute; width: 80%; left:10%; bottom: 50%; }
+.arriving-scene-wrap .arriving-people img { width: 100%;}
+.arriving-scene-wrap .go-ending-page-btn {  position: absolute; bottom: 5%; right:5%; width: 30%; }
+.arriving-scene-wrap .go-ending-page-btn button { font-family: 'DungGeunMo', 'notokr-regular'; width: 100%; background: #e4bc81; cursor: pointer;color: #111;
+font-size: 1.5rem; display: none;  letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 10%;}
+.arriving-scene-wrap .go-ending-page-btn button:hover { background:#daae6c; }
+
+.ending-stage { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none; }
+.ending-stage-wrap {width:100%; height:100%;position: relative; }
+.ending-scene-wrap .ending-stage-back { width:100%; height:100%; position: absolute; top:0; left:0; background: url("../img/opening-stage-each-party.png") no-repeat; background-size: cover;background-position: center;  }
+.ending-scene-wrap .user-result-panel {}
+.user-result-panel .user-matched-candidate {}
+.user-result-panel .user-matched-candidate .desc-para-box {}
+.user-result-panel .user-matched-candidate .desc-para-box .para-holder {}
+.user-result-panel .user-matched-candidate .desc-para-box .para-holder p {}
+.user-matched-candidate .matched-candidate-info {}
+.user-matched-candidate .matched-candidate-info {}
+.cand-thumb-box {}
+.cand-thumb-box .thumb-img {}
+.cand-thumb-box .thumb-img img {}
+.cand-thumb-box .nametag {}
+.cand-match-score {}
+.cand-match-score p {}
+.cand-match-score p .score-value {}
+
+
 .screen-bottom-panel { display:none; }
 .select-history-back{ display:none; }
 .quest-info{ display:none; }
@@ -389,7 +448,7 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 @media screen and (max-width: 800px) {
 body { width:100%; height:100%; }
 .loading-gif { top: 35%; }
-.interactive-header { height: 35px;padding: 0px 5px;}
+.interactive-header { height: 35px;padding: 0px 5px; background:#111; }
 .interactive-header .khan_btn img { width: 70px; }
 .interactive-header .page-title{ line-height: 30px;}
 .after-load { width:100%; height:100%; }

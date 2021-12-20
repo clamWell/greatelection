@@ -256,6 +256,7 @@ $(function(){
         freezed: true,
 		multipleValue: (isMobile==true)? 7:9,
 		adjustValue: (isMobile==true)? 3:4,
+		move: 0,
 
         defaultPositionSetting: function(){
 			/*
@@ -287,9 +288,11 @@ $(function(){
             //NPC
             $(".npc-01").css({"width": this.move, "top":24*this.move+"px", "left": 43*this.move+"px" });//원로
             $(".npc-02").css({"width": this.move*3, "top":13*this.move+"px", "left": 30*this.move+"px" });//커플
-            $(".npc-03").css({"width": this.move*2, "top":32*this.move+"px", "left": 25*this.move+"px" });//선원들
+            $(".npc-03").css({"width": this.move*2, "top":32*this.move+"px", "left": 25*this.move+"px" });//선원
+			$(".npc-04").css({"width": this.move*1, "top":14*this.move+"px", "left": 15*this.move+"px" });//무가당
+			$(".btn-01").css({"width": this.move*3, "top":39*this.move+"px", "left": 27*this.move+"px" });//항해하기버튼
             $(".map-npc .question-icon").css({"width": this.move/2});
-            
+           
 			
 			//맵 초기 위치
             $(".map-img").css({left : "-=" + this.move * (28)+ "px", top : "-=" + this.move * (15)+ "px"});
@@ -367,7 +370,7 @@ $(function(){
                 GameMap.myPoY -= GameMap.move;
                 $(".map-img").css("top", GameMap.myPoY);
                 $(".map-el-holder").css("top", GameMap.myPoY);
-                if(change==true)$(".player img").attr("src", "img/char_01.gif");
+                if(change==true)$(".player img").attr("src", "img/char_01_2.gif");
 				checkBuilding()
                // GameMap.Xcompleted = GameMap.freezed = false;
             }
@@ -401,7 +404,7 @@ $(function(){
 	$(".game-alert .close").on("click",function(){
 		var closeAlertType = $(this).attr("data-btn-type");
 		clsoeAlertLayer();
-		if(closeAlertType=="stay-building" || closeAlertType=="exit-building"){
+		if(closeAlertType=="stay-building" || closeAlertType=="exit-building"||closeAlertType=="accept-sail" || closeAlertType=="reject-sail"){
 			afterCloseAlert(closeAlertType);
 		}
 		afterCloseAlert(alertLayerType);
@@ -421,7 +424,6 @@ $(function(){
 		}else if( closeAlertType == "enter-building"){ //빌딩입장
 			enterBuilding(buildingIndex);
 		}else if(closeAlertType == "stay-building"){//빌딩잔류
-
 		
 		}else if(closeAlertType == "exit-building"){//빌딩퇴장
 			exitBuilding(buildingIndex, false);
@@ -432,9 +434,34 @@ $(function(){
 			GameMap.freezed = false;
 		}else if(closeAlertType == "chat-npc"){ //NPC와채팅
             GameMap.freezed = false;
-        }
+        }else if(closeAlertType=="sent-to-boat"){ //항구앞으로 보내짐
+			sendUserToBoat();
+		}else if(closeAlertType=="accept-sail"){ // 항해 떠남
+			goSailingStage();
+		}else if(closeAlertType=="reject-sail"){ // 항해 떠나지 않음
+			
+		}
+
 	}
 
+	function sendUserToBoat(){
+		$(".player-holder").hide();
+		//맵 초기 위치
+		console.log(GameMap.move);
+		$(".map-img").css({left : GameMap.move * (-31)+ "px", top :GameMap.move * (-40)+ "px"});
+		$(".map-el-holder").css({left : GameMap.move * (-31)+ "px", top : GameMap.move * (-40)+ "px"});
+
+		GameMap.myPoX = GameMap.move *(-31);
+		GameMap.myPoY = GameMap.move *(-40);
+		GameMap.playerX = 31;
+		GameMap.playerY = 40;
+		
+		$(".player-holder").delay(500).fadeIn(1500, function(){
+			GameMap.freezed = false;
+		});
+	}
+
+			
 
 	
 	function enterBuilding(b){
@@ -500,23 +527,19 @@ $(function(){
 		},
 		"b5":{
 			1: null,
-			2: null,
-			3: null
+			2: null
 		},
 		"b6":{
 			1: null,
-			2: null,
-			3: null
+			2: null
 		},
 		"b7":{
 			1: null,
-			2: null,
-			3: null
+			2: null
 		},
 		"b8":{
 			1: null,
-			2: null,
-			3: null
+			2: null
 		}
 	};
 
@@ -817,9 +840,49 @@ $(function(){
 		eraseBuilding();
 		$(".inside-building").fadeOut(1000);
 		mobileBottomPanelSwitch();
-
+		checkAllQuestDone();
 	
 	};
+
+
+	function checkAllQuestDone(){
+		var keys = Object.keys(userSelectData);
+		var checkV = 0; 
+		for (i = 0; i < keys.length; i++) {
+			var key = keys[i] 
+			var value = userSelectData[key] 
+			
+			var	keys2 = Object.keys(value);
+			for (k = 0; k < keys2.length; k++) {
+				var key2 = keys2[k] 
+				var value2 = value[key2] 
+				if(value2 == null){
+					break;
+				}else{
+					checkV += 1;
+				}
+			}
+		}
+		
+		if( checkV == 14){
+			console.log("퀘스트 다깸")
+			GameMap.freezed = true;
+			showAllQuestDoneAlert();
+			userClearQuest = true;
+			$(".btn-01").show();
+		}else{
+			console.log("아직 남음")
+		}
+	};
+
+	function showAllQuestDoneAlert(){
+		//window.alert("퀘스트를 모두 완료")
+        gameSound.alert.play();
+		alertLayerOn = true;
+		alertLayerType = "sent-to-boat";
+		$(".game-alert").show();
+        $(".alert-all-quest-done").show();
+	};	
 
 	function setCharAfterExitBuilding(b){
 		if(b==2){//제로웨이스트샵에서 나옴
@@ -979,9 +1042,9 @@ $(function(){
 	
 	var questInfoData = [
 	  {
-		"queTitle": "웨이스트제로샵에서 책자 구매하기",
+		"queTitle": "제로 웨이스트샵에서 아이템 구매하기",
 		"queThumb": "qu-info-b2.png",
-		"queDesc": "<p>무가당 웨이스트 제로샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두가지 책자를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>\n<p>무가당 웨이스트 제로샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
+		"queDesc": "<p>무가당 제로 웨이스트샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두가지 책자를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>\n<p>무가당 제로 웨이스트샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "여인숙 직원에게 부동산 정보 얻기",
@@ -999,12 +1062,12 @@ $(function(){
 		"queDesc": "<p>이곳 학생들은 사회 이슈에 관심이 많습니다. 무가당 도서관에서 학생들은 다양한 세미나를 개최하지요. 도서관에 방문해 학생들이 개최한 세미나에 대한 소개도 듣고 구경도 해보세요.</p>\n<p>도서관은 지도의 중앙, 아래에 위치해있습니다.</p>"
 	  },
 	  {
-		"queTitle": "기지국에서 요원의 부탁 들어주기",
+		"queTitle": "비밀스러운 곳에서 요원의 얘기 들어주기",
 		"queThumb": "qu-info-b6.png",
 		"queDesc": "<p>기지국에서는 무가당 포구의 다양한 외교 정사를 책임지고 있습니다. 기지국의 비밀요원 K가 아무래도 당신을 찾고 있는 것 같아요. 무슨 일인지는 모르겠지만...한번 직접 가보시겠어요?</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
-		"queTitle": "아고라에서 원로위원 선택하기",
+		"queTitle": "아고라에서 원로위원 도와주기",
 		"queThumb": "qu-info-b7.png",
 		"queDesc": "<p>매일 원로위원들의 치열한 의견공방이 벌어지고 있는 무가당 아고라. 그곳에서 원로위원을 선택해야, 그 원로위원이 당신의 항해를 도와줄 겁니다. 어떤 원로위원을 선택하느냐에 따라 당신의 항해의 목적지가 달라질 수도 있어요! 어떻게 선택하느냐구요? 아마..말씀만 들어도 바로 원로위원들의 성향을 알 수 있을 겁니다.</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
 	  },
@@ -1067,6 +1130,52 @@ $(function(){
 
     //퀘스트
 
+	//퀘스트완료-항해
+    $(".map-button").on("click",function(e){
+        e.preventDefault();
+        var bi = $(this).attr("data-npc-index");       
+		if( bi=="222"||bi ==222){
+			if(userClearQuest == true){
+				showBeforeSailingAlert();
+			}
+        }
+	});
+
+	function showBeforeSailingAlert(){
+        gameSound.alert.play();
+		alertLayerOn = true;
+		alertLayerType = "before-go-sail";
+		$(".game-alert").show();
+        $(".alert-before-go-sailing").show();
+	};
+	
+	function goSailingStage(){
+		console.log("항해시작");
+
+		$(".game-map").hide();
+		$(".player-holder").hide();
+		$(".each-panel").fadeOut();
+		$(".sailing-scene").fadeIn(1000);
+		$(".sailing-scene-wrap .user-boat").delay(500).animate({"left":"-20%"},4000, "swing", function(){
+			endSailingStage();
+		});
+	}
+
+	function endSailingStage(){
+		console.log("항해끝");
+		$(".sailing-scene").hide();
+		$(".arriving-scene").fadeIn(1000);
+		$(".arriving-scene-wrap .go-ending-page-btn button").delay(500).fadeIn();
+
+	}
+	$("#GO_ENDING").on("click",function(e){
+		$(".arriving-scene").hide();
+		$(".main-stage").hide();
+		$(".main-stage").removeClass("main-stage-on");
+		$(".ending-stage").fadeIn(1000);
+	});
+	//퀘스트완료-항해
+
 
     // 빌딩 검사 관련
 	var buildingIndex;
@@ -1075,20 +1184,20 @@ $(function(){
 	var buildingNameObj = {
 		2: "제로웨이스트샵",
 		3: "호텔을 꿈꾸는 여인숙",
-		4: "무가당 광장",
-		5: "무가당 도서관",
-		6: "모이 기지국",
-		7: "모이고라",
-		8: "모이포구"
+		4: "메인 광장",
+		5: "도서관",
+		6: "비밀스러운 기지국",
+		7: "아고라",
+		8: "항구"
 	};
 
 	var npcNameObj = {
 		2: "툰베리",
 		3: "벨보이 잭",
-		4: "광장에 나온 A",
+		4: "광장에 나온 워쇼스키",
 		5: "오티스",
 		6: "요원K",
-		7: "아리스토텔레스",
+		7: "아리무가당텔레스",
 		8: "루피"
 	};
 
@@ -1100,8 +1209,17 @@ $(function(){
 		if( $(this).hasClass("map-npc-done") ){
             
         }else{
-            GameMap.freezed = false;
-            showChatNpcAlert(bi);
+			if(bi=="111"||bi ==111){
+				console.log("치트키")
+				GameMap.freezed = true;
+				showAllQuestDoneAlert();
+				userClearQuest = true;
+				$(".btn-01").show();
+			}else{
+				GameMap.freezed = false;
+				showChatNpcAlert(bi);
+			}
+            
         }
 	});
     
@@ -1135,7 +1253,8 @@ $(function(){
 			}else{ // 퀘스트 완료 
 				showBlockBuildingAlert(map_idx);
 			} */
-            if(GameMap.map[GameMap.playerY][GameMap.playerX]==2 || GameMap.map[GameMap.playerY][GameMap.playerX]==3){
+            //if(GameMap.map[GameMap.playerY][GameMap.playerX]==2 || GameMap.map[GameMap.playerY][GameMap.playerX]==3 ){
+			if(true){
                 GameMap.freezed = true;
                 var map_idx = GameMap.map[GameMap.playerY][GameMap.playerX];
 
