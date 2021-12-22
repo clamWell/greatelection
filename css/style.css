@@ -246,13 +246,23 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 	}
 }
 
+@keyframes next2 {
+	0% {
+		right: -5%; 
+	}
+	100% {
+		right: -8%; 
+	}
+}
+
 .question-icon { position: absolute; width: 50px; top: 0rem; left: 50%;margin-left: -25px;}
 .question-icon img { animation: jump 0.8s cubic-bezier(0, 0.5, 0.5, 1) infinite; }
 .npc-02 .question-icon {  top: -1.5rem;margin-left: -1rem; }
-.npc-01 { display:none; }
+.npc-01 { /* display:none; */ }
 .npc-01 .question-icon {  top: -1.8rem; }
 .npc-04 .question-icon {  top: -1.5rem;margin-left: -1rem; }
-
+.npc-06 {cursor: default; pointer-events: none;}
+.npc-06 img {animation: wave 3s 0.4s infinite linear;}
 .map-npc-done { cursor: default; pointer-events: none; }
 .map-npc-done .question-icon { display:none; }
 
@@ -311,7 +321,7 @@ width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute;
 .npc-panel .npc-chat-box-holder .npc-holder .npc-name p {  text-align: center;}
 .inside-building .chat-box { opacity:0; width: 100%; background: url("../img/alert-back.jpg") no-repeat; background-size: 100% 100%;position: relative;box-sizing:border-box; padding:5%;}
 .inside-building .chat-box p { font-size: 1.1rem;line-height: 1.8rem;margin: 0.5rem auto;word-break: keep-all;text-shadow: 1px 1px 1px rgb(255 255 255 / 50%);}
-.inside-building .chat-box .chat-bottom-btn { display:none; position: absolute; bottom: 10%; right: 5%; color: #743e00; width:15%;  text-align: right;cursor: pointer; animation: next 1s linear infinite normal;    box-sizing: border-box;padding: 2%;}
+.inside-building .chat-box .chat-bottom-btn { display:none; position: absolute; bottom: -5%; right: -5%; color: #743e00; width:15%;  text-align: right;cursor: pointer; animation: next2 1s linear infinite normal;   box-sizing: border-box;padding: 2%;   background: #f5e4b9; border: 1px solid #a1843a; border-radius: 10%;}
 .inside-building .chat-box .chat-bottom-btn span {margin-right: 5%;  display: inline-block; width: 30%; }
 .inside-building .chat-box .chat-bottom-btn span img { width: 100%;vertical-align: middle;}
 .inside-building .chat-box .chat-bottom-btn:hover { background: #d9c697;}
@@ -380,6 +390,15 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 .quest-info-layer .quest-info-panel .quest-info-close  button:hover { background:#daae6c; }
 
 
+.game-alert .alert-mugadang {width: 70%; margin-left: -35%;  margin-top: -20%;background: url("../img/bottom-option-panel-back-2.png") no-repeat; background-size: 100% 100%;}
+.game-alert .alert-mugadang .alert--special p {text-align: left; font-weight: normal; font-size: 1rem; line-height: 1.5rem; word-break: keep-all;}
+.goMugadangVideo {  display: inline-block;box-sizing: border-box; padding: 2% 4%; background: #ad5703;color: #fff; text-align: center;}
+.game-alert .alert-maker {width: 70%; margin-left: -35%;  margin-top: -25%;background: url("../img/bottom-option-panel-back-2.png") no-repeat; background-size: 100% 100%;}
+.game-alert .alert-maker .alert--special p {text-align: left; font-weight: normal; font-size: 1rem; line-height: 1.5rem; word-break: keep-all;}
+.game-alert .alert-maker .alert--special p.userment{font-family: 'Noto Sans KR', 'notokr-regular'; opacity: 0.6;} 
+.game-alert .alert-maker .alert--special p.byline { font-family: 'Noto Sans KR', 'notokr-regular';color: #5c411a;text-shadow: 1px 1px 0px #fff0cf; font-weight: bold;text-align: center; background: #e8d4a6; box-sizing: border-box; padding: 2%;}
+
+
 .minimap-layer { display:none; width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: rgba(0,0,0,0.5); }
 .minimap-layer .minimap-panel { position: absolute;width: 100%; height: 100%; left:0%; top: 0%; background: url("../img/info-panel-back-big.png") no-repeat; background-size: 100% 100%; box-shadow: 5px 5px 20px rgb(0 0 0 / 50%);
 box-sizing:border-box; }
@@ -421,6 +440,26 @@ font-size: 1rem; display: block;  letter-spacing: -0.07rem; text-align: center; 
 }
 
 
+.sailing-choice-scene { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none;}
+.sailing-choice-scene-wrap {width:100%; height:100%;position: relative; }
+.sailing-choice-scene-wrap .ocean-back { width:100%; height:100%; position: absolute; top:0; left:0; background: url("../img/sailing-choice-back.png") no-repeat; background-size: cover; }
+.sailing-choice-scene .user-choice-panel { position: absolute;top: 50%;  margin-top: -30%; width: 100%; box-sizing: border-box; }
+.sailing-choice-scene .user-choice-panel .desc-para-box {max-width: 70%; margin: 0 auto; background: url("../img/info-panel-back-widever.jpg") no-repeat;background-size: 100% 100%; box-sizing: border-box; background-position: center;  padding: 3%;}
+.user-choice-panel .desc-para-box .para-holder {font-family: 'Noto Sans KR', 'notokr-regular';font-size: 1.1rem; font-weight: bold;line-height: 2rem; text-align: center;}
+.user-choice-panel .desc-para-box .para-holder p {margin: 1% 0; }
+.user-choice-panel .desc-para-box .para-holder p span.strong { font-weight:bold; background: rgba(255,255,255,0.5);box-sizing: border-box;  padding: 1px 6px; border-radius: 5px;}
+.sailing-choice-scene .select-btn-holder {  margin-top: 5%; }
+.sailing-choice-scene .select-btn-holder .select-btn { float:left; text-align: center;cursor: pointer; }
+.sailing-choice-scene .select-btn-holder-col-2 { max-width: 50%; margin: 5% auto; }
+.sailing-choice-scene .select-btn-holder-col-3 { max-width: 75%; margin: 5% auto;}
+.sailing-choice-scene .select-btn-holder-col-2 .select-btn { width: 40%; margin: 0 5%; }
+.sailing-choice-scene .select-btn-holder-col-3 .select-btn { width: 30%;  margin: 0 1%;}
+.sailing-choice-scene .select-btn-holder .select-btn:hover > .cand-thumb-box {box-shadow: 0px 0px 20px rgb(255 255 255 / 80%);position: relative;top: -5px;}
+.select-btn .cand-thumb-box {  width: 8rem; height: 8rem;}
+.select-btn .cand-info-bottom {  margin-top: 5%;}
+.select-btn .cand-info-bottom .flag-name {}
+.select-btn .cand-info-bottom .nametag { background: rgba(0,0,0,0.3); color: #fff; font-size: 1.2rem;box-sizing: border-box; padding: 2% 3%; margin-top: 2%;}
+
 .arriving-scene { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none;}
 .arriving-scene-wrap {width:100%; height:100%;position: relative; }
 .arriving-scene-wrap .arriving-back { width:100%; height:100%; position: absolute; top:0; left:0; background: url("../img/arriving-back-sq.png") no-repeat; background-size: cover;background-position: center; }
@@ -440,6 +479,11 @@ font-size: 1.5rem; display: none;  letter-spacing: -0.07rem; text-align: center;
 .fw-04 { top: 15%; right: 2%;}
 .fw-05 { top: 2%; right: 30%; }
 .fw-06 { top: 2%; left:35%; }
+.arriving-scene .alert-arriving-desc { position: absolute;top: 10%;  width: 100%; box-sizing: border-box;  }
+.arriving-scene .desc-para-box  {max-width: 70%; margin: 0 auto; background: url("../img/info-panel-back-widever.jpg") no-repeat;background-size: 100% 100%; box-sizing: border-box; background-position: center;  padding: 3%;}
+.arriving-scene .desc-para-box .para-holder {font-family: 'Noto Sans KR', 'notokr-regular';font-size: 1.2rem; line-height: 2rem; text-align: center;}
+.arriving-scene .desc-para-box .para-holder p {margin: 1% 0; font-weight: bold;}
+.arriving-scene .desc-para-box .para-holder p span.strong { font-weight:bold; background: rgba(255,255,255,0.5);box-sizing: border-box;  padding: 1px 6px; border-radius: 5px;}
 
 
 .ending-stage { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none; }
@@ -463,6 +507,7 @@ font-size: 1.5rem; display: none;  letter-spacing: -0.07rem; text-align: center;
 .cand-match-score {display: inline-block;vertical-align: bottom; }
 .cand-match-score p { font-size: 2.3rem; font-family: 'Noto Sans KR', 'notokr-regular';color: #111;font-weight: bold; text-shadow: 2px 2px 0px #fff8f3;}
 .cand-match-score p .score-value { font-family: 'DungGeunMo', 'notokr-regular'; font-size: 4rem;}
+.matched-candidate-info .cand-match-score { margin-left: 2%;}
 .matched-candidate-info .cand-match-score p .score-value { color:#610f00;    font-style: italic;}
 .other-candidate-score-list { width: 100%; margin-top: 4%; }
 .other-candidate-score-list ul { width: 100%;    max-width: 70%; position: relative;overflow: hidden;text-align: center; margin: 0 auto;}

@@ -22,6 +22,127 @@ function checkMobile(){
 }
 checkMobile();
 
+//사용자의 선택 값을 담는 객체
+var userSelectData = {
+		"b2": {
+			1: null,
+			2: null
+		},
+		"b3":{
+			1: null,
+			2: null
+		},
+		"b4":{
+			1: null,
+			2: null
+		},
+		"b5":{
+			1: null,
+			2: null
+		},
+		"b6":{
+			1: null,
+			2: null
+		},
+		"b7":{
+			1: null,
+			2: null
+		},
+		"b8":{
+			1: null,
+			2: null
+		}
+	};
+
+//테스트용
+var userSelectData2 = {
+		"b2": {
+			1: null,
+			2: null
+		},
+		"b3":{
+			1: null,
+			2: null
+		},
+		"b4":{
+			1: null,
+			2: null
+		},
+		"b5":{
+			1: null,
+			2: null
+		},
+		"b6":{
+			1: null,
+			2: null
+		},
+		"b7":{
+			1: null,
+			2: null
+		},
+		"b8":{
+			1: null,
+			2: null
+		}
+	};
+
+function putRandVal(){
+	var keys = Object.keys(userSelectData);
+	for (i = 0; i < keys.length; i++) {
+		var key = keys[i] 
+		var value = userSelectData[key] 
+		
+		var	keys2 = Object.keys(value);
+		for (k = 0; k < keys2.length; k++) {
+			var key2 = keys2[k] 
+			userSelectData[key][key2] = randomRange(1,4);
+		}
+	}
+	console.log(userSelectData)
+	countUserSelect();
+
+};
+
+var candName = ["이재명","윤석열","심상정","안철수"];
+var candCountry = ["숭늉나라", "찌개나라","크래커나라", "파스타나라"];
+var candthumb = ["lee", "yoon","sim", "ahn"];
+var MatchCandIdxArr = [];
+var UserMatchMaxVal;
+var countArr;
+function countUserSelect(){
+	countArr = [0,0,0,0]; // 차례대로 이윤심안
+	var keys = Object.keys(userSelectData);
+	for (i = 0; i < keys.length; i++) {
+		var key = keys[i] 
+		var value = userSelectData[key] 
+		
+		var	keys2 = Object.keys(value);
+		for (k = 0; k < keys2.length; k++) {
+			var key2 = keys2[k] 
+			var v = userSelectData[key][key2];
+			countArr[v-1] += 1; 
+		}
+	}
+	console.log( countArr);
+	UserMatchMaxVal = countArr.reduce(function(a, b) {
+		return Math.max(a, b);
+	});
+
+	console.log("매칭된 가장 높은 개수는 "+UserMatchMaxVal)
+
+	
+	for (i = 0; i < countArr.length; i++) {
+		var vv =  countArr[i];
+		if(vv == UserMatchMaxVal){
+			MatchCandIdxArr.push( candName[i] )
+		}
+	}
+	console.log(MatchCandIdxArr);
+	return MatchCandIdxArr;
+
+}
+
+
 
 /******** 모바일 전용 조정 ********/
 if(isMobile==true){
@@ -84,7 +205,7 @@ $(function(){
     for (code in KEY_CODES) {
       KEY_STATUS[KEY_CODES[code]] = false;
     }
-    console.log(KEY_STATUS);
+    //console.log(KEY_STATUS);
     KEY_STATUS.double = false;
     KEY_STATUS.enterCheck = false;
 
@@ -128,7 +249,7 @@ $(function(){
 				}else{
 					mt_gap = (screenHeight -gh)/2;
 				}
-				console.log(gw, gh, mt_gap);
+				//console.log(gw, gh, mt_gap);
 				$gameVP.css({"width": gw+"px", "height": gh+"px","top": mt_gap+"px"});
 				$("html, body").css("font-size", (gw * 16 / 1200) + "px");
 
@@ -286,11 +407,12 @@ $(function(){
             $(".portal-b7").css({"top":24.5*this.move+"px", "left": 44*this.move+"px"}); //45, 25
             
             //NPC
-            $(".npc-01").css({"width": this.move, "top":24*this.move+"px", "left": 43*this.move+"px" });//원로
+            $(".npc-01").css({"width": this.move, "top":12*this.move+"px", "left": 28*this.move+"px" });//원로
             $(".npc-02").css({"width": this.move, "top":16*this.move+"px", "left": 28*this.move+"px" });//광장
-            $(".npc-03").css({"width": this.move*2, "top":32*this.move+"px", "left": 25*this.move+"px" });//선원
+            $(".npc-03").css({"width": this.move*2, "top":32.5*this.move+"px", "left": 25.5*this.move+"px" });//선원
 			$(".npc-04").css({"width": this.move*0.7, "top":14*this.move+"px", "left": 15.3*this.move+"px" });//무가당
 			$(".npc-05").css({"width": this.move*1, "top":7*this.move+"px", "left": 23*this.move+"px" });//제작자
+			$(".npc-06").css({"width": this.move*5, "top":38*this.move+"px", "left": 25.5*this.move+"px" });//배 
 			$(".btn-01").css({"width": this.move*3, "top":39*this.move+"px", "left": 27*this.move+"px" });//항해하기버튼
             $(".map-npc .question-icon").css({"width": this.move/3});
            
@@ -459,7 +581,10 @@ $(function(){
 			goSailingStage();
 		}else if(closeAlertType=="reject-sail"){ // 항해 떠나지 않음
 			
+		}else if(closeAlertType=="close-mugadang"){ //무가당과 대화마침
+			$(".npc-04").find(".question-icon").hide();
 		}
+		
 
 	}
 
@@ -539,37 +664,7 @@ $(function(){
 	//채팅 내용을 담고 있는 객체 
 	//외부화
 
-	//사용자의 선택 값을 담는 객체
-	var userSelectData = {
-		"b2": {
-			1: null,
-			2: null
-		},
-		"b3":{
-			1: null,
-			2: null
-		},
-		"b4":{
-			1: null,
-			2: null
-		},
-		"b5":{
-			1: null,
-			2: null
-		},
-		"b6":{
-			1: null,
-			2: null
-		},
-		"b7":{
-			1: null,
-			2: null
-		},
-		"b8":{
-			1: null,
-			2: null
-		}
-	};
+
 
 	var m_selectBottomOpt = false;
 
@@ -1035,8 +1130,8 @@ $(function(){
 
 	function startMainGame(){
 		UserData.pageStage = 3;
-		$(".opening-background-list div").hide();
-		$(".opening-stage").fadeOut(1000);
+		$(".opening-background-list div").fadeOut(1000);
+		$(".opening-stage").hide();
 		$(".main-stage").animate({"opacity":"1"},1000);
         $(".main-stage").addClass("main-stage-on");
         gameSound.bgm.play();
@@ -1215,33 +1310,155 @@ $(function(){
 		$(".each-panel").fadeOut();
 		$(".sailing-scene").fadeIn(1000);
 		$(".sailing-scene-wrap .user-boat").delay(500).animate({"left":"-20%"},4000, "swing", function(){
-			endSailingStage();
+			
+			checkUserSelectDouble();
+			
 		});
 	}
 
-	function endSailingStage(){
-		console.log("항해끝");
+	function checkUserSelectDouble(){
+		
+		if(MatchCandIdxArr.length == 1){ //한가지 국가
+			var c_idx = candName.indexOf(MatchCandIdxArr[0])
+            endSailingStage(c_idx);
+        }else{ //여러가지 국가 나옴
+			var number = MatchCandIdxArr.length;
+			showChoiceStage(number)
+		}
+	};
+	
+	function showChoiceStage(n){
+		console.log("사용자 선택");
 		$(".sailing-scene").hide();
+		if(n==2){
+			$(".user-choice-panel .desc-para-box .para-holder .numb").html("두");
+			$(".sailing-choice-scene .select-btn-holder").addClass("select-btn-holder-col-2");
+		}else if(n==3){
+			$(".user-choice-panel .desc-para-box .para-holder .numb").html("세");
+			$(".sailing-choice-scene .select-btn-holder").addClass("select-btn-holder-col-3");
+
+		}
+		$(".sailing-choice-scene .select-btn-holder").html("");
+
+		MatchCandIdxArr.forEach(function(v,i,a){
+			
+			var c_temp ="";
+			if(v=="이재명"){
+				c_temp = "<div class='select-btn' data-usersel='0'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/lee-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>숭늉나라</p><p class='nametag'>지도자 <span class='cand-name'>이재명</span></p><p></p></div></div>";
+			}else if(v=="윤석열"){
+				c_temp = "<div class='select-btn' data-usersel='1'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/yoon-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>찌개나라</p><p class='nametag'>지도자 <span class='cand-name'>윤석열</span></p><p></p></div></div>";
+			}else if(v=="심상정"){
+				c_temp = "<div class='select-btn' data-usersel='2'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/sim-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>크래커나라</p><p class='nametag'>지도자 <span class='cand-name'>심상정</span></p><p></p></div></div>";
+			}else if(v=="안철수"){
+				c_temp = "<div class='select-btn' data-usersel='3'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/ahn-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>파스타나라</p><p class='nametag'>지도자 <span class='cand-name'>안철수</span></p><p></p></div></div>";
+			}
+			$(".sailing-choice-scene .select-btn-holder").append(c_temp);
+		});
+
+		$(".sailing-choice-scene").fadeIn(1000);
+	
+	};
+	var userMatchedCand;
+	var allCandMathPer;
+	$(".sailing-choice-scene").on("click", ".select-btn-holder .select-btn", function(e){
+		var u = $(this).attr("data-usersel");
+		userMatchedCand = u;
+		endSailingStage(u);
+		
+	});	
+
+	function endSailingStage(usi){
+		console.log("항해끝");
+		console.log(usi); // 매칭 후보 정해짐 
+		$(".sailing-scene").hide();
+		$(".sailing-choice-scene").hide();
+		$(".alert-arriving-desc").find(".flag-name").html(candCountry[usi]);
+		$(".alert-arriving-desc").find(".pre-name").html(candName[usi]);
 		$(".arriving-scene").fadeIn(1000);
 		$(".arriving-scene-wrap .go-ending-page-btn button").delay(500).fadeIn();
+		$(".arriving-scene-wrap .go-ending-page-btn button").attr("data-btn-ui", usi)
 
 	}
+
+	
 	$("#GO_ENDING").on("click",function(e){
 		$(".arriving-scene").hide();
 		$(".main-stage").hide();
 		$(".main-stage").removeClass("main-stage-on");
+		var u = $(this).attr("data-btn-ui");
+		console.log(u);
+		drawResultPage(u) //결과 후보자에 따라서 화면 그려주는 함수 따로 필요함 
+		
+	});
+	
+	function drawResultPage(u){
+		console.log(u+"번째로 화면 그림");
+		//나라명, 후보자명
+		$(".user-result-panel .user-matched-candidate").find("#FLAG_NAME").html(candCountry[u]);
+		$(".user-result-panel .user-matched-candidate").find("#PRE_NAME").html(candName[u]);
+		
+		//후보자 매칭율
+		allCandMathPer = countArr.map( function(x){
+			return (x/14*100).toFixed(1);
+		});
+		console.log(allCandMathPer);
+		console.log(u);
+		var matchPercent = allCandMathPer[u];
+		console.log(matchPercent);
+		$(".user-result-panel .user-matched-candidate").find("#MATCH_PER").html(matchPercent+"%");
+		
+		$(".other-candidate-score-list ul").html("");
+		countArr.forEach(function(v,i,a){
+			if(i==u){ //매칭된 후보
+				$(".matched-candidate-info").html("");
+				var str = "<div class='cand-thumb-box'><div class='thumb-img'><img src='img/"+candthumb[i]+"-pixel.png' alt=''></div><p class='nametag'>"+candName[i]+"</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'><em id='MATCH_VALUE'>0</em>%</span></p></div>"
+				$(".matched-candidate-info").html(str);
+			}else{ //나머지 후보자들
+				var tmpStr = getCandBoxStr(i);
+				$(".other-candidate-score-list ul").append(tmpStr);
+			}	
+
+		});
+		AnimateResultPage(u, matchPercent);
+	};
+
+	function AnimateResultPage(u, p){
 		$(".ending-stage").show();
 		$(".cand-matched-info").slideDown(1000, "easeOutBounce", function(){
 			var $candBox = $(".cand-info-box");
 			for(o=0; o<$candBox.length;o++){
 				$candBox.eq(o).delay(o*700).animate({"opacity":"1", "top":"0px"}, 1200, "easeOutSine");
 				if(o == $candBox.length-1){	
-					animateValue("MATCH_VALUE", 0, 52, 1500);
+					animateValue("MATCH_VALUE", 0, p, 1500);
 				}
 				
 			};
 		});
-	});
+	};
+
+	function getCandBoxStr(i){
+		var str;
+		switch(i){
+			case 0:
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/lee-pixel.png' alt=''></div><p class='nametag'>이재명</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_01'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				return str; 
+				break;
+			case 1:
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/yoon-pixel.png' alt=''></div><p class='nametag'>윤석열</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_02'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				return str; 
+				break;
+			case 2:
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/sim-pixel.png' alt=''></div><p class='nametag'>심상정</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_03'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				return str; 
+				break;
+			case 3:
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/ahn-pixel.png' alt=''></div><p class='nametag'>안철수</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_04'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				return str; 
+				break;
+		}
+	
+	}
+
 	function animateValue(id, start, end, duration) {
 		var range = end - start;
 		var current = start;
@@ -1294,12 +1511,39 @@ $(function(){
 		if( $(this).hasClass("map-npc-done") ){
             
         }else{
-			if(bi=="111"||bi ==111){
+			if(bi=="111"||bi ==111){ //무가당
+				/*
+				console.log("치트키")
+				GameMap.freezed = true;
+				showAllQuestDoneAlert();
+				userClearQuest = true;
+				$(".btn-01").show();*/
+				alertLayerOn = true;
+				alertLayerType = "speak-mugadang";
+				$(".game-alert").show();
+				$(".alert-mugadang").show();
+
+			}else if(bi=="333"||bi ==333){ //제작자
+				alertLayerOn = true;
+				alertLayerType = "speak-maker";
+				$(".game-alert").show();
+				$(".alert-maker").show();
+				
+			}else if(bi=="7"||bi ==7){ //원로위원 -> 치트키
+				
 				console.log("치트키")
 				GameMap.freezed = true;
 				showAllQuestDoneAlert();
 				userClearQuest = true;
 				$(".btn-01").show();
+				putRandVal();
+
+				
+			}else if(bi=="9"||bi ==9){ //배
+				
+				console.log("배가 떠있다.")
+				
+				
 			}else{
 				GameMap.freezed = false;
 				showChatNpcAlert(bi);

@@ -311,7 +311,7 @@
 										<img src="https://img.khan.co.kr/spko/storytelling/2017/canyou/square.png" alt="empty" class="square-blank">
 										<div class="game-map">
 											
-											<img src="img/map_final_1221.png" alt="게임지도" class="map-img">
+											<img src="img/map_final_1222.png" alt="게임지도" class="map-img">
 											<div class="cover-noise"></div>
 											
 											<div class="map-el-holder">
@@ -322,7 +322,6 @@
 												<div class="map-el portal portal-b7"><img src="img/portal2.gif" alt=""></div>
 												<div class="map-el map-npc npc-01" data-npc-index="7">
 													<img src="img/npc-agora-stil.png" alt="원로위원">
-													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
 												</div>
 												<div class="map-el map-npc npc-02" data-npc-index="4">
 													<img src="img/npc-parade-2.png" alt="광장워쇼스키">
@@ -336,8 +335,11 @@
 													<img src="img/npc-sugar-stil.png" alt="무가당">
 													<div class="question-icon"><img src="img/alert-icon.png" alt=""></div>
 												</div>
-												<div class="map-el map-npc npc-05" data-npc-index="11">
+												<div class="map-el map-npc npc-05" data-npc-index="333">
 													<img src="img/npc-developer.png" alt="제작자">
+												</div>
+												<div class="map-el map-npc npc-06" data-npc-index="9">
+													<img src="img/boat-pixel.png" alt="배">
 												</div>
 
 
@@ -464,6 +466,49 @@
 										</div>
 										<!--항해중-->
 
+										<!--항해중 선택지-->
+										<div class="sailing-choice-scene">
+											<div class="sailing-choice-scene-wrap">
+												<div class="ocean-back"></div>
+												<div class="user-choice-panel">
+													<div class="desc-para-box">
+														<div class="para-holder">
+															<p>골고루 다양한 선택을 내리고, 비품을 모은 그대여,</p>
+															<p>그대의 항해 목적지는 아래의 <span class="numb">세</span> 나라일세 </p>
+															<p>지금 더 가고 싶은 곳을 선택해보게.</p>
+														</div>
+													</div>
+
+													<div class="select-btn-holder select-btn-holder-col-2">
+														<div class="select-btn">
+															<div class="cand-thumb-box">
+																<div class="thumb-img"><img src="img/lee-pixel.png" alt=""></div>
+															</div>
+															<div class="cand-info-bottom">
+																<p class="flag-name">인 나라</p>
+																<p class="nametag">지도자 <span class="cand-name">이재명</span></p></p>
+															</div>
+														</div>
+														<div class="select-btn">
+															<div class="cand-thumb-box">
+																<div class="thumb-img"><img src="img/lee-pixel.png" alt=""></div>
+															</div>
+															<div class="cand-info-bottom">
+																<p class="flag-name">인 나라</p>
+																<p class="nametag">지도자 <span class="cand-name">이재명</span></p></p>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+
+										</div>
+										<!--항해중 선택지-->
+
+										
+	
+
 										<!--도착화면-->
 										<div class="arriving-scene">
 											<div class="arriving-scene-wrap">
@@ -483,9 +528,16 @@
 												<div class="firework fw-04"><img src="img/firework.gif" alt=""></div>
 												<div class="firework fw-05"><img src="img/firework.gif" alt=""></div>
 												<div class="firework fw-06"><img src="img/firework.gif" alt=""></div>
-											
-										
-
+												
+												<div class="alert-arriving-desc">
+													<div class="desc-para-box">
+														<div class="para-holder">
+															<p><span class="flag-name">숭늉국</span>, <span class="pre-name">이재명</span> 지도자가 이끄는 나라에 오신걸 환영합니다.</p>
+														</div>
+													</div>
+												</div>
+												
+		
 												<div class="go-ending-page-btn">
 													<button id="GO_ENDING">항해 결과보기</button>
 												</div>
@@ -571,6 +623,26 @@
 												</div>	
 											</div>
 
+											<div class="alert-border alert-mugadang">
+												<div class="alert--basic alert--special">
+													<p>안녕 나는 무가당!</p>
+													<p>나도 4개의 나라 중 한 곳으로 떠나야 할텐데 아직 결정을 못했당. 이대로 결정을 못하면 각설탕이 되어버릴지도 모른당...</p>
+													<p>우리의 이야기가 궁금하당? 그렇다면 아래 영상을 보러가보댱!</p>
+													<p><a class="goMugadangVideo" href="https://www.youtube.com/watch?v=Amw5m5PCCAg" target="_blank">> 무가당의 이야기 보러가기</a></p>
+													<button class="close" data-btn-type="close-mugadang">닫기</button>
+												</div>	
+											</div>
+
+											<div class="alert-border alert-maker">
+												<div class="alert--basic alert--special">
+													<p>안녕, 넌 모험자구나? 큼, 비밀인데...이 곳에도 창조주가 있다는 사실 알아?</p>
+													<p>크크크...아냐, 넌 모를거야....</p>
+													<p class="userment">(퀭해 보이는 것이...이상한 사람이다. 그의 뒷편에 위치한 돌에는 이름들이 새겨져있다. 묘비명일까?)</p>
+													<p class="byline">조형국, 김유진, 이수민, 김덕기, 경향신문 대선 기획 취재팀, 이 세계에 이름을 남기다...</p>
+													<button class="close" data-btn-type="close-maker">닫기</button>
+												</div>	
+											</div>
+
 											<div class="alert-border alert-before-go-sailing">
 												<div class="alert--basic alert--special">
 													<p><b>위대한 그대여, 모든 준비를 마치었군요!</b></p>
@@ -638,8 +710,8 @@
 									<div class="user-matched-candidate">
 										<div class="desc-para-box">
 											<div class="para-holder">
-												<p>당신의 항해 도착지는 <span class="strong">‘예 나라’</span>로, <span class="strong">‘이재명’</span> 후보자가 그리는 나라입니다.</p>
-												<p>당신의 선택과 이재명 후보자의 정책 매칭율은 <span class="strong">52.5%</span> 입니다.</p>
+												<p>당신의 항해 도착지는 <span class="strong" id="FLAG_NAME">‘예 나라’</span>로, <span class="strong" id="PRE_NAME">‘이재명’</span> 후보자가 그리는 나라입니다.</p>
+												<p>당신의 선택과 후보자와의 정책 매칭율은 <span class="strong" id="MATCH_PER">52.5%</span> 입니다.</p>
 											</div>
 										</div>
 									</div>
