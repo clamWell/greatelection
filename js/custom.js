@@ -99,17 +99,17 @@ function putRandVal(){
 		}
 	}
 	console.log(userSelectData)
-	countUserSelect();
+	//countUserSelect();
 
 };
 
-var candName = ["이재명","윤석열","심상정","안철수"];
-var candCountry = ["숭늉나라", "찌개나라","크래커나라", "파스타나라"];
-var candthumb = ["lee", "yoon","sim", "ahn"];
-var MatchCandIdxArr = [];
-var UserMatchMaxVal;
-var countArr;
-function countUserSelect(){
+var candName = ["이재명","윤석열","심상정","안철수"],
+	candCountry = ["숭늉나라", "찌개나라","소보로나라", "파스타나라"],
+	candthumb = ["lee", "yoon","sim", "ahn"],
+	MatchCandIdxArr = new Array,
+	UserMatchMaxVal,
+	countArr;
+function countUserSelect(){ //사용자 선택 값 체크해서 후보자별로 분류하고, 가장 높은 값 체크
 	countArr = [0,0,0,0]; // 차례대로 이윤심안
 	var keys = Object.keys(userSelectData);
 	for (i = 0; i < keys.length; i++) {
@@ -127,10 +127,8 @@ function countUserSelect(){
 	UserMatchMaxVal = countArr.reduce(function(a, b) {
 		return Math.max(a, b);
 	});
-
 	console.log("매칭된 가장 높은 개수는 "+UserMatchMaxVal)
 
-	
 	for (i = 0; i < countArr.length; i++) {
 		var vv =  countArr[i];
 		if(vv == UserMatchMaxVal){
@@ -139,7 +137,6 @@ function countUserSelect(){
 	}
 	console.log(MatchCandIdxArr);
 	return MatchCandIdxArr;
-
 }
 
 
@@ -317,40 +314,40 @@ $(function(){
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], //1
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], //2
             [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], //3
-            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1], //4
-			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,1,1], //5
-            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,6,1,1,1,1,1], //6 //기지국
-			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,1,1,1], //7
-			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,1,1,1], //8
-			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1], //9
-			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,1,1,1], //10
-			[1,1,1,1,2,1,1,1,1,1,1,0,0,1,0,1,0,1,1,1,1,1,0,0,0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,1,1,1,1,0,1,1,1,1,1,1], //11
-			[1,1,1,1,0,1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1,1], //12
-			[1,1,1,1,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1], //13 //광장위
-			[1,1,1,1,0,1,1,1,1,1,0,1,0,1,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1], //14
-			[1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,0,0,0,0,0,1,1,1], //15
-			[1,1,1,1,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1], //16
-			[1,1,1,1,0,1,1,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,4,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1], //17
-			[1,1,1,0,0,1,1,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1,0,1,1,1,0,0,1,1,1,0,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1], //18
-			[1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,1,1,1,1,1,1,1,1,1], //19 //아고라
-			[1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1], //20
-			[1,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,1,1,1,1,1], //21
-			[1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,1,1,1,1,1], //22
-			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1], //23
-			[1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1], //24
-			[1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,7,1,1,1,1,1], //25 //아고라
-			[1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,1], //26
-			[1,1,1,1,0,0,0,0,1,1,1,1,3,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,1], //27 //여관
-			[1,1,1,1,0,1,0,0,1,1,1,1,0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,5,1,1,1,1,1,1,1,0,0,0,0,0,0,0,1,1,0,1,0,0,1,1], //28
-			[1,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,1,1,0,1,0,0,1,1], //29
-			[1,1,1,1,1,1,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1], //30
-			[1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,1,1,1,0,1,1,1], //31
-			[1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,1], //32 
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1], //4
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,1,0,0,1,1,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1], //5
+            [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,1,1,1,1,1,0,0,0,1,0,0,6,1,1,1,1,1], //6 //기지국
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,1,0,1,1,1,0,1,0,0,0,0,1,0,1,1,1,1,1,0,0,0,1,0,0,0,0,0,1,1,1], //7
+			[1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,1,0,0,0,0,1,1,0,0,0,0,1,0,0,0,1,1,1,1], //8
+			[1,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,0,1,0,0,1,0,1,0,1,0,0,0,1,0,1,1,0,0,0,0,1,1,0,0,0,0,1,0,1,1,1,1,1,1], //9
+			[1,1,1,1,1,1,1,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,1,0,1,1,0,0,0,1,0,1,0,0,1,1,1], //10
+			[1,1,1,1,2,0,1,1,1,1,1,1,0,0,0,1,0,1,1,1,1,0,0,0,0,1,1,0,0,0,1,0,1,1,0,0,0,1,0,1,1,1,1,0,1,1,1,1,1,1], //11
+			[1,1,0,0,0,0,0,1,1,0,0,0,0,1,0,0,1,1,1,1,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,0,1,1,1,1,0,1,1,1,1,1,1], //12
+			[1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,1,0,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,1,1,1], //13 //광장위
+			[1,1,1,1,0,1,1,0,1,1,0,1,1,1,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1], //14
+			[1,1,1,0,0,1,1,1,1,0,0,1,1,1,0,1,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,0,0,0,0,1,1,1], //15
+			[1,1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1], //16
+			[1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,4,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1], //17
+			[1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0,1,0,0,1,1,1,0,0,1,1,1,0,1,1,1,0,0,1,0,1,0,1,1,0,0,1,1,1], //18
+			[1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1], //19 //아고라
+			[1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1], //20
+			[1,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1], //21
+			[1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1], //22
+			[1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1], //23
+			[1,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,0,0,0,1,0,0,1,0,1,1,1,1,1,1,1,1,0,0,1,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1], //24
+			[1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,1,1,1,7,1,1,1,1,1], //25 //아고라
+			[1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,0,1,1], //26
+			[1,1,1,0,0,0,0,0,0,1,1,0,3,1,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,0,0,1,1,1,1], //27 //여관
+			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,0,0,0,1,1,1], //28
+			[1,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,0,0,0,1,0,1,1,1], //29
+			[1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1], //30
+			[1,1,1,1,1,1,0,0,1,0,1,0,0,1,1,1,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,1,0,1,1,1], //31
+			[1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,1], //32 
 			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //33 항구 벽돌
-			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //34
+			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,8,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], //34
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1], //35
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1], //36
-			[1,1,1,1,1,1,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //37
+			[1,1,1,1,1,1,0,0,1,1,0,0,0,1,1,0,1,1,0,0,1,1,1,1,1,0,0,1,1,1,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //37
 			[1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //38 > 바다
 			[1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //39 > 바다
 			[1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //40 > 바다
@@ -454,7 +451,7 @@ $(function(){
                 GameMap.myPoX += GameMap.move;
                 $(".map-img").css("left", GameMap.myPoX);
                 $(".map-el-holder").css("left", GameMap.myPoX);
-				if(change==true)$(".player img").attr("src", "img/char_03.gif");
+				if(change==true)$(".player img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/char_03.gif");
 				checkBuilding()
               //  GameMap.Xcompleted = GameMap.freezed = false;
             }
@@ -467,7 +464,7 @@ $(function(){
                 GameMap.myPoX -= GameMap.move;
                 $(".map-img").css("left", GameMap.myPoX);
                 $(".map-el-holder").css("left", GameMap.myPoX);
-                if(change==true)$(".player img").attr("src", "img/char_04.gif");
+                if(change==true)$(".player img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/char_04.gif");
 				checkBuilding()
               //  GameMap.Xcompleted = GameMap.freezed = false;
             }
@@ -480,7 +477,7 @@ $(function(){
                 GameMap.myPoY += GameMap.move;
                 $(".map-img").css("top", GameMap.myPoY);
                 $(".map-el-holder").css("top", GameMap.myPoY);
-                if(change==true)$(".player img").attr("src", "img/char_02.gif");
+                if(change==true)$(".player img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/char_02.gif");
 				checkBuilding()
                // GameMap.Xcompleted = GameMap.freezed = false;
             }
@@ -493,7 +490,7 @@ $(function(){
                 GameMap.myPoY -= GameMap.move;
                 $(".map-img").css("top", GameMap.myPoY);
                 $(".map-el-holder").css("top", GameMap.myPoY);
-                if(change==true)$(".player img").attr("src", "img/char_01_2.gif");
+                if(change==true)$(".player img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/char_01_2.gif");
 				checkBuilding()
                // GameMap.Xcompleted = GameMap.freezed = false;
             }
@@ -511,6 +508,10 @@ $(function(){
 		$(".opening-background-list .back-01").hide();
 		$(".opening-background-list .back-02").fadeIn();
         gameSound.click.play();
+		showOpeningStage();
+
+	});
+	function showOpeningStage(){
 		$(".opening").hide();
 		$(".opening-stage").show();
 		UserData.pageStage = 1; 
@@ -524,9 +525,8 @@ $(function(){
 				
 			};
 		});
-		
+	};	
 
-	});
 	$(".chat-input-txt").focus(function(){
 		$(this).val("");
 	});
@@ -559,7 +559,8 @@ $(function(){
 	function afterCloseAlert(type){
 		var closeAlertType = type; 
 		if(closeAlertType == "play-manual"){//시작매뉴얼 닫기
-		
+			if(isMobile){$(".screen-bottom-panel").fadeIn();}
+			
 		}else if( closeAlertType == "enter-building"){ //빌딩입장
 			enterBuilding(buildingIndex);
 		}else if(closeAlertType == "stay-building"){//빌딩잔류
@@ -591,7 +592,7 @@ $(function(){
 	function sendUserToBoat(){
 		$(".player-holder").hide();
 		//맵 초기 위치
-		console.log(GameMap.move);
+		//console.log(GameMap.move);
 		$(".map-img").css({left : GameMap.move * (-31)+ "px", top :GameMap.move * (-40)+ "px"});
 		$(".map-el-holder").css({left : GameMap.move * (-31)+ "px", top : GameMap.move * (-40)+ "px"});
 
@@ -618,8 +619,12 @@ $(function(){
 		$(".screen-left-panel .map-info").hide();
 		$(".screen-right-panel .select-history").hide();
 		$(".building-exit").show();
-		gameSound.bgm.pause();
-		gameSound.building.play();
+
+		if (!isMuteOn ){
+			gameSound.bgm.pause();
+			gameSound.building.play();
+		}
+
 
 		drawBuildingEl(b); //건물 안 요소들 채우기
 		drawChatBox(b, chatIndex) //대화내용 채우기 
@@ -648,10 +653,10 @@ $(function(){
 		
 		
 		if(b==7){ //아고라만 특수케이스
-			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "img/b"+b+"-npc-3.png");
+			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b"+b+"-npc-3.png");
 			$(".npc-name p").html("시끄러워 보이는 사람들");	
 		}else{
-			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "img/b"+b+"-npc.png");
+			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b"+b+"-npc.png");
 			$(".npc-name p").html(npcNameObj[b]);	
 		}
 		
@@ -688,6 +693,10 @@ $(function(){
 			$userChat.typed({strings: [ chatSetObj.msg[1] ], typeSpeed: 30});
 		} });*/
 		$npcChat.html("<p>"+chatSetObj.msgN+"</p>");
+		if(isMobile==true){ //모바일인 경우 왼쪽, 오른쪽을 아래쪽으로 바꾸어야함
+			chatSetObj.msgU = chatSetObj.msgU.replace("왼쪽", "아래쪽");
+			chatSetObj.msgU = chatSetObj.msgU.replace("오른쪽", "아래쪽");
+		}
 		var msgUser = "<p>"+chatSetObj.msgU+"</p>";
 		$userChat.typed({strings:[msgUser], typeSpeed: 0});
 
@@ -730,13 +739,13 @@ $(function(){
 		}
 
 		if(biStr=="b7" && chatIndex =="5"){//아고라에서 원로위원 첫 등장
-			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "img/b7-npc.png");
+			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc.png");
 			$(".npc-name p").html("현명해 보이는 노인");	
 		}else if(biStr=="b7" && chatIndex =="8"){//아고라에서 원로위원 앵그리 버전
-			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "img/b7-npc-2.png");
+			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc-2.png");
 			$(".npc-name p").html("성미가 불같은 화내는 노인");	
 		}else if(biStr=="b7" && chatIndex =="10"){//아고라에서 다시 원래 원로위원 모습으로
-			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "img/b7-npc.png");
+			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc.png");
 			$(".npc-name p").html("태세 전환이 빠른 노인");	
 		}
 		
@@ -768,7 +777,7 @@ $(function(){
 			if( v.thumb == false || v.thumb == "FALSE"){
 				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div></li>";
 			}else{
-				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='img/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div></li>";
+				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div></li>";
 			}
 			
 			$ItemHolder.append(itemStr);
@@ -798,7 +807,7 @@ $(function(){
 			$(".item-more-info-layer .thumbs").find("img").attr("src", "");
 		}else{
 			$(".item-more-info-layer .thumbs").show();
-			$(".item-more-info-layer .thumbs").find("img").attr("src", "img/"+itemDataObj.thumb);
+			$(".item-more-info-layer .thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+itemDataObj.thumb);
 		}
 		$(".item-more-info-layer .name").html(itemDataObj.name);
 		$(".item-more-info-layer .desc").html(itemDataObj.descFull);
@@ -831,7 +840,7 @@ $(function(){
 			if( v.thumb == false || v.thumb == "FALSE"){
 				var itemStr = "<li><div class='inner-wrap'><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
 			}else{
-				var itemStr = "<li><div class='inner-wrap'><div class='thumbs'><img src='img/"+ v.thumb +"' alt=''></div><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
+				var itemStr = "<li><div class='inner-wrap'><div class='thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+ v.thumb +"' alt=''></div><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
 			}	
 			$(".opt-full-desc-panel .each-opt-desc-list ul").append(itemStr);
 		})
@@ -965,8 +974,10 @@ $(function(){
 		var b = b || 2;
 		setCharAfterExitBuilding(b);
 		
-		gameSound.bgm.play();
-		gameSound.building.pause();
+		if (!isMuteOn ){
+			gameSound.bgm.play();
+			gameSound.building.pause();
+		}
 		
 		UserData.pageStage = 3;
 
@@ -1018,6 +1029,7 @@ $(function(){
 
 	function showAllQuestDoneAlert(){
 		//window.alert("퀘스트를 모두 완료")
+		countUserSelect();//사용자 선택 체크
         gameSound.alert.play();
 		alertLayerOn = true;
 		alertLayerType = "sent-to-boat";
@@ -1053,11 +1065,14 @@ $(function(){
 	};
 
     //사운드조절
+	var isMuteOn = false; 
 	$(".mute").on("click",function(){
-		 mute();
+		isMuteOn = true; 
+		mute();
 	});
 	$(".muteoff").on("click",function(){
-		 play();
+		isMuteOn = false; 
+		play();
 	});
 
 	function mute(){
@@ -1205,7 +1220,7 @@ $(function(){
 		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 무가당섬의 여관이 부동산에 대한 정보가 가장 빠르다고 합니다. 여관에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여관은 지도의 왼편, 아래에 위치해있습니다.</p>"
 	  },
 	  {
-		"queTitle": "광장에서 시민과 대화하기",
+		"queTitle": "중앙광장에서 시민과 대화하기",
 		"queThumb": "qu-info-b4.png",
 		"queDesc": "<p>이곳 중앙광장에서는 매주 다양한 퍼레이드가 열립니다. 오늘은 어떤 퍼레이드가 열렸을까요? 광장에서 퍼레이드에 참석한 이들과 대화해보세요. 맛있는 다과와 차도 준비되어 있다고 합니다.</p>\n<p>중앙광장은 지도의 중앙, 윗쪽에 위치해있습니다.</p>"
 	  },
@@ -1235,8 +1250,9 @@ $(function(){
     function makeQuestInfoLayer(qi){
 		var qData = questInfoData[qi];
         $(".quest-title").html(qData.queTitle);
-        $(".quest-thumb").attr("src", "img/"+qData.queThumb);
+        $(".quest-thumb").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+qData.queThumb);
         $(".quest-desc").html(qData.queDesc);
+		$(".quest-info-layer .warp").attr("data-warp-bi", (Number(qi)+2));
     };
 
 	$(".select-history ul li").on("click",function(e){
@@ -1254,7 +1270,7 @@ $(function(){
 
         }
 	});
-    $(".quest-info-close button").on("click",function(e){
+    $(".quest-info-close .close").on("click",function(e){
         e.preventDefault();
         $(".history-panel").removeClass("panel-block");
         $(".quest-info-layer").hide();
@@ -1263,6 +1279,54 @@ $(function(){
 			$(".map-panel").removeClass("panel-block");
 		}
     });
+
+	//워프효과
+	var warpPoint = {
+		"b2":[5,13],
+		"b3":[13,29],
+		"b4":[29,19],
+		"b5":[28,30],
+		"b6":[44,8],
+		"b7":[45,27],
+		"b8":[26,35]
+	}
+	 $(".quest-info-close .warp").on("click",function(e){
+        e.preventDefault();
+		
+		if(isMobile){
+			$(".select-history-back").hide();
+			$(".select-history").hide();
+			$(".map-panel").addClass("panel-block");
+			$(".history-panel").addClass("panel-block");
+		}
+        $(".quest-info-layer").hide();
+        var bi = $(this).attr("data-warp-bi");
+		var biStr = "b"+bi;
+		GameMap.freezed = true;
+		$(".player-holder .userName").fadeOut();
+		$(".player-holder .player").animate({"opacity":"0", "top":"-100px"},700, "easeOutSine", function(){
+			var wpX = warpPoint[biStr][0]-1,
+				wpY = warpPoint[biStr][1]-1;
+
+			$(".map-img").css({left : GameMap.move * (-1*wpX)+ "px", top :GameMap.move * (-1*wpY)+ "px"});
+			$(".map-el-holder").css({left : GameMap.move * (-1*wpX)+ "px", top : GameMap.move * (-1*wpY)+ "px"});
+
+			GameMap.myPoX = GameMap.move *(-1*wpX);
+			GameMap.myPoY = GameMap.move *(-1*wpY);
+			GameMap.playerX = wpX;
+			GameMap.playerY = wpY;
+			
+			$(".player-holder .player").delay(800).animate({"opacity":"1", "top":"0px"},700, "easeOutSine", function(){
+				$(".player-holder .userName").fadeIn();
+				GameMap.freezed = false;
+				$(".history-panel").removeClass("panel-block");
+				$(".map-panel").removeClass("panel-block");
+				
+			});
+
+		});
+    });
+	//워프효과
 
 	 $(".quest-panel").on("click",function(e){
         e.preventDefault();
@@ -1308,6 +1372,7 @@ $(function(){
 		$(".game-map").hide();
 		$(".player-holder").hide();
 		$(".each-panel").fadeOut();
+		$(".screen-bottom-panel").fadeOut();
 		$(".sailing-scene").fadeIn(1000);
 		$(".sailing-scene-wrap .user-boat").delay(500).animate({"left":"-20%"},4000, "swing", function(){
 			
@@ -1344,13 +1409,13 @@ $(function(){
 			
 			var c_temp ="";
 			if(v=="이재명"){
-				c_temp = "<div class='select-btn' data-usersel='0'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/lee-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>숭늉나라</p><p class='nametag'>지도자 <span class='cand-name'>이재명</span></p><p></p></div></div>";
+				c_temp = "<div class='select-btn' data-usersel='0'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/lee-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>숭늉나라</p><p class='nametag'>지도자 <span class='cand-name'>이재명</span></p><p></p></div></div>";
 			}else if(v=="윤석열"){
-				c_temp = "<div class='select-btn' data-usersel='1'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/yoon-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>찌개나라</p><p class='nametag'>지도자 <span class='cand-name'>윤석열</span></p><p></p></div></div>";
+				c_temp = "<div class='select-btn' data-usersel='1'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/yoon-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>찌개나라</p><p class='nametag'>지도자 <span class='cand-name'>윤석열</span></p><p></p></div></div>";
 			}else if(v=="심상정"){
-				c_temp = "<div class='select-btn' data-usersel='2'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/sim-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>크래커나라</p><p class='nametag'>지도자 <span class='cand-name'>심상정</span></p><p></p></div></div>";
+				c_temp = "<div class='select-btn' data-usersel='2'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/sim-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>소보로나라</p><p class='nametag'>지도자 <span class='cand-name'>심상정</span></p><p></p></div></div>";
 			}else if(v=="안철수"){
-				c_temp = "<div class='select-btn' data-usersel='3'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/ahn-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>파스타나라</p><p class='nametag'>지도자 <span class='cand-name'>안철수</span></p><p></p></div></div>";
+				c_temp = "<div class='select-btn' data-usersel='3'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/ahn-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>파스타나라</p><p class='nametag'>지도자 <span class='cand-name'>안철수</span></p><p></p></div></div>";
 			}
 			$(".sailing-choice-scene .select-btn-holder").append(c_temp);
 		});
@@ -1374,6 +1439,7 @@ $(function(){
 		$(".sailing-choice-scene").hide();
 		$(".alert-arriving-desc").find(".flag-name").html(candCountry[usi]);
 		$(".alert-arriving-desc").find(".pre-name").html(candName[usi]);
+		$(".arriving-people").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/people-"+candthumb[usi]+".gif");
 		$(".arriving-scene").fadeIn(1000);
 		$(".arriving-scene-wrap .go-ending-page-btn button").delay(500).fadeIn();
 		$(".arriving-scene-wrap .go-ending-page-btn button").attr("data-btn-ui", usi)
@@ -1411,7 +1477,7 @@ $(function(){
 		countArr.forEach(function(v,i,a){
 			if(i==u){ //매칭된 후보
 				$(".matched-candidate-info").html("");
-				var str = "<div class='cand-thumb-box'><div class='thumb-img'><img src='img/"+candthumb[i]+"-pixel.png' alt=''></div><p class='nametag'>"+candName[i]+"</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'><em id='MATCH_VALUE'>0</em>%</span></p></div>"
+				var str = "<div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+candthumb[i]+"-pixel.png' alt=''></div><p class='nametag'>"+candName[i]+"</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'><em id='MATCH_VALUE'>0</em>%</span></p></div>"
 				$(".matched-candidate-info").html(str);
 			}else{ //나머지 후보자들
 				var tmpStr = getCandBoxStr(i);
@@ -1419,6 +1485,8 @@ $(function(){
 			}	
 
 		});
+		$(".ending-stage .go-to-candidates-page").attr("onclick", "window.open('https://news.khan.co.kr/kh_storytelling/2022/greatelection/candidates/"+candthumb[u]+".html', '_blank');")
+
 		AnimateResultPage(u, matchPercent);
 	};
 
@@ -1440,19 +1508,19 @@ $(function(){
 		var str;
 		switch(i){
 			case 0:
-				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/lee-pixel.png' alt=''></div><p class='nametag'>이재명</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_01'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/lee-pixel.png' alt=''></div><p class='nametag'>이재명</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_01'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
 				return str; 
 				break;
 			case 1:
-				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/yoon-pixel.png' alt=''></div><p class='nametag'>윤석열</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_02'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/yoon-pixel.png' alt=''></div><p class='nametag'>윤석열</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_02'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
 				return str; 
 				break;
 			case 2:
-				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/sim-pixel.png' alt=''></div><p class='nametag'>심상정</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_03'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/sim-pixel.png' alt=''></div><p class='nametag'>심상정</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_03'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
 				return str; 
 				break;
 			case 3:
-				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='img/ahn-pixel.png' alt=''></div><p class='nametag'>안철수</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_04'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
+				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/ahn-pixel.png' alt=''></div><p class='nametag'>안철수</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_04'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
 				return str; 
 				break;
 		}
@@ -1486,7 +1554,7 @@ $(function(){
 	var buildingNameObj = {
 		2: "제로웨이스트샵",
 		3: "호텔을 꿈꾸는 여관",
-		4: "메인 광장",
+		4: "중앙광장",
 		5: "도서관",
 		6: "비밀스러운 기지국",
 		7: "아고라",
@@ -1554,7 +1622,12 @@ $(function(){
 	});
     
     function showChatNpcAlert(bi){
-        $(".alert-chat-npc .npc-name").html( npcNameObj[bi]);
+		if(bi==8){
+			$(".alert-chat-npc .npc-name").html("항구의 선원들");
+		}else{
+			$(".alert-chat-npc .npc-name").html( npcNameObj[bi]);
+		}
+        
         gameSound.alert.play();
 		alertLayerOn = true;
 		alertLayerType = "chat-npc";
@@ -1594,15 +1667,15 @@ $(function(){
                 var checkObj = userSelectData[biStr];
                 if( Object.values(checkObj).includes(null) ){ //완료되지 않음
                     buildingIndex = map_idx; 
+					if(buildingIndex==8){
+						showChatNpcAlert(buildingIndex);
+					}
                     showEnterBuildingAlert(buildingIndex);
                 
                 }else{ // 퀘스트 완료 
                     showBlockBuildingAlert(map_idx);
                 }
 
-            }else{
-                GameMap.freezed = true;
-                showAlertWaiting(map_idx);
             }
 
 		}else if(GameMap.map[GameMap.playerY][GameMap.playerX]== 9){
@@ -1612,15 +1685,16 @@ $(function(){
 			GameMap.freezed = false;
 		}
 	}
+
     
-    function showAlertWaiting(bi){
+    /*function showAlertWaiting(bi){
 		gameSound.alert.play();
 		$(".game-alert").show();
 		$(".alert-enter-building").attr("data-building-idx", bi);
 		alertLayerType = "wait";
 		$(".alert-waiting").show();
 		
-	};
+	};*/
     
 
 	function showEnterBuildingAlert(bi){
@@ -1631,6 +1705,7 @@ $(function(){
 		alertLayerType = "enter-building";
 		$(".alert-enter-building").attr("data-building-idx", bi);
 		$(".alert-enter-building").show();
+		alertLayerOn = true; 
 	};
 
 	function showBlockBuildingAlert(map_idx){
@@ -1660,17 +1735,16 @@ $(function(){
    var alertLayerType; 
 
 
+
    $(window).keydown(function(e){
 		//console.log("키누름");
         
         //처음 시작 전
 		if(UserData.pageStage == 0 && event.keyCode == 13){
-			gameSound.click.play();
 			$(".opening-background-list .back-01").hide();
 			$(".opening-background-list .back-02").fadeIn();
-			$(".opening").hide();
-			$(".opening-stage").show();
-			UserData.pageStage = 1; 
+			gameSound.click.play();
+			showOpeningStage();
 		}else if(UserData.pageStage == 1&& event.keyCode == 13){
 			gameSound.click.play();
 			
