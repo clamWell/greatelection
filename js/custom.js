@@ -20,7 +20,40 @@ function checkMobile(){
 		return false;
 	}
 }
+var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+function isMobileSafari(){
+    if(isSafari == true){
+        screenHeight = $("#WIN_HEIGHT").height();
+    }
+}
 checkMobile();
+isMobileSafari();
+$(".close-ie-block").on("click", function(){
+    $(".ie-block").hide();
+})
+
+var ieUnder = false;
+var isIe =false;
+function checkIe(){
+    var word;
+    var agent = navigator.userAgent.toLowerCase(); 
+    if (  (navigator.appName === 'Netscape' && navigator.userAgent.search('Trident') !== -1)|| (agent.indexOf("msie") !== -1)) {
+        if (navigator.userAgent.indexOf("MSIE") >= 0) { 
+            isIe = true;
+            ieUnder = true;
+            //$(".ie-block-9").show(); 
+        }else{
+            
+            isIe = true;
+            //$(".ie-block-allie").show(); 
+        }
+        return true;
+    }else {
+        return false;
+    }
+}
+checkIe();
+
 
 //사용자의 선택 값을 담는 객체
 var userSelectData = {
@@ -99,7 +132,6 @@ function putRandVal(){
 		}
 	}
 	console.log(userSelectData)
-	//countUserSelect();
 
 };
 
@@ -217,10 +249,11 @@ $(function(){
 
 				gw = screenWidth;
 				gh = screenHeight;
-				//mt_gap = 35;
+                //if(isSafari = true){ gh = screenHeight- 70 }
 				this.gameViewPortMode = "mobile";
 				console.log(gw, gh, mt_gap);
-				$gameVP.css({"width": gw+"px", "height": gh+"px"});
+				//$gameVP.css({"width": gw+"px", "height": gh+"px"});
+                $gameVP.css({"width": gw+"px", "height": "100%"});
 				$("html, body").css("font-size", (gw * 16 / 800) + "px");
 
 				
@@ -328,7 +361,7 @@ $(function(){
 			[1,1,1,0,0,1,1,1,1,0,0,1,1,1,0,1,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1,1,0,0,1,0,0,0,1,0,0,0,0,1,1,1], //15
 			[1,1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1], //16
 			[1,1,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,4,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1], //17
-			[1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0,1,0,0,1,1,1,0,0,1,1,1,0,1,1,1,0,0,1,0,1,0,1,1,0,0,1,1,1], //18
+			[1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,0,1,0,1,0,1,1,0,0,1,1,1], //18
 			[1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1], //19 //아고라
 			[1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1], //20
 			[1,1,1,1,0,1,0,0,0,0,0,0,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1], //21
@@ -344,7 +377,7 @@ $(function(){
 			[1,1,1,1,1,1,0,0,1,0,1,0,0,1,1,1,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,1,0,1,1,1], //31
 			[1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,1], //32 
 			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //33 항구 벽돌
-			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,8,0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], //34
+			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,8,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], //34
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1], //35
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1], //36
 			[1,1,1,1,1,1,0,0,1,1,0,0,0,1,1,0,1,1,0,0,1,1,1,1,1,0,0,1,1,1,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //37
@@ -444,7 +477,8 @@ $(function(){
 
         },
         moveleft: function(change){
-            gameSound.walk.play();
+            if (!isMuteOn ){  gameSound.walk.play(); }
+           
             if (GameMap.map[GameMap.playerY][GameMap.playerX-1] != 1 && GameMap.freezed === false && GameMap.map[GameMap.playerY][GameMap.playerX-1] != undefined){
 
                 GameMap.playerX -= 1;
@@ -458,7 +492,7 @@ $(function(){
 
         },
         moveright: function(change){
-            gameSound.walk.play();
+            if (!isMuteOn ){  gameSound.walk.play(); }
            if (GameMap.map[GameMap.playerY][GameMap.playerX+1] != 1 && GameMap.freezed === false){
                 GameMap.playerX += 1;
                 GameMap.myPoX -= GameMap.move;
@@ -471,7 +505,7 @@ $(function(){
 
         },
         moveup: function(change){
-            gameSound.walk.play();
+            if (!isMuteOn ){  gameSound.walk.play(); }
             if (GameMap.map[GameMap.playerY-1][GameMap.playerX] != 1 && GameMap.freezed === false){
                 GameMap.playerY -= 1;
                 GameMap.myPoY += GameMap.move;
@@ -484,7 +518,7 @@ $(function(){
 
         },
         movedown: function(change){
-            gameSound.walk.play();
+            if (!isMuteOn ){  gameSound.walk.play(); }
             if (GameMap.map[GameMap.playerY+1][GameMap.playerX] != 1 && GameMap.freezed === false){
                 GameMap.playerY += 1;
                 GameMap.myPoY -= GameMap.move;
@@ -520,6 +554,7 @@ $(function(){
 			for(o=0; o<$eachPara.length;o++){
 				$eachPara.eq(o).delay(o*700).animate({"opacity":"1"}, 1200, "easeOutSine");
 				if(o == $eachPara.length-1){	
+                    EnterPassStage = true;
 					$(".opening-stage .btn-holder").delay(3000).fadeIn();
 				}
 				
@@ -564,6 +599,7 @@ $(function(){
 		}else if( closeAlertType == "enter-building"){ //빌딩입장
 			enterBuilding(buildingIndex);
 		}else if(closeAlertType == "stay-building"){//빌딩잔류
+            if(isMobile){ $(".screen-bottom-panel").removeClass("screen-bottom-panel-block"); }
 		
 		}else if(closeAlertType == "exit-building"){//빌딩퇴장
 			exitBuilding(buildingIndex, false);
@@ -775,9 +811,9 @@ $(function(){
 			}
 			
 			if( v.thumb == false || v.thumb == "FALSE"){
-				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div></li>";
+				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'></div></li>";
 			}else{
-				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div></li>";
+				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'></div></li>";
 			}
 			
 			$ItemHolder.append(itemStr);
@@ -833,7 +869,6 @@ $(function(){
 		EnterPassMsg= false
 		var biStr = "b"+bi;
 		var itemDataObjArr =itemData[biStr][pi];
-			
 		$(".opt-full-desc-panel .each-opt-desc-list ul").html("");//초기화
 
 		itemDataObjArr.forEach(function(v,i,a){
@@ -845,11 +880,14 @@ $(function(){
 			$(".opt-full-desc-panel .each-opt-desc-list ul").append(itemStr);
 		})
 		$(".opt-full-desc-panel .each-opt-desc-list ul li").eq(3).addClass("last");
-		$(".opt-full-desc-panel").scrollTop(0);
-		$(".opt-full-desc-mobile-layer").show();
+		$(".script-width").addClass("game-holder-touch-block");
+        $(".opt-full-desc-mobile-layer").show();
+        $(".opt-full-desc-panel").scrollTop(0);
+
 	};
 	$(".opt-full-desc-close").on("click", function(e){ //닫기
 		e.preventDefault();
+        $(".script-width").removeClass("game-holder-touch-block");
 		$(".opt-full-desc-mobile-layer").hide();
 		$(".opt-full-desc-panel .each-opt-desc-list ul").html("");
 		
@@ -868,6 +906,12 @@ $(function(){
 			var optStr = "<li class='opt' data-opt='"+owner+"'>"+v+"</li>";
 			$(".user-chat-select ul").append(optStr);
 		})
+        //랜덤으로 섞기
+        var ul = document.querySelector(".user-chat-select ul");
+        for (var i = ul.children.length; i >= 0; i--){ 
+            ul.appendChild(ul.children[Math.random() * i | 0]);
+        }
+
 	};
 	
 
@@ -946,6 +990,8 @@ $(function(){
 		alertLayerType = "stayOrExit";
 		alertLayerOn = false;
 		$(".alert-exit-building").show();
+
+        if(isMobile){  $(".screen-bottom-panel").addClass("screen-bottom-panel-block"); }
 	});
 
 
@@ -961,7 +1007,13 @@ $(function(){
 			}
             var biStr = "b"+bi;
 			var checkObj = userSelectData[biStr];
-			if( Object.values(checkObj).includes(null) ){ //완료되지 않음
+            var values;
+            if(isIe==true){
+                values = Object.keys(checkObj).map(function(i) { return checkObj[i]; });
+            }else{
+                values =Object.values(checkObj);
+            }
+			if( values.indexOf(null) !== -1 ){ //완료되지 않음
 			    //무언가 오류가 났다는 의미 
 			}else{ // 퀘스트 완료  
                 QueDonLength+=1;
@@ -980,7 +1032,11 @@ $(function(){
 		}
 		
 		UserData.pageStage = 3;
-
+        if(isMobile){       
+            $(".screen-bottom-panel").removeClass("screen-bottom-panel-block");
+            $(".bottom-option-panel-holder").removeClass("up");
+            $(".bottom-option-panel-holder").hide();
+        }
 		$(".screen-left-panel .map-info").show();
 		$(".screen-right-panel .select-history").show();
 		$(".building-exit").hide();
@@ -1028,8 +1084,7 @@ $(function(){
 	};
 
 	function showAllQuestDoneAlert(){
-		//window.alert("퀘스트를 모두 완료")
-		countUserSelect();//사용자 선택 체크
+		console.log("퀘스트를 모두 완료")
         gameSound.alert.play();
 		alertLayerOn = true;
 		alertLayerType = "sent-to-boat";
@@ -1193,6 +1248,7 @@ $(function(){
 			if(o == $openCandImg.length-1){	
 				$(".game-title-holder").removeClass("game-title-holder-zoom");
 				$("#OPENING_START").fadeIn(1500);
+                EnterPassStage = true;
 			}
 		};
 	};
@@ -1212,12 +1268,12 @@ $(function(){
 	  {
 		"queTitle": "제로웨이스트샵에서 책자 구매하기",
 		"queThumb": "qu-info-b2.png",
-		"queDesc": "<p>무가당 제로웨이스트 샵에 가서 점장 툰베리와 대화하고 항해에 필요한 두 가지 장비를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장 툰베리가 여러분들께 친절히 소개해드립니다.</p>\n<p>무가당 제로웨이스트 샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
+		"queDesc": "<p>무가당 제로웨이스트 샵에 가서 점장과 대화하고 항해에 필요한 두 가지 장비를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장이 친절히 소개해드립니다.</p>\n<p>무가당 제로웨이스트 샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "여관 직원에게 부동산 정보 얻기",
 		"queThumb": "qu-info-b3.png",
-		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 무가당섬의 여관이 부동산에 대한 정보가 가장 빠르다고 합니다. 여관에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여관은 지도의 왼편, 아래에 위치해있습니다.</p>"
+		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 무가당섬의 여관이 부동산 정보가 가장 빠르다고 합니다. 여관에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여관은 지도의 왼편, 아래에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "중앙광장에서 시민과 대화하기",
@@ -1242,7 +1298,7 @@ $(function(){
 	  {
 		"queTitle": "항구에서 동료 찾기",
 		"queThumb": "qu-info-b8.png",
-		"queDesc": "<p>항해에는 선원이 필요하죠! 동료를 찾기 위해 항구의 마당발 루피를 만나야 합니다. 루피가 당신에게 다양한 동료들을 소개시켜줄거에요.</p>\n<p>루피는 지도의 왼편, 아래 항구 인근에 위치해있습니다.</p>"
+		"queDesc": "<p>항해에는 선원이 필요하죠! 동료를 찾기 위해 항구의 마당발을 만나야 합니다. 밀짚모자를 쓴 선원이 당신에게 다양한 동료들을 소개시켜줄거에요.</p>\n<p>그들은 지도의 왼편, 아래 항구 인근에 위치해있습니다.</p>"
 	  }
 	];
 
@@ -1253,6 +1309,7 @@ $(function(){
         $(".quest-thumb").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+qData.queThumb);
         $(".quest-desc").html(qData.queDesc);
 		$(".quest-info-layer .warp").attr("data-warp-bi", (Number(qi)+2));
+        $(".quest-info-layer").show();
     };
 
 	$(".select-history ul li").on("click",function(e){
@@ -1265,7 +1322,7 @@ $(function(){
             $(".map-panel").addClass("panel-block");
             $(".history-panel").addClass("panel-block");
             makeQuestInfoLayer(qi)
-            $(".quest-info-layer").show();
+            
 			GameMap.freezed = true;
 
         }
@@ -1367,8 +1424,10 @@ $(function(){
 	};
 	
 	function goSailingStage(){
+        countUserSelect();//사용자 선택 체크
 		console.log("항해시작");
-
+        mute();
+		
 		$(".game-map").hide();
 		$(".player-holder").hide();
 		$(".each-panel").fadeOut();
@@ -1485,7 +1544,7 @@ $(function(){
 			}	
 
 		});
-		$(".ending-stage .go-to-candidates-page").attr("onclick", "window.open('https://news.khan.co.kr/kh_storytelling/2022/greatelection/candidates/"+candthumb[u]+".html', '_blank');")
+		$(".ending-stage .go-to-candidates-page").attr("onclick", "window.open('https://news.khan.co.kr/kh_storytelling/2022/candidates/"+candthumb[u]+".html', '_blank');")
 
 		AnimateResultPage(u, matchPercent);
 	};
@@ -1562,13 +1621,13 @@ $(function(){
 	};
 
 	var npcNameObj = {
-		2: "툰베리",
-		3: "벨보이 잭",
-		4: "광장에 나온 워쇼스키",
-		5: "오티스",
-		6: "요원K",
+		2: "기후위기에 진심인 점장",
+		3: "벨보이",
+		4: "염색이 꽤 잘 나온 시민",
+		5: "이론에 빠삭해보이는 학생",
+		6: "요원-K",
 		7: "아리무가당텔레스",
-		8: "루피"
+		8: "말랑말랑해 보이는 선원"
 	};
 
    
@@ -1580,12 +1639,6 @@ $(function(){
             
         }else{
 			if(bi=="111"||bi ==111){ //무가당
-				/*
-				console.log("치트키")
-				GameMap.freezed = true;
-				showAllQuestDoneAlert();
-				userClearQuest = true;
-				$(".btn-01").show();*/
 				alertLayerOn = true;
 				alertLayerType = "speak-mugadang";
 				$(".game-alert").show();
@@ -1598,13 +1651,13 @@ $(function(){
 				$(".alert-maker").show();
 				
 			}else if(bi=="7"||bi ==7){ //원로위원 -> 치트키
-				
+				putRandVal();
 				console.log("치트키")
 				GameMap.freezed = true;
 				showAllQuestDoneAlert();
 				userClearQuest = true;
 				$(".btn-01").show();
-				putRandVal();
+				
 
 				
 			}else if(bi=="9"||bi ==9){ //배
@@ -1665,7 +1718,13 @@ $(function(){
                 //이미 퀘스트 완료가 된 공간인지 체크
                 var biStr = "b"+map_idx;
                 var checkObj = userSelectData[biStr];
-                if( Object.values(checkObj).includes(null) ){ //완료되지 않음
+                var values;
+                if(isIe==true){
+                    values = Object.keys(checkObj).map(function(i) { return checkObj[i]; });
+                }else{
+                    values =Object.values(checkObj);
+                }
+                if( values.indexOf(null) !== -1  ){ //완료되지 않음
                     buildingIndex = map_idx; 
 					if(buildingIndex==8){
 						showChatNpcAlert(buildingIndex);
@@ -1733,19 +1792,19 @@ $(function(){
    var EnterPassMsg = true; 
    var alertLayerOn = false; 
    var alertLayerType; 
-
-
+   var EnterPassStage = false; 
 
    $(window).keydown(function(e){
 		//console.log("키누름");
         
         //처음 시작 전
-		if(UserData.pageStage == 0 && event.keyCode == 13){
+		if(UserData.pageStage == 0 && event.keyCode == 13 && EnterPassStage==true){
+            EnterPassStage=false;
 			$(".opening-background-list .back-01").hide();
 			$(".opening-background-list .back-02").fadeIn();
 			gameSound.click.play();
 			showOpeningStage();
-		}else if(UserData.pageStage == 1&& event.keyCode == 13){
+		}else if(UserData.pageStage == 1&& event.keyCode == 13&& EnterPassStage==true){
 			gameSound.click.play();
 			
 			$(".opening-stage-el--01").hide();

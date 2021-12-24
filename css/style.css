@@ -43,6 +43,15 @@ img { border:0; vertical-align:bottom; }
 .warning_area .keepBtn:hover , .warning_area p.updateBtn:hover {color: #ff9320;border: 1px solid #ff9320;}
 .ieBox{position:fixed; z-index:1000; width: 500px; height: 250px; top:50%; left: 50%; margin-top: -125px; margin-left: -250px;}
 
+/*****IE 블락******/
+.ie-block {  z-index: 99999; width:100%; height:100vh; background:#111; background: rgba(21, 21, 21, 0.9);position:fixed; top:0;left:0;bottom:0;right:0;}
+.ie-block .alert-msg { position: absolute; background:#fff; box-sizing: border-box; padding: 25px; border-radius: 5px;
+box-shadow: 2px 2px 8px rgba(152, 153, 156, 0.2);width: 50%; left:25%; top: 50%; margin-top:-150px; }
+.ie-block .alert-msg p { margin-bottom:8px;  text-align: center; color: #454750;font-size: 20px; }
+.ie-block .alert-msg button {    display: block; width: 80%; margin: 0px auto;margin-top: 20px;
+box-sizing: border-box;  padding: 10px; background: #ececf1;  border-radius: 4px; color: #565661; font-weight: bold; font-size: 14px; cursor: pointer; border: 1px solid #dedee2; letter-spacing: -0.05em; }
+.ie-block-allie {}
+
 
 /*-------------------------------------*/
 /******** 전체 기본 CSS - PC 기준********/
@@ -160,7 +169,7 @@ background: rgba(255,255,255,0.5);background: radial-gradient(#ffb479, transpare
 .ment-box .box-inner { box-sizing: border-box;padding: 7%; width: 100%; height: 100%; /*border: 1px solid #222;*/}
 .ment-box .box-inner .box-txt {  background: rgba(255,255,255,0.5); box-sizing: border-box; padding: 1% 4%; }
 .ment-box .box-inner .box-txt p {  margin: 13px 0; font-size: 1.1rem;line-height: 1.7rem; font-weight: 400;color:#26262a;word-break: keep-all; text-shadow: 2px 1px 0px rgba(255,255,255,0.7); 
-font-family: 'Noto Sans KR'; font-weight: bold;opacity: 0;} 
+ font-family: 'Noto Sans KR', 'notokr-regular'; font-weight: bold;opacity: 0;} 
 .ment-box .box-inner .box-txt p.ex {font-weight: bold; font-family: 'DungGeunMo', 'notokr-regular'; }
 .ment-box .box-inner .box-txt p.strong { color: #ca7d00; font-weight: bold;text-align: center; font-size: 1.2rem; }
 .opening-stage .btn-holder { display:none;}
@@ -358,13 +367,22 @@ width:110%; bottom: -5%; left:5%; background-size: 100% 100%;position: absolute;
 .user-select-preview-right{ right:-4%;}
 .user-select-preview .select-preview-panel {width: 100%;}
 .user-select-preview .select-preview-panel ul { width:100%; }
-.user-select-preview .select-preview-panel ul li { position: relative; width: 100%; height: 200px;overflow: hidden; margin: 4% 0; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/item-back.png") no-repeat; background-size: 100% 100%;box-sizing: border-box; padding: 7%;}
+.user-select-preview .select-preview-panel ul li { position: relative; width: 100%; height: 200px; margin-bottom: 10%; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/item-back.png") no-repeat; background-size: 100% 100%;box-sizing: border-box; padding: 7%;}
 .user-select-preview .select-preview-panel ul li .opt-thumbs { width: 30%; margin: 5% auto;  }
 .user-select-preview .select-preview-panel ul li .opt-thumbs img { width:100%;-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;  }
-.user-select-preview .select-preview-panel ul li .opt-name { text-align: center;font-size: 0.9rem;  word-break: keep-all; color: #521b0d; box-sizing: border-box;  padding: 0% 4%;margin-top: 5%;}
-.user-select-preview .select-preview-panel ul li .opt-desc { font-size: 0.8rem; font-family: 'Noto Sans KR', 'notokr-regular';  box-sizing: border-box;  padding: 1% 5%;}
-.user-select-preview .select-preview-panel ul li .desc-more-btn{position: absolute;bottom: 0%; right: 0%; font-size: 0.8rem;display: inline;box-sizing: border-box;padding: 2%;cursor: pointer; background: #e4bc81;  color: #111; border: 1px solid #111;}
+.user-select-preview .select-preview-panel ul li .opt-name { text-align: center;font-size: 0.9rem;  word-break: keep-all; color: #521b0d; box-sizing: border-box;  padding: 0%;margin-top: 5%;
+ font-family: 'Noto Sans KR', 'notokr-regular'; font-weight: bold;  font-size: 1rem;}
+.user-select-preview .select-preview-panel ul li .opt-desc { font-size: 0.9rem; font-family: 'Noto Sans KR', 'notokr-regular';  box-sizing: border-box;  padding: 1% 5%;}
+.user-select-preview .select-preview-panel ul li .desc-more-btn{position: absolute;bottom: -10px; right: 0%; font-size: 0.8rem;display: inline;box-sizing: border-box;padding: 2%;cursor: pointer; background: #e4bc81;  color: #111; border: 1px solid #111;}
 .user-select-preview .select-preview-panel ul li .desc-more-btn:hover { background: #d6a65f;}
+.user-select-preview .select-preview-panel ul li .cand_icon { position: absolute; top: -5px; width: 30px; left:0px;
+background: #4d483d; box-sizing: border-box;  padding: 3px;border: 1px solid #fff;}
+.user-select-preview .select-preview-panel ul li .cand_icon img { width:100%; }
+.user-select-preview .select-preview-panel ul li .cand_icon_1 { background: #a12000;}
+.user-select-preview .select-preview-panel ul li .cand_icon_2 { background: #6b7fd2;}
+.user-select-preview .select-preview-panel ul li .cand_icon_3 { background: #346943;}
+.user-select-preview .select-preview-panel ul li .cand_icon_4 { background: #b9b9b9;}
+.user-select-preview .select-preview-panel ul li.on { }
 
 .item-more-info-layer { display:none; width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: rgba(0,0,0,0.5);  backdrop-filter: blur(2px); }
 .item-more-info-layer .info-panel { position: absolute;width: 80%; left: 10%; top: 20%; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/info-panel-back-big.png") no-repeat; background-size: 100% 100%;border: 2px solid #392200;box-shadow: 5px 5px 20px rgb(0 0 0 / 50%);}
@@ -698,7 +716,7 @@ font-size: 1.5rem; display: block;  letter-spacing: -0.07rem; text-align: center
 .opt-full-desc-mobile-layer { display:none; position: fixed; top: 0; left: 0;  width: 100%;  height: 100vh; z-index: 9999; background: rgba(0,0,0,0.3); backdrop-filter: blur(2px);}
 .opt-full-desc-panel { width: 100%; height:100%; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/mobile-full-desc-back-2.png") no-repeat;  position: relative; background-size: 100% 100%; padding: 15px 25px; box-sizing: border-box; margin: 0 auto;overflow-x: hidden; overflow-y: scroll;}
 .opt-full-desc-panel .each-opt-desc-list { width:100%; height:inherit; }
-.opt-full-desc-panel .each-opt-desc-list h4 { text-align: center; font-size: 1.6rem; margin-bottom: 10px; }
+.opt-full-desc-panel .each-opt-desc-list h4 { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
 .opt-full-desc-panel .each-opt-desc-list ul { width:100%; pointer-events: none;}
 .opt-full-desc-panel .each-opt-desc-list ul li { margin: 10px auto; width:100%; border-bottom: 2px dashed #bb9e8d; cursor: default; }
 .opt-full-desc-panel .each-opt-desc-list ul li .inner-wrap { width:100%;padding: 15px 0;box-sizing:border-box;  }
@@ -715,10 +733,10 @@ font-size: 1.5rem; display: block;  letter-spacing: -0.07rem; text-align: center
 .opt-full-desc-panel .each-opt-desc-list ul.clickable li { cursor: pointer; }
 .bottom-option-panel-holder.up { position: relative;  top: -100px;  box-shadow: 0px 0px 20px rgb(0 0 0 / 50%);}
 
-.sailing-choice-scene .user-choice-panel { top: 10%;}
+.sailing-choice-scene .user-choice-panel { top: 10%;margin-top: 0;}
 .sailing-choice-scene .user-choice-panel .desc-para-box { max-width: 90%;}
 .user-choice-panel .desc-para-box .para-holder { font-size: 1.8rem; line-height: 2.6rem;}
-
+.arriving-scene-wrap .arriving-user-boat{ bottom:-2%; }
 .alert-arriving-desc {} 
 .arriving-scene .desc-para-box { max-width: 80%; }
 .arriving-scene .desc-para-box .para-holder {  font-size: 1.8rem; line-height: 2.6rem;}
@@ -727,6 +745,23 @@ font-size: 1.5rem; display: block;  letter-spacing: -0.07rem; text-align: center
 
 .quest-info-layer .quest-info-panel .quest-info-close button {  font-size: 1.5rem;  float: left;   width: 45%;  margin: 0 1.5%;}
 .quest-info-layer .quest-info-panel .quest-info-close::after { clear:both; content:""; display:block; }
+
+.alert-before-go-sailing { top: 15%; }
+.ending-stage-wrap .user-result-panel { padding: 35px 0; }
+.user-result-panel .user-matched-candidate .desc-para-box { padding: 5%; }
+.user-result-panel .user-matched-candidate .desc-para-box .para-holder {font-size: 2rem; line-height: 3rem;text-align: left;} 
+.cand-matched-info { top: 0; left: 0; margin-top: 15px; width: 90%;  padding: 40px 20px;}
+.cand-thumb-box { width:80px;height:80px; }
+.other-candidate-score-list ul { max-width:80%;}
+.cand-thumb-box .nametag{ font-size: 1.8rem; top:0px; }
+.other-candidate-info .cand-thumb-box { width: 9rem; height:9rem; }
+.other-candidate-info .cand-thumb-box .nametag {font-size: 1.6rem;}
+.other-candidate-info .cand-match-score p {  font-size: 1.8rem; } 
+.other-candidate-info .cand-match-score p .score-value { font-size: 2rem; }
+.bottom-game-button-panel .button-col-2 button {font-size:1.8rem;  }
+
+.game-holder-touch-block { position: fixed; height:100vh; touch-action: none;-ms-touch-action: none;overflow:hidden; pointer-events: none; }
+
 
 }
 
