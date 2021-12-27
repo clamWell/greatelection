@@ -176,6 +176,7 @@ function countUserSelect(){ //사용자 선택 값 체크해서 후보자별로 
 /******** 모바일 전용 조정 ********/
 if(isMobile==true){
 	$(".select-history-pc").remove();
+	$(".chat-inner-btn.chat-return-btn").remove();
 }else{
 	$(".select-history-mobile").remove();
 }
@@ -700,12 +701,31 @@ $(function(){
 		$(".inside-building").fadeIn(1000);
 	
 	};
-	
-	
+
+	//채팅 되돌리기 기능
+	var chatReturnPoint = {
+		"b2":[5, 12],
+		"b3":[9, 15],
+		"b4":[1, 10],
+		"b5":[1, 9],
+		"b6":[1, 10],
+		"b7":[5, 10],
+		"b8":[1, 10]
+	};
+	$(".chat-return-btn").on("click",function(){
+		//console.log(phaseIndex, buildingIndex, chatIndex);
+		$(".chat-return-btn").hide();
+		var biStr = "b"+buildingIndex; 
+		var returnCI_Point =  chatReturnPoint[biStr][phaseIndex-1];
+		console.log(returnCI_Point);
+		chatIndex = returnCI_Point-1; //채팅인덱스값 재적용
+		drawChatBox(buildingIndex,chatIndex);
+		$(".bottom-option-panel-holder").removeClass("up");
+	});
+	//채팅 되돌리기 기능
+
 	//채팅 내용을 담고 있는 객체 
 	//외부화
-
-
 
 	var m_selectBottomOpt = false;
 
@@ -713,7 +733,7 @@ $(function(){
 		var biStr = "b"+bi;
 		var chatIndex = String(ci*1+1);
 		var chatSetObj = chatData[biStr][chatIndex];
-
+		
 		//console.log(chatSetObj);
 
 		
@@ -737,10 +757,12 @@ $(function(){
 		$userChat.typed({strings:[msgUser], typeSpeed: 0});
 
 		var phase = chatSetObj.phase;
+		phaseIndex = phase;
 		if(chatSetObj.type == "normal"){
 			EnterPassMsg = true;
 			$(".user-chat-select").hide();
 			$(".user-panel .chat-box .chat-next-btn").show();
+			$(".chat-return-btn").hide();
 		}else if(chatSetObj.type == "userSelect"){ // 사용자 선택 
 			EnterPassMsg = false;
 			$(".chat-bottom-btn").hide();
@@ -748,6 +770,8 @@ $(function(){
 			if(isMobile){ 
 				$(".opt-full-desc-panel .each-opt-desc-list ul").addClass("clickable");
 				$(".bottom-option-panel-holder").addClass("up");
+				$(".chat-return-btn").attr("data-phase", phaseIndex);
+				$(".chat-return-btn").show();
 				m_selectBottomOpt = true;
 
 			}else{
@@ -755,11 +779,14 @@ $(function(){
 				makeUserChatSelectBtn(optArr, phase);
 				console.log(optArr);
 				$(".user-panel .chat-box .user-chat-select").show();
+				$(".chat-return-btn").attr("data-phase", phaseIndex);
+				$(".chat-return-btn").show();
 			}
 		}else if(chatSetObj.type == "userExit"){
 			EnterPassMsg = false;
 			$(".user-chat-select").hide();
 			$(".building-exit").hide();
+			$(".chat-return-btn").hide();
 			$(".user-panel .chat-box .exit-building-btn").show();
 			
 		}
@@ -784,8 +811,7 @@ $(function(){
 			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc.png");
 			$(".npc-name p").html("태세 전환이 빠른 노인");	
 		}
-		
-
+	
 
 	}
 
@@ -1044,7 +1070,7 @@ $(function(){
 		$(".user-select-preview").hide();
 		$(".user-chat-select ul").html("");
 		$(".item-more-info-layer").hide();
-
+		phaseIndex = 1; 
 		eraseBuilding();
 		$(".inside-building").fadeOut(1000);
 		mobileBottomPanelSwitch();
@@ -1122,10 +1148,14 @@ $(function(){
     //사운드조절
 	var isMuteOn = false; 
 	$(".mute").on("click",function(){
+		$(".sound-panel p span").removeClass("on");
+		$(this).addClass("on");
 		isMuteOn = true; 
 		mute();
 	});
 	$(".muteoff").on("click",function(){
+		$(".sound-panel p span").removeClass("on");
+		$(this).addClass("on");
 		isMuteOn = false; 
 		play();
 	});
@@ -1609,6 +1639,7 @@ $(function(){
     // 빌딩 검사 관련
 	var buildingIndex;
 	var chatIndex = 0;
+	var phaseIndex = 1;
 	var userClearQuest = false; 
 	var buildingNameObj = {
 		2: "제로웨이스트샵",
