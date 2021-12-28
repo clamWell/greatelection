@@ -370,7 +370,7 @@ $(function(){
 			[1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1], //23
 			[1,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,0,0,0,1,0,0,1,0,1,1,1,1,1,1,1,1,0,0,1,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1], //24
 			[1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,0,0,1,1,1,1,7,1,1,1,1,1], //25 //아고라
-			[1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,0,1,1], //26
+			[1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,0,1,1], //26
 			[1,1,1,0,0,0,0,0,0,1,1,0,3,1,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,0,0,1,1,1,1], //27 //여관
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,5,1,1,1,1,1,1,1,0,1,1,1,1,0,0,1,1,0,0,0,1,1,1], //28
 			[1,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,0,0,0,1,0,1,1,1], //29
@@ -379,7 +379,7 @@ $(function(){
 			[1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,1], //32 
 			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //33 항구 벽돌
 			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,8,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], //34
-			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1], //35
+			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1], //35
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1], //36
 			[1,1,1,1,1,1,0,0,1,1,0,0,0,1,1,0,1,1,0,0,1,1,1,1,1,0,0,1,1,1,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //37
 			[1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1,1], //38 > 바다
@@ -442,6 +442,8 @@ $(function(){
             $(".npc-02").css({"width": this.move, "top":16*this.move+"px", "left": 28*this.move+"px" });//광장
             $(".npc-03").css({"width": this.move*2, "top":32.5*this.move+"px", "left": 25.5*this.move+"px" });//선원
 			$(".npc-04").css({"width": this.move*0.7, "top":14*this.move+"px", "left": 15.3*this.move+"px" });//무가당
+			$(".npc-04-2").css({"width": this.move*0.7, "top":25*this.move+"px", "left": 4.3*this.move+"px" });//무가당
+			$(".npc-04-3").css({"width": this.move*0.7, "top":34*this.move+"px", "left": 45.3*this.move+"px" });//무가당
 			$(".npc-05").css({"width": this.move*1, "top":7*this.move+"px", "left": 23*this.move+"px" });//제작자
 			$(".npc-06").css({"width": this.move*5, "top":38*this.move+"px", "left": 25.5*this.move+"px" });//배 
 			$(".btn-01").css({"width": this.move*3, "top":39*this.move+"px", "left": 27*this.move+"px" });//항해하기버튼
@@ -619,7 +621,7 @@ $(function(){
 			goSailingStage();
 		}else if(closeAlertType=="reject-sail"){ // 항해 떠나지 않음
 			
-		}else if(closeAlertType=="close-mugadang"){ //무가당과 대화마침
+		}else if(closeAlertType=="close-mugadang" || closeAlertType=="speak-mugadang"){ //무가당과 대화마침
 			$(".npc-04").find(".question-icon").hide();
 		}
 		
@@ -837,9 +839,9 @@ $(function(){
 			}
 			
 			if( v.thumb == false || v.thumb == "FALSE"){
-				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'></div></li>";
+				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'><p>"+candCountry[i].replace('나라','')+"</p></div></li>";
 			}else{
-				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'></div></li>";
+				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'><p>"+candCountry[i].replace('나라','')+"</p></div></li>";
 			}
 			
 			$ItemHolder.append(itemStr);
@@ -1402,7 +1404,9 @@ $(function(){
 			GameMap.myPoY = GameMap.move *(-1*wpY);
 			GameMap.playerX = wpX;
 			GameMap.playerY = wpY;
-			
+
+			currentKey = 40;
+			$(".player img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/char_01_2.gif");
 			$(".player-holder .player").delay(800).animate({"opacity":"1", "top":"0px"},700, "easeOutSine", function(){
 				$(".player-holder .userName").fadeIn();
 				GameMap.freezed = false;
@@ -1673,7 +1677,19 @@ $(function(){
 				alertLayerOn = true;
 				alertLayerType = "speak-mugadang";
 				$(".game-alert").show();
-				$(".alert-mugadang").show();
+				$(".alert-mugadang1").show();
+
+			}else if(bi=="112"||bi ==112){ //무가당2
+				alertLayerOn = true;
+				alertLayerType = "speak-mugadang";
+				$(".game-alert").show();
+				$(".alert-mugadang2").show();
+
+			}else if(bi=="113"||bi ==113){ //무가당3
+				alertLayerOn = true;
+				alertLayerType = "speak-mugadang";
+				$(".game-alert").show();
+				$(".alert-mugadang3").show();
 
 			}else if(bi=="333"||bi ==333){ //제작자
 				alertLayerOn = true;
