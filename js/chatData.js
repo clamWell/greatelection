@@ -50,7 +50,7 @@ var chatData = {
       },
       "7": {
         "phase": 1,
-        "msgN": "다음은 <span class='country country2'>찌개나라</span>의 <span class='item'>‘기업 부담은 누가 챙기나’망토</span>입니다. 찌개나라는 단계적 탄소세 도입을 주장합니다. 탄소세는 산업·경제에 미칠 영향이 작지 않으니 보다 신중하게 접근해야 한다는 것이지요.",
+        "msgN": "다음은 <span class='country country2'>찌개나라</span>의 <span class='item'>‘기업 부담은 누가 챙기나’ 망토</span>입니다. 찌개나라는 단계적 탄소세 도입을 주장합니다. 탄소세는 산업·경제에 미칠 영향이 작지 않으니 보다 신중하게 접근해야 한다는 것이지요.",
         "msgU": "(‘기업 부담은 누가 챙기나’의 망토라... 자세한 내용은 왼쪽에서 확인해야겠다.)",
         "type": "normal",
         "showItemPanel": true,
@@ -115,15 +115,15 @@ var chatData = {
       "15": {
         "phase": 2,
         "msgN": "다음은 <span class='country country3'>소보로나라</span>의 <span class='item'>‘핵발전은 파멸’의 방패</span>입니다. 소보로나라는 원자력 발전을 강하게 비판해온 곳입니다. 2040년까지 탈원전을 달성하겠다는 목표를 세웠지요.",
-        "msgU": "('핵발전은 파멸'의 방패라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgU": "(‘핵발전은 파멸’의 방패라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
       },
       "16": {
         "phase": 2,
-        "msgN": "마지막으로 <span class='country country4'>파스타나라</span>의 <span class='item'>'탈원전은 원시시대 사고' 방패</span>입니다. 파스타나라는 찌개나라와 함께 탈원전 반대 입장이 강한 곳이에요. 원전 없는 탄소 중립은 허구라는 입장이죠.",
-        "msgU": "('탈원전은 원시시대 사고' 방패라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgN": "마지막으로 <span class='country country4'>파스타나라</span>의 <span class='item'>‘탈원전은 원시시대 사고’의 방패</span>입니다. 파스타나라는 찌개나라와 함께 탈원전 반대 입장이 강한 곳이에요. 원전 없는 탄소 중립은 허구라는 입장이죠.",
+        "msgU": "(‘탈원전은 원시시대 사고’ 방패라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -308,7 +308,7 @@ var chatData = {
 	  },
 	  "20": {
 		"phase": 2,
-		"msgN": "<span class='country country2'>찌개나라</span>의 '세 부담 완화의 서'입니다. 토지·주택에 매기는 종합부동산세, 집 팔 때 내는 양도소득세 등을 낮추는 방안입니다.",
+		"msgN": "<span class='country country2'>찌개나라</span>의 ‘세 부담 완화의 서’입니다. 토지·주택에 매기는 종합부동산세, 집 팔 때 내는 양도소득세 등을 낮추는 방안입니다.",
 		"msgU": "('세 부담 완화의 서'라... 자세한 정보는 왼쪽에서 확인하자.)",
 		"type": "normal",
 		"showItemPanel": true,
@@ -324,7 +324,7 @@ var chatData = {
 	  },
 	  "22": {
 		"phase": 2,
-		"msgN": "마지막으로 <span class='country country4'>파스타나라</span>에서 가져온 '종부세 재검토의 서'입니다. 종부세는 완화 또는 폐지를 염두에 두고 재검토를 한다고 합니다.",
+		"msgN": "마지막으로 <span class='country country4'>파스타나라</span>에서 가져온 ‘종부세 재검토의 서’입니다. 종부세는 완화 또는 폐지를 염두에 두고 재검토를 한다고 합니다.",
 		"msgU": "('종부세 재검토의 서'라... 자세한 정보는 오른쪽에서 확인하자.)",
 		"type": "normal",
 		"showItemPanel": true,
@@ -418,7 +418,7 @@ var chatData = {
         "msgU": "나는...(선택은 번복할 수 없다. 신중히 결정하자)",
         "type": "userSelect",
         "showItemPanel": true,
-        "optStrList": "국민적 합의가 먼저야, 개인 자유가 침해되면 안돼, 차별에 합의가 필요해?, 지금 논의해보자"
+        "optStrList": "국민적 합의가 먼저야, 개인 자유가 침해되면 안돼, 차별 금지에 합의가 필요해?, 지금 논의해보자"
       },
       "9": {
         "phase": 1,
@@ -439,7 +439,7 @@ var chatData = {
       "11": {
         "phase": 2,
         "msgN": "입국에 필요한 여권 양식을 종류별로 알려드릴게요. 먼저  <span class='country country1'>숭늉나라</span>의 ‘존중 but 합의 필요’ 여권이에요. 성적 취향을 이유로 한 차별은 옳지 않지만 동성 간 결혼은 사회적 합의가 필요하다는 내용입니다.",
-        "msgU": "('존중 but 합의 필요'라...자세한 정보는 왼쪽에서 확인하자.)",
+        "msgU": "(‘존중 but 합의 필요’라...자세한 정보는 왼쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -447,7 +447,7 @@ var chatData = {
       "12": {
         "phase": 2,
         "msgN": "<span class='country country2'>찌개나라</span>는 ‘결혼은 두 사람 이상의 문제’ 여권이에요. 결혼은 타인에게도 영향을 미치는 법률적 효과가 있어 합의가 필수라는 내용입니다.",
-        "msgU": "('결혼은 두 사람 이상의 문제'라... 자세한 정보는 왼쪽에서 확인하자.)",
+        "msgU": "(‘결혼은 두 사람 이상의 문제’라... 자세한 정보는 왼쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -463,7 +463,7 @@ var chatData = {
       "14": {
         "phase": 2,
         "msgN": "<span class='country country4'>파스타나라</span>는 ‘합법화도 퀴어축제도 반대’ 여권입니다. 동성애는 찬반 사안이 아니지만 동성혼의 합법화는 반대하며, '거부할 권리'도 존중돼야하므로 퀴어 축제도 반대하는 입장입니다.",
-        "msgU": "('합법화 반대'라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgU": "(‘합법화 반대’라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -521,7 +521,7 @@ var chatData = {
     "4": {
         "phase": 1,
         "msgN": "<span class='country country1'>숭늉나라</span>는 여가부를 ‘평등가족부’로 개편하고 기능을 조정키로 했어요. ‘여성’이든 ‘남성’이든 특정 성을 부처 이름에 넣지 말자는 거죠.",
-        "msgU": "('평등가족부'라... 자세한 정보는 왼쪽에서 확인하자.)",
+        "msgU": "(‘평등가족부’라... 자세한 정보는 왼쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -529,7 +529,7 @@ var chatData = {
     "5": {
         "phase": 1,
         "msgN": "<span class='country country2'>찌개나라</span>도 여가부를 ‘양성평등가족부’로 개편키로 했습니다. 그간 여가부가 남성을 포함한 성평등을 수행하지 못했다고 보고 이를 강화하자는 거죠.",
-        "msgU": "('양성평등가족부'라... 자세한 정보는 왼쪽에서 확인하자.)",
+        "msgU": "(‘양성평등가족부’라... 자세한 정보는 왼쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -537,15 +537,15 @@ var chatData = {
     "6": {
         "phase": 1,
         "msgN": "<span class='country country3'>소보로나라</span>는 여가부 권한을 대폭 강화해 ‘성평등부’로 격상합니다. 여전히 여성에 대한 차별이 심각한 현실을 고려하는 거죠.",
-        "msgU": "('성평등부'라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgU": "(‘성평등부’라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
     },
     "7": {
         "phase": 1,
-        "msgN": "<span class='country country4'>파스타나라</span>는 여가부를‘성평등인권부’로 확대 개편해야 한다는 입장입니다. ",
-        "msgU": "('성평등인권부'라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgN": "<span class='country country4'>파스타나라</span>는 여가부를 ‘성평등인권부’로 확대 개편해야 한다는 입장입니다. ",
+        "msgU": "(‘성평등인권부’라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -585,7 +585,7 @@ var chatData = {
     "12": {
         "phase": 2,
         "msgN": "<span class='country country1'>숭늉나라</span>는 성폭력 무고죄 신설에 반대합니다.",
-        "msgU": "(성폭력 무고죄 신설 반대라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgU": "(성폭력 무고죄 반대라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -593,7 +593,7 @@ var chatData = {
     "13": {
         "phase": 2,
         "msgN": "<span class='country country2'>찌개나라</span>는 성폭력 무고죄 신설이 필요하다는 입장입니다.",
-        "msgU": "(성폭력 무고죄 신설이라... 자세한 정보는 왼쪽에서 확인하자.)",
+        "msgU": "(성폭력 무고죄 찬성이라... 자세한 정보는 왼쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -601,7 +601,7 @@ var chatData = {
     "14": {
         "phase": 2,
         "msgN": "<span class='country country3'>소보로나라</span>는 성폭력 무고죄 신설에 반대합니다.",
-        "msgU": "(성폭력 무고죄 신설 반대라... 자세한 정보는 오른쪽에서 확인하자.)",
+        "msgU": "(성폭력 무고죄 반대라... 자세한 정보는 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -609,7 +609,7 @@ var chatData = {
     "15": {
         "phase": 2,
         "msgN": "<span class='country country4'>파스타나라</span>는 비동의 강간죄 원칙을 도입한다면 성폭력 무고죄를 신설하겠다는 입장입니다. ",
-        "msgU": "(파스타나라 입장은 오른쪽에서 확인하자.)",
+        "msgU": "(성폭력 무고죄 조건부 찬성이라... 오른쪽에서 확인하자.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -633,7 +633,7 @@ var chatData = {
     "18": {
         "phase": 3,
         "msgN": "네??? 23개 세미나 주제가 남았는데요??",
-        "msgU": "안녕히계세요!!!",
+        "msgU": "안녕히 계세요!!!",
         "type": "userExit",
         "showItemPanel": false,
         "optStrList": null
@@ -723,7 +723,7 @@ var chatData = {
      "11": {
          "phase": 2,
          "msgN": "<span class='country country1'>숭늉나라</span>는 ‘실용외교’를 강조하며 “미·중과 동시에 협력해 나갈 것”이라고 강조하고 있다.",
-         "msgU": "(자세한 정보는 왼쪽에서 확인해야겠다.)",
+         "msgU": "(<span class='country country1'>숭늉나라</span> 정보는 왼쪽에서 확인해야겠다.)",
          "type": "normal",
          "showItemPanel": true,
          "optStrList": null
@@ -731,7 +731,7 @@ var chatData = {
      "12": {
          "phase": 2,
          "msgN": "<span class='country country2'>찌개나라</span>는, 숭늉나라와 비교할 때, 미 나라의 관계를 더 중요시 한다. 찌개-미 동맹의 중요성을 강조하는 것이지.",
-         "msgU": "(자세한 정보는 왼쪽에서 확인해야겠다.)",
+         "msgU": "(<span class='country country2'>찌개나라</span> 정보는 왼쪽에서 확인해야겠다.)",
          "type": "normal",
          "showItemPanel": true,
          "optStrList": null
@@ -747,7 +747,7 @@ var chatData = {
      "14": {
          "phase": 2,
          "msgN": "<span class='country country4'>파스타나라</span>는 중 나라에 지나치게 저자세를 취해선 안되며, 미·중 기술패권 경쟁에서 2차 전지, 원자력 산업 등 5개 산업을 육성해 독자적 지위를 확보해야한다는 입장이다.",
-         "msgU": "(자세한 정보는 오른쪽에서 확인해야겠다.)",
+         "msgU": "(<span class='country country4'>파스타나라</span> 정보는 오른쪽에서 확인해야겠다.)",
          "type": "normal",
          "showItemPanel": true,
          "optStrList": null
@@ -836,11 +836,11 @@ var chatData = {
       },
       "8": {
         "phase": 1,
-        "msgN": "이 사람이!!! 이곳에 그렇게 탄탄한 세계관을 기대하지 마시오!!! 개떡 같이 말하면 찰떡 같이 알아들어야지!!! 난 바쁘니까 각국별 차이는 왼쪽 오른쪽에서 보시던가!!! (사라짐)",
+        "msgN": "이 사람이!!! 이곳에 그렇게 탄탄한 세계관을 기대하지 마시오!!! 개떡 같이 말하면 찰떡 같이 알아들어야지!!! 난 바쁘니까 각국별 차이는 왼쪽 오른쪽에서 보시오!!!",
         "msgU": "(윽... 불같은 분이시구나. 어려운 내용은 아니니 내가 보고 결정하자.)",
         "type": "userSelect",
         "showItemPanel": true,
-        "optStrList": "사면 얘기 자체가 시기상조, 국민 통합에 필요하면 사면해야, 역사 정의 거스르는 사면 없다, 형집행정지 먼저 하고 사면 논의"
+        "optStrList": "사면 얘기 자체가 시기상조, 국민 통합에 필요하면 사면해야, 역사 정의 거스르는 사면 없다, 국민통합 위한 형집행정지부터"
       },
       "9": {
         "phase": 2,
@@ -877,7 +877,7 @@ var chatData = {
       "13": {
         "phase": 2,
         "msgN": "반면 <span class='country country2'>찌개나라</span>에서는 숭늉나라가 의혹의 설계자라고 보네. 숭늉나라가 개발 사업 밑그림을 그렸다는 의혹에 특검 초점이 맞춰져야 한다고들 주장하지.",
-        "msgU": "(‘설계자’ 의혹이라...자세한 정보는 왼쪽에서 확인해야겠다.)",
+        "msgU": "(‘설계자’ 의혹이라... 자세한 정보는 왼쪽에서 확인해야겠다.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -885,7 +885,7 @@ var chatData = {
       "14": {
         "phase": 2,
         "msgN": "<span class='country country3'>소보로나라</span> 역시 특검을 빨리 해야 한다는 입장이네. 파스타나라와 손 잡고 찌개나라에 제기된 고발사주 의혹과 대장동을 묶어 쌍특검을 해야 한다고 하지.",
-        "msgU": "(쌍특검 주장이라...자세한 정보는 오른쪽에서 확인해야겠다.)",
+        "msgU": "(쌍특검 주장이라... 자세한 정보는 오른쪽에서 확인해야겠다.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -893,7 +893,7 @@ var chatData = {
       "15": {
         "phase": 2,
         "msgN": "<span class='country country4'>파스타나라</span>도 비슷하네. 쌍특검을 빨리 도입하자면서 소보로나라와 한 목소리를 냈지. 의혹을 받고 있는 숭늉·찌개나라 때문에 진척이 없다고 비판하고 있네.",
-        "msgU": "(역시 쌍특검 주장이라…자세한 정보는 오른쪽에서 확인해야겠다.)",
+        "msgU": "(역시 쌍특검 주장이라... 자세한 정보는 오른쪽에서 확인해야겠다.)",
         "type": "normal",
         "showItemPanel": true,
         "optStrList": null
@@ -901,7 +901,7 @@ var chatData = {
       "16": {
         "phase": 2,
         "msgN": "어떻게 하는 게 좋겠나",
-        "msgU": "(다 찬성하는데도 진척이 안되다니 이해가 잘 안 가지만...) 저는 이렇게 하는 게 옳은 것 같습니다.",
+        "msgU": "(다 찬성하는데도 진척이 안되다니 이해가 안 가지만...) 저는 이렇게 하는 게 옳은 것 같습니다.",
         "type": "userSelect",
         "showItemPanel": true,
         "optStrList": "부실대출 특검, 설계자 특검, 쌍특검, 쌍특검"
@@ -919,7 +919,7 @@ var chatData = {
         "1": {
             "phase": 1,
             "msgN": "여어! 동료가 필요해?",
-            "msgU": "안녕하세요.",
+            "msgU": "안녕.",
             "type": "normal",
             "showItemPanel": false,
             "optStrList": null
@@ -934,8 +934,8 @@ var chatData = {
         },
         "3": {
             "phase": 1,
-            "msgN": "각국에서 온 선원들이라 요구하는 근무여건이나 익숙한 근무환경이 달라. 그걸 미리 알고 동료를 구하는 게 무탈한 항해에 도움이 될거야. 아 그리고, 이건 상사가 부하를 구하는 게 아니라 동료가 동료를 구하는 일이라는 점을 잊지마. 당신에게 맞는 동료를 뽑는다는 건, 당신 역시 그의 기대에 부합해 일을 해야한다는 뜻이야.",
-            "msgU": "일단 소개를 해주세요.",
+            "msgN": "각국에서 온 선원들이라 요구하는 근무여건이나 익숙한 근무환경이 달라. 미리 알아두는 게 항해에 도움이 될거야. 아, 그리고 이건 상사가 부하를 구하는 게 아니라 동료가 동료를 구하는 일이라는 점을 잊지마. 당신에게 맞는 동료를 뽑는다는 건, 당신 역시 그의 기대에 맞춰 일을 해야한다는 뜻이야.",
+            "msgU": "일단 소개를 해줘.",
             "type": "normal",
             "showItemPanel": false,
             "optStrList": null
@@ -975,7 +975,7 @@ var chatData = {
         "8": {
             "phase": 1,
             "msgN": "누가 좋겠어?",
-            "msgU": "(내 동료의 일하는 시간은 곧 내가 일하는 시간... 이렇게 하는 게 맞겠다.)",
+            "msgU": "(내 동료의 노동은 곧 나의 노동... 이렇게 하는 게 맞겠다.)",
             "type": "userSelect",
             "showItemPanel": true,
             "optStrList": "숭늉나라 선원, 찌개나라 선원, 소보로나라 선원, 파스타나라 선원"
@@ -990,15 +990,15 @@ var chatData = {
         },
         "10": {
             "phase": 2,
-            "msgN": "그렇지! 안전 문제를 얘기 안했군. 일하다 죽거나 다치는 일이 없도록 하자는 데는 다 동의하지만, ‘어떻게’를 두고는 의견이 갈려. 곧 시행될 법(중대재해처벌법)이 있는데, 그 법에 대한 의견도 다 달라.",
-            "msgU": "좀 더 들어보고 싶어요.",
+            "msgN": "그렇지! 안전 문제를 얘기 안했군. 일하다 죽거나 다치는 일이 없도록 하자는 데는 다 동의하지만, ‘어떻게’를 두고 의견이 갈려. 곧 시행될 ‘중대재해처벌법’에 대한 의견도 다 달라.",
+            "msgU": "좀 더 들어보고 싶어.",
             "type": "normal",
             "showItemPanel": false,
             "optStrList": null
         },
         "11": {
             "phase": 2,
-            "msgN": "<span class='country country1'>숭늉나라</span> 선원은 이 법이 기대에 미치지 못했다고 보지만, 법을 다시 고치자는 건 아냐. 대신 추가 조치들이 필요하다고 하지. 노동경찰을 만들고, 폭염이나 혹한에는 작업을 멈추는 권리를 보장하는 아이디어를 냈어.",
+            "msgN": "<span class='country country1'>숭늉나라</span> 선원은 이 법이 기대에 미치지 못했다고 보지만, 법을 다시 고치자는 건 아냐. 대신 추가 조치들이 필요하다고 하지. 노동경찰을 만들고, 폭염·혹한에는 작업을 멈출 권리를 보장하는 아이디어를 냈어.",
             "msgU": "(숭늉나라 선원... 왼쪽에서 체크해야겠다)",
             "type": "normal",
             "showItemPanel": true,
@@ -1006,7 +1006,7 @@ var chatData = {
         },
         "12": {
             "phase": 2,
-            "msgN": "<span class='country country2'>찌개나라</span> 선원은 이 법이 기업을 위축시킨다고 봐. 기업인 처벌과 책임을 약화시킬 필요가 있다는 거지. 시행령으로 예방을 강화하고 기업 처벌 부담을 더는 쪽으로 할거래.",
+            "msgN": "<span class='country country2'>찌개나라</span> 선원은 이 법이 기업을 위축시킨다고 봐. 기업인 처벌과 책임을 약화시킬 필요가 있다는 거지. 시행령으로 예방을 강화하고 기업 처벌 부담을 덜거래.",
             "msgU": "(찌개나라 선원... 왼쪽에서 체크해야겠다)",
             "type": "normal",
             "showItemPanel": true,
@@ -1014,7 +1014,7 @@ var chatData = {
         },
         "13": {
             "phase": 2,
-            "msgN": "<span class='country country3'>소보로나라</span> 선원은 이 법을 ‘누더기법’이라고 봐. 기업 책임을 확실히 하는 방향으로 다시 강화해야 한다는 거지. 법 이름에 ‘기업’을 넣고, 지금 법에 빠진 사업장도 모두 들어가도록 바꿀거래.",
+            "msgN": "<span class='country country3'>소보로나라</span> 선원은 이 법을 ‘누더기법’이라고 봐. 기업 책임을 확실히 하는 방향으로 다시 강화해야 한다는 거지. 법 이름에 ‘기업’을 넣고, 지금 법에 빠진 사업장도 모두 들어가야 한대.",
             "msgU": "(소보로나라 선원... 오른쪽에서 체크해야겠다)",
             "type": "normal",
             "showItemPanel": true,
@@ -1039,7 +1039,7 @@ var chatData = {
         "16": {
             "phase": 3,
             "msgN": "좋은 동료를 찾은 것 같군. 즐거운 항해가 되길!",
-            "msgU": "고마워요! 안녕!",
+            "msgU": "고마워! 안녕!",
             "type": "userExit",
             "showItemPanel": false,
             "optStrList": null
