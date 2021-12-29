@@ -245,8 +245,6 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .player-holder .player {   position: relative;}
 .player img {  position: relative; top: -0.8rem; width: 100%; height: 100%; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;}
 .player-holder .userName{ position: absolute; font-size: 1.2rem;  top: -1.7rem;text-align: center;  text-shadow: 1px 1px 1px #fff;width: 100%; }
-.player-holder .user-baloon { display:none; position: absolute; font-size: 0.8rem; top: -90px; text-align: center; text-shadow: 1px 1px 1px #fff; width: 200px;background: rgba(255,255,255,0.8);
- box-sizing: border-box; padding: 10px;border-radius: 10px; font-family: 'Noto Sans KR', 'notokr-regular'; left: -50px;}
 .map-npc { cursor: pointer; }
 .map-npc img { width:100%;-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-user-drag: none;  }
 .map-button { cursor: pointer; }
@@ -637,9 +635,8 @@ background-size: cover;background-position: center bottom;}
 .game-alert .alert-border .alert--basic { padding: 30px; }
 .alert-play-manual {font-family: 'Noto Sans KR'; }
 .game-alert .alert-border .alert--basic button{ margin-top:20px;font-size: 1.4rem; }
-.game-alert .alert-before-go-sailing {top: 15%; }
 
-.player-holder .user-baloon {  top: -65px; width: 160px; font-size: 1.4rem; font-weight: bold;    left: 50%; margin-left: -80px;}
+
 .screen-bottom-panel { /* display:block;  */} 
 .game-frame{ z-index:1;}
 .frame-left img{ width: 6px; }
@@ -741,10 +738,10 @@ font-size: 1.5rem;letter-spacing: -0.07rem; text-align: center; border-width: 1p
 
 
 .opt-full-desc-mobile-layer { display:none; position: fixed; top: 0; left: 0;  width: 100%;  height: 100vh; z-index: 9999; background: rgba(0,0,0,0.3); backdrop-filter: blur(2px);}
-.opt-full-desc-panel {background: #f5e3b9; width: 100%; height:100%; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/mobile-full-desc-back-2.png") no-repeat;  position: relative; background-size: 100% 100%; padding: 15px 25px; box-sizing: border-box; margin: 0 auto;}
+.opt-full-desc-panel { width: 100%; height:100%; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/mobile-full-desc-back-2.png") no-repeat;  position: relative; background-size: 100% 100%; padding: 15px 25px; box-sizing: border-box; margin: 0 auto;overflow-x: hidden; overflow-y: scroll;}
 .opt-full-desc-panel .each-opt-desc-list { width:100%; height:inherit; }
-.opt-full-desc-panel .each-opt-desc-list h4 { text-align: center; font-size: 2rem; margin-bottom: 10px; }
-.opt-full-desc-panel .each-opt-desc-list ul { width:100%; pointer-events: none;overflow-y: scroll; height: 75%;}
+.opt-full-desc-panel .each-opt-desc-list h4 { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
+.opt-full-desc-panel .each-opt-desc-list ul { width:100%; pointer-events: none;}
 .opt-full-desc-panel .each-opt-desc-list ul li { margin: 10px auto; width:100%; border-bottom: 2px dashed #bb9e8d; cursor: default; }
 .opt-full-desc-panel .each-opt-desc-list ul li .inner-wrap { width:100%;padding: 15px 0;box-sizing:border-box;  }
 .opt-full-desc-panel .each-opt-desc-list ul li .inner-wrap .thumbs { width: 70px;margin: 0 auto;  margin-bottom: 10px; }
@@ -769,7 +766,7 @@ font-size: 1.5rem; display: block;  letter-spacing: -0.07rem; text-align: center
 .arriving-scene .desc-para-box .para-holder {  font-size: 1.8rem; line-height: 2.6rem;}
 .ending-stage-wrap .user-result-panel { }
 .user-result-panel .user-matched-candidate { max-width: 90%; }
-.user-select-preview .select-preview-panel ul li .cand_icon { top: -10px; font-size: 1.3rem; }
+.user-select-preview .select-preview-panel ul li .cand_icon { top: -10px; }
 
 
 .quest-info-layer .quest-info-panel .quest-info-close button {  font-size: 1.5rem;  float: left;   width: 45%;  margin: 0 1.5%;}

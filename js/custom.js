@@ -36,16 +36,16 @@ var ieUnder = false;
 var isIe =false;
 function checkIe(){
     var word;
-    var agent = navigator.userAgent.toLowerCase();
+    var agent = navigator.userAgent.toLowerCase(); 
     if (  (navigator.appName === 'Netscape' && navigator.userAgent.search('Trident') !== -1)|| (agent.indexOf("msie") !== -1)) {
-        if (navigator.userAgent.indexOf("MSIE") >= 0) {
+        if (navigator.userAgent.indexOf("MSIE") >= 0) { 
             isIe = true;
             ieUnder = true;
-            //$(".ie-block-9").show();
+            //$(".ie-block-9").show(); 
         }else{
-
+            
             isIe = true;
-            //$(".ie-block-allie").show();
+            //$(".ie-block-allie").show(); 
         }
         return true;
     }else {
@@ -122,12 +122,12 @@ var userSelectData2 = {
 function putRandVal(){
 	var keys = Object.keys(userSelectData);
 	for (i = 0; i < keys.length; i++) {
-		var key = keys[i]
-		var value = userSelectData[key]
-
+		var key = keys[i] 
+		var value = userSelectData[key] 
+		
 		var	keys2 = Object.keys(value);
 		for (k = 0; k < keys2.length; k++) {
-			var key2 = keys2[k]
+			var key2 = keys2[k] 
 			userSelectData[key][key2] = randomRange(1,4);
 		}
 	}
@@ -145,14 +145,14 @@ function countUserSelect(){ //사용자 선택 값 체크해서 후보자별로 
 	countArr = [0,0,0,0]; // 차례대로 이윤심안
 	var keys = Object.keys(userSelectData);
 	for (i = 0; i < keys.length; i++) {
-		var key = keys[i]
-		var value = userSelectData[key]
-
+		var key = keys[i] 
+		var value = userSelectData[key] 
+		
 		var	keys2 = Object.keys(value);
 		for (k = 0; k < keys2.length; k++) {
-			var key2 = keys2[k]
+			var key2 = keys2[k] 
 			var v = userSelectData[key][key2];
-			countArr[v-1] += 1;
+			countArr[v-1] += 1; 
 		}
 	}
 	console.log( countArr);
@@ -190,9 +190,9 @@ $(function(){
 	var isIe =false;
     function checkIe(){
         var word;
-		var agent = navigator.userAgent.toLowerCase();
+		var agent = navigator.userAgent.toLowerCase(); 
         if (  (navigator.appName === 'Netscape' && navigator.userAgent.search('Trident') !== -1)|| (agent.indexOf("msie") !== -1)) {
-			if (navigator.userAgent.indexOf("MSIE") >= 0) {
+			if (navigator.userAgent.indexOf("MSIE") >= 0) { 
 				isIe = true;
 				ieUnder = true;
 			}else{
@@ -216,7 +216,7 @@ $(function(){
 	/*								*/
 	/*------  INTRO ANIMATION	-----*/
 	/*								*/
-
+    
 
     //키보드 키 셋팅
     var KEY_CODES = {
@@ -257,12 +257,12 @@ $(function(){
                 $gameVP.css({"width": gw+"px", "height": "100%"});
 				$("html, body").css("font-size", (gw * 16 / 800) + "px");
 
-
-
+				
+				
 				$(".game-screen-square").css({"width": gw+"px", "height": gw+"px"});
 				/*var panel_width = (gw - gh)/2;
 				$(".each-panel").css({"width": panel_width+"px"});*/
-
+				
 			}else{
 				if(screenWidth < 1200){
 					gw = screenWidth-50;
@@ -288,7 +288,7 @@ $(function(){
 				$(".game-screen-square").css({"width": gh+"px", "height": gh+"px"});
 				$(".each-panel").css({"width": panel_width+"px"});
 			}
-
+			
 		}
 	}
 
@@ -307,7 +307,7 @@ $(function(){
         click: null,
 		building: null,
 		alert: null,
-
+            
         settingSound: function(){
 		    this.bgm = new Audio("sound/bgm.mp3");
             this.bgm.type = "audio/mp3";
@@ -337,9 +337,9 @@ $(function(){
             this.alert.load();
         }
 	}
+	
 
-
-
+	
 
     var GameMap = {
         //지도에 추후 건물, NPC 추가
@@ -376,7 +376,7 @@ $(function(){
 			[1,1,1,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,1,0,0,0,0,0,1,0,1,1,1], //29
 			[1,1,1,1,1,1,0,0,1,0,1,1,0,0,0,1,0,0,1,1,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,1], //30
 			[1,1,1,1,1,1,0,0,1,0,1,0,0,1,1,1,0,0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,1,0,1,1,0,1,1,1], //31
-			[1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,1], //32
+			[1,1,1,1,1,1,0,0,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,1,1], //32 
 			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1], //33 항구 벽돌
 			[1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,8,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1], //34
 			[1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1], //35
@@ -416,12 +416,12 @@ $(function(){
             this.mapH = $(".game-map").height() * 2500 / 500;
             this.move = $(".game-map").width() / 5;*/
 
-
+			
 			this.move = $(".game-map").width() / this.multipleValue;
 			this.mapW = $(".game-map").width() * 50 / this.multipleValue;
             this.mapH = $(".game-map").height() * 50 / this.multipleValue;
 
-
+            
             console.log(this.move);
             $(".map-img").css({"width": this.mapW, "height": this.mapH});
             $(".map-el-holder").css({"width": this.mapW, "height": this.mapH});
@@ -436,7 +436,7 @@ $(function(){
             $(".portal-b5").css({"top":27.5*this.move+"px", "left": 27*this.move+"px"}); //28, 28
             $(".portal-b6").css({"top":5.5*this.move+"px", "left": 44*this.move+"px"}); //45, 6
             $(".portal-b7").css({"top":24.5*this.move+"px", "left": 44*this.move+"px"}); //45, 25
-
+            
             //NPC
             $(".npc-01").css({"width": this.move, "top":12*this.move+"px", "left": 28*this.move+"px" });//원로
             $(".npc-02").css({"width": this.move, "top":16*this.move+"px", "left": 28*this.move+"px" });//광장
@@ -445,11 +445,11 @@ $(function(){
 			$(".npc-04-2").css({"width": this.move*0.7, "top":25*this.move+"px", "left": 4.3*this.move+"px" });//무가당
 			$(".npc-04-3").css({"width": this.move*0.7, "top":34*this.move+"px", "left": 45.3*this.move+"px" });//무가당
 			$(".npc-05").css({"width": this.move*1, "top":7*this.move+"px", "left": 23*this.move+"px" });//제작자
-			$(".npc-06").css({"width": this.move*5, "top":38*this.move+"px", "left": 25.5*this.move+"px" });//배
+			$(".npc-06").css({"width": this.move*5, "top":38*this.move+"px", "left": 25.5*this.move+"px" });//배 
 			$(".btn-01").css({"width": this.move*3, "top":39*this.move+"px", "left": 27*this.move+"px" });//항해하기버튼
             $(".map-npc .question-icon").css({"width": this.move/3});
-
-
+           
+			
 			//맵 초기 위치
             $(".map-img").css({left : "-=" + this.move * (21)+ "px", top : "-=" + this.move * (15)+ "px"});
             $(".map-el-holder").css({left : "-=" + this.move * (21)+ "px", top : "-=" + this.move * (15)+ "px"});
@@ -458,7 +458,7 @@ $(function(){
             GameMap.myPoY -= this.move *(15);
             this.playerX = 21;
             this.playerY = 15;
-
+            
             $(".player-holder").fadeIn(1000, function(){
                 GameMap.freezed = false;
             });
@@ -481,7 +481,7 @@ $(function(){
         },
         moveleft: function(change){
             if (!isMuteOn ){  gameSound.walk.play(); }
-
+           
             if (GameMap.map[GameMap.playerY][GameMap.playerX-1] != 1 && GameMap.freezed === false && GameMap.map[GameMap.playerY][GameMap.playerX-1] != undefined){
 
                 GameMap.playerX -= 1;
@@ -539,8 +539,8 @@ $(function(){
 		pageStage:0,
 		userName:"무가당"
 	};
-
-	// 오프닝
+		
+	// 오프닝 
 	$("#OPENING_START").on("click",function(){
 		$(".opening-background-list .back-01").hide();
 		$(".opening-background-list .back-02").fadeIn();
@@ -551,19 +551,19 @@ $(function(){
 	function showOpeningStage(){
 		$(".opening").hide();
 		$(".opening-stage").show();
-		UserData.pageStage = 1;
+		UserData.pageStage = 1; 
 		$(".ment-box").slideDown(1000, "easeOutBounce", function(){
 			var $eachPara = $(".ment-box .box-inner .box-txt p");
 			for(o=0; o<$eachPara.length;o++){
 				$eachPara.eq(o).delay(o*700).animate({"opacity":"1"}, 1200, "easeOutSine");
-				if(o == $eachPara.length-1){
+				if(o == $eachPara.length-1){	
                     EnterPassStage = true;
 					$(".opening-stage .btn-holder").delay(3000).fadeIn();
 				}
-
+				
 			};
 		});
-	};
+	};	
 
 	$(".chat-input-txt").focus(function(){
 		$(this).val("");
@@ -572,9 +572,9 @@ $(function(){
         gameSound.click.play();
 		$(".opening-stage-el--01").hide();
 		$(".opening-stage-el--02").show();
-		UserData.pageStage = 2;
+		UserData.pageStage = 2; 
 	});
-	// 오프닝
+	// 오프닝 
 
 
 
@@ -585,26 +585,25 @@ $(function(){
 			afterCloseAlert(closeAlertType);
 		}
 		afterCloseAlert(alertLayerType);
-
+		
  	});
-
+	
 	function clsoeAlertLayer(){
 		gameSound.click.play();
 		$(".alert-border").hide();
 		$(".game-alert").hide();
-		alertLayerOn = false;
 	};
 
 	function afterCloseAlert(type){
-		var closeAlertType = type;
+		var closeAlertType = type; 
 		if(closeAlertType == "play-manual"){//시작매뉴얼 닫기
 			if(isMobile){$(".screen-bottom-panel").fadeIn();}
-
+			
 		}else if( closeAlertType == "enter-building"){ //빌딩입장
 			enterBuilding(buildingIndex);
 		}else if(closeAlertType == "stay-building"){//빌딩잔류
             if(isMobile){ $(".screen-bottom-panel").removeClass("screen-bottom-panel-block"); }
-
+		
 		}else if(closeAlertType == "exit-building"){//빌딩퇴장
 			exitBuilding(buildingIndex, false);
 		}else if(closeAlertType == "wait"){ //개발중
@@ -621,14 +620,11 @@ $(function(){
 		}else if(closeAlertType=="accept-sail"){ // 항해 떠남
 			goSailingStage();
 		}else if(closeAlertType=="reject-sail"){ // 항해 떠나지 않음
-
+			
 		}else if(closeAlertType=="close-mugadang" || closeAlertType=="speak-mugadang"){ //무가당과 대화마침
 			$(".npc-04").find(".question-icon").hide();
 		}
-
-		//레이어 창 타입 전역 변수 초기화
-		alertLayerType = null;
-
+		
 
 	}
 
@@ -643,27 +639,22 @@ $(function(){
 		GameMap.myPoY = GameMap.move *(-40);
 		GameMap.playerX = 31;
 		GameMap.playerY = 40;
-
+		
 		$(".player-holder").delay(500).fadeIn(1500, function(){
-			$(".user-baloon").show();
-			/*
-			setTimeout(function(){
-				$(".user-baloon").hide();
-			}, 3000);*/
 			GameMap.freezed = false;
 		});
 	}
 
+			
 
-
-
+	
 	function enterBuilding(b){
-		UserData.pageStage = 4;
-
+		UserData.pageStage = 4; 
+		
 		//채팅 인덱스값 초기화
 		chatIndex = 0;
 
-		//화면 요소 전환
+		//화면 요소 전환 
 		$(".screen-left-panel .map-info").hide();
 		$(".screen-right-panel .select-history").hide();
 		$(".building-exit").show();
@@ -675,42 +666,42 @@ $(function(){
 
 
 		drawBuildingEl(b); //건물 안 요소들 채우기
-		drawChatBox(b, chatIndex) //대화내용 채우기
-		animateChatBox(); //대화 박스 애니메이션
+		drawChatBox(b, chatIndex) //대화내용 채우기 
+		animateChatBox(); //대화 박스 애니메이션 
 
 		if(isMobile){
 			mobileBottomPanelSwitch();
 		}
-
+		
 	}
 
-	// 모바일 하단 패널 영역 교체
+	// 모바일 하단 패널 영역 교체 
 	function mobileBottomPanelSwitch(){
 		if(UserData.pageStage==4){
 			$(".keyboard-holder").hide();
 		}else if(UserData.pageStage==3){
 			$(".keyboard-holder").show();
 		}
-
+		
 	}
-
+	
 	function drawBuildingEl(b){
 		$(".inside-building .background").find("div").hide();
 		$(".inside-building .background").find(".background-b"+b).show();
 
-
-
+		
+		
 		if(b==7){ //아고라만 특수케이스
 			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b"+b+"-npc-3.png");
-			$(".npc-name p").html("시끄러워 보이는 사람들");
+			$(".npc-name p").html("시끄러워 보이는 사람들");	
 		}else{
 			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b"+b+"-npc.png");
-			$(".npc-name p").html(npcNameObj[b]);
+			$(".npc-name p").html(npcNameObj[b]);	
 		}
-
-		$(".flag-panel .position-bottom").html(buildingNameObj[b]);
+		
+		$(".flag-panel .position-bottom").html(buildingNameObj[b]);		
 		$(".inside-building").fadeIn(1000);
-
+	
 	};
 
 	//채팅 되돌리기 기능
@@ -726,7 +717,7 @@ $(function(){
 	$(".chat-return-btn").on("click",function(){
 		//console.log(phaseIndex, buildingIndex, chatIndex);
 		$(".chat-return-btn").hide();
-		var biStr = "b"+buildingIndex;
+		var biStr = "b"+buildingIndex; 
 		var returnCI_Point =  chatReturnPoint[biStr][phaseIndex-1];
 		console.log(returnCI_Point);
 		chatIndex = returnCI_Point-1; //채팅인덱스값 재적용
@@ -735,7 +726,7 @@ $(function(){
 	});
 	//채팅 되돌리기 기능
 
-	//채팅 내용을 담고 있는 객체
+	//채팅 내용을 담고 있는 객체 
 	//외부화
 
 	var m_selectBottomOpt = false;
@@ -744,13 +735,13 @@ $(function(){
 		var biStr = "b"+bi;
 		var chatIndex = String(ci*1+1);
 		var chatSetObj = chatData[biStr][chatIndex];
-
+		
 		//console.log(chatSetObj);
 
-
+		
 		var $npcChat = $(".npc-panel .chat-box .typed-holder");
 		var $userChat = $(".user-panel .chat-box .typed-holder");
-
+		
 		$npcChat.html("");
 		$userChat.html("");
 
@@ -774,11 +765,11 @@ $(function(){
 			$(".user-chat-select").hide();
 			$(".user-panel .chat-box .chat-next-btn").show();
 			$(".chat-return-btn").hide();
-		}else if(chatSetObj.type == "userSelect"){ // 사용자 선택
+		}else if(chatSetObj.type == "userSelect"){ // 사용자 선택 
 			EnterPassMsg = false;
 			$(".chat-bottom-btn").hide();
 			//사용자 채팅 내 선택 버튼 만들기
-			if(isMobile){
+			if(isMobile){ 
 				$(".opt-full-desc-panel .each-opt-desc-list ul").addClass("clickable");
 				$(".bottom-option-panel-holder").addClass("up");
 				$(".chat-return-btn").attr("data-phase", phaseIndex);
@@ -799,9 +790,9 @@ $(function(){
 			$(".building-exit").hide();
 			$(".chat-return-btn").hide();
 			$(".user-panel .chat-box .exit-building-btn").show();
-
+			
 		}
-
+		
 		if( chatSetObj.showItemPanel == true){
 			//아이템 미리보기 패널
 			makeItemPreviewPanel(bi,ci, phase);
@@ -814,15 +805,15 @@ $(function(){
 
 		if(biStr=="b7" && chatIndex =="5"){//아고라에서 원로위원 첫 등장
 			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc.png");
-			$(".npc-name p").html("현명해 보이는 노인");
+			$(".npc-name p").html("현명해 보이는 노인");	
 		}else if(biStr=="b7" && chatIndex =="8"){//아고라에서 원로위원 앵그리 버전
 			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc-2.png");
-			$(".npc-name p").html("성미가 불같은 화내는 노인");
+			$(".npc-name p").html("성미가 불같은 화내는 노인");	
 		}else if(biStr=="b7" && chatIndex =="10"){//아고라에서 다시 원래 원로위원 모습으로
 			$(".npc-panel .npc-holder .npc-thumbs").find("img").attr("src", "https://img.khan.co.kr/spko/storytelling/2022/greatelection/b7-npc.png");
-			$(".npc-name p").html("태세 전환이 빠른 노인");
+			$(".npc-name p").html("태세 전환이 빠른 노인");	
 		}
-
+	
 
 	}
 
@@ -832,7 +823,7 @@ $(function(){
 		var chatIndex = String(ci*1+1);
 		var phaseStr = "phase"+phase;
 		var itemDataArr= itemData[biStr][phaseStr];
-
+	
 		$(".user-select-preview .select-preview-panel ul").html(""); //초기화
 		$(".user-select-preview .select-preview-panel ul").attr("data-phase", phaseStr);
 		itemDataArr.forEach(function(v,i,a){
@@ -846,13 +837,13 @@ $(function(){
 					$ItemHolder =  $(".user-select-preview-right").find(".select-preview-panel ul");
 				}
 			}
-
+			
 			if( v.thumb == false || v.thumb == "FALSE"){
 				var itemStr = "<li data-preview='"+ v.owner+"'><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'><p>"+candCountry[i].replace('나라','')+"</p></div></li>";
 			}else{
 				var itemStr = "<li data-preview='"+ v.owner+"'><div class='opt-thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+v.thumb+"' alt=''></div><p class='opt-name'>"+ v.name+"</p><p class='opt-desc'>"+v.desc+"</p><div class='desc-more-btn'>설명 더보기</div><div class='cand_icon cand_icon_"+(i+1)+"'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/cand_icon_"+(i+1)+".png'><p>"+candCountry[i].replace('나라','')+"</p></div></li>";
 			}
-
+			
 			$ItemHolder.append(itemStr);
 		})
 		if(isMobile){
@@ -860,7 +851,7 @@ $(function(){
 		}else{
 			$(".user-select-preview .select-preview-panel ul li").css({"height":($(".user-select-preview").width()*1.25) +"px" });
 		}
-
+		
 	};
 
 	$(".user-select-preview .select-preview-panel ul").on("click", "li .desc-more-btn", function(e){
@@ -885,7 +876,7 @@ $(function(){
 		$(".item-more-info-layer .name").html(itemDataObj.name);
 		$(".item-more-info-layer .desc").html(itemDataObj.descFull);
 		$(".item-more-info-layer").show();
-
+	
 	}
 
 	$(".info-layer-close").on("click",function(e){
@@ -899,7 +890,7 @@ $(function(){
 		e.preventDefault();
 		var phaseIdx = $(this).parent("div").siblings("ul").attr("data-phase");
 		makeFullItemDescMobile(buildingIndex,phaseIdx)
-
+	
 	});
 
 	function makeFullItemDescMobile(bi, pi){
@@ -913,14 +904,13 @@ $(function(){
 				var itemStr = "<li><div class='inner-wrap'><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
 			}else{
 				var itemStr = "<li><div class='inner-wrap'><div class='thumbs'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/"+ v.thumb +"' alt=''></div><p class='name'>"+v.name+"</p><div class='desc-full'>"+v.descFull+"</div></div></li>";
-			}
+			}	
 			$(".opt-full-desc-panel .each-opt-desc-list ul").append(itemStr);
 		})
 		$(".opt-full-desc-panel .each-opt-desc-list ul li").eq(3).addClass("last");
 		$(".script-width").addClass("game-holder-touch-block");
         $(".opt-full-desc-mobile-layer").show();
         $(".opt-full-desc-panel").scrollTop(0);
-		$(".opt-full-desc-panel ul").scrollTop(0);
 
 	};
 	$(".opt-full-desc-close").on("click", function(e){ //닫기
@@ -928,7 +918,7 @@ $(function(){
         $(".script-width").removeClass("game-holder-touch-block");
 		$(".opt-full-desc-mobile-layer").hide();
 		$(".opt-full-desc-panel .each-opt-desc-list ul").html("");
-
+		
 	});
 
 
@@ -946,12 +936,12 @@ $(function(){
 		})
         //랜덤으로 섞기
         var ul = document.querySelector(".user-chat-select ul");
-        for (var i = ul.children.length; i >= 0; i--){
+        for (var i = ul.children.length; i >= 0; i--){ 
             ul.appendChild(ul.children[Math.random() * i | 0]);
         }
 
 	};
-
+	
 
 	//채팅 다음 버튼 클릭
 	$(".chat-next-btn").on("click",function(e){
@@ -963,7 +953,7 @@ $(function(){
 
 	});
 
-
+	
 	function putUserSelectOpt(usi, bi, pi){
 		var biStr = "b"+bi;
 		userSelectData[biStr][pi] = usi;
@@ -983,7 +973,7 @@ $(function(){
 		chatIndex = chatIndex+1;
 		drawChatBox(buildingIndex, chatIndex);
 	});
-
+	
 	//모바일 채팅 내 대신 하단의 옵션 선택하도록
 	$(".bottom-option-panel .user-select-preview").on("click","ul li",function(e){
 		e.preventDefault();
@@ -1021,7 +1011,7 @@ $(function(){
 		$(".npc-panel .npc-chat-box-holder .chat-box").delay(500).animate({"opacity":"1"}, 500);
 		$(".user-panel .chat-box").delay(1000).animate({"opacity":"1"}, 500);
 	}
-
+	
 	//화면 우측하단 나가기
 	$(".building-exit, .building-exit-mobile").on("click",function(e){
 		$(".game-alert").show();
@@ -1033,10 +1023,10 @@ $(function(){
 	});
 
 
-    var QueDonLength = 0;
+    var QueDonLength = 0; 
 	// building 요소들 모두 초기화
 	function exitBuilding(bi, questDone){
-
+		
         if(questDone==true){
 			if(bi==4){
 				$(".npc-02").addClass("map-npc-done");
@@ -1052,25 +1042,25 @@ $(function(){
                 values =Object.values(checkObj);
             }
 			if( values.indexOf(null) !== -1 ){ //완료되지 않음
-			    //무언가 오류가 났다는 의미
-			}else{ // 퀘스트 완료
+			    //무언가 오류가 났다는 의미 
+			}else{ // 퀘스트 완료  
                 QueDonLength+=1;
                 $(".select-history .index-number .now").html(QueDonLength);
 			    console.log(bi+"번째 퀘스트완료")
-                var q_list_index = (bi*1)-2;
+                var q_list_index = (bi*1)-2; 
                 $(".select-history ul li").eq(q_list_index).addClass("done");
-			}
+			} 
         }
 		var b = b || 2;
 		setCharAfterExitBuilding(b);
-
+		
 		if (!isMuteOn ){
 			gameSound.bgm.play();
 			gameSound.building.pause();
 		}
-
+		
 		UserData.pageStage = 3;
-        if(isMobile){
+        if(isMobile){       
             $(".screen-bottom-panel").removeClass("screen-bottom-panel-block");
             $(".bottom-option-panel-holder").removeClass("up");
             $(".bottom-option-panel-holder").hide();
@@ -1082,26 +1072,26 @@ $(function(){
 		$(".user-select-preview").hide();
 		$(".user-chat-select ul").html("");
 		$(".item-more-info-layer").hide();
-		phaseIndex = 1;
+		phaseIndex = 1; 
 		eraseBuilding();
 		$(".inside-building").fadeOut(1000);
 		mobileBottomPanelSwitch();
 		checkAllQuestDone();
-
+	
 	};
 
 
 	function checkAllQuestDone(){
 		var keys = Object.keys(userSelectData);
-		var checkV = 0;
+		var checkV = 0; 
 		for (i = 0; i < keys.length; i++) {
-			var key = keys[i]
-			var value = userSelectData[key]
-
+			var key = keys[i] 
+			var value = userSelectData[key] 
+			
 			var	keys2 = Object.keys(value);
 			for (k = 0; k < keys2.length; k++) {
-				var key2 = keys2[k]
-				var value2 = value[key2]
+				var key2 = keys2[k] 
+				var value2 = value[key2] 
 				if(value2 == null){
 					break;
 				}else{
@@ -1109,7 +1099,7 @@ $(function(){
 				}
 			}
 		}
-
+		
 		if( checkV == 14){
 			console.log("퀘스트 다깸")
 			GameMap.freezed = true;
@@ -1128,7 +1118,7 @@ $(function(){
 		alertLayerType = "sent-to-boat";
 		$(".game-alert").show();
         $(".alert-all-quest-done").show();
-	};
+	};	
 
 	function setCharAfterExitBuilding(b){
 		if(b==2){//제로웨이스트샵에서 나옴
@@ -1137,8 +1127,8 @@ $(function(){
 			GameMap.freezed = false;
 			GameMap.movedown(true);
 		}
-
-	};
+		
+	};	
 
 	function setChartAfterBlockSailing(){
 		console.log("아직 항해를 떠날 수 없다.");
@@ -1158,17 +1148,17 @@ $(function(){
 	};
 
     //사운드조절
-	var isMuteOn = false;
+	var isMuteOn = false; 
 	$(".mute").on("click",function(){
 		$(".sound-panel p span").removeClass("on");
 		$(this).addClass("on");
-		isMuteOn = true;
+		isMuteOn = true; 
 		mute();
 	});
 	$(".muteoff").on("click",function(){
 		$(".sound-panel p span").removeClass("on");
 		$(this).addClass("on");
-		isMuteOn = false;
+		isMuteOn = false; 
 		play();
 	});
 
@@ -1182,7 +1172,7 @@ $(function(){
 		}else if(UserData.pageStage==4){
 			gameSound.building.play();
 		}
-
+		
 	}
     //사운드조절
 
@@ -1197,7 +1187,7 @@ $(function(){
 	$(".map-panel").on("click",function(e){
         e.preventDefault();
 		if( $(this).hasClass("panel-block") ){
-
+            
         }else{
             $(this).addClass("panel-block");
             $(".history-panel").addClass("panel-block");
@@ -1214,7 +1204,7 @@ $(function(){
 		GameMap.freezed = false;
     });
     //미니맵
-
+	
 	function checkUserId(id){
 		//console.log(typeof(id));
 		if(typeof(id) == "string"){
@@ -1224,7 +1214,7 @@ $(function(){
 				makeUserId(id)
 			}
 		}else{
-			return
+			return 
 		}
 	}
 
@@ -1237,7 +1227,7 @@ $(function(){
         $(".player-holder .userName").html(_id);
 
 		startMainGame();
-
+	
 	}
 
 	function startMainGame(){
@@ -1253,7 +1243,7 @@ $(function(){
 		alertLayerType = "play-manual";
 		$(".alert-play-manual").show();
 		$(".game-alert").show();
-
+		
 		console.log( "한칸의 크기:"+ GameMap.move)
 		console.log( "시작점: "+((GameMap.playerX*1)+1), (GameMap.playerY*1)+1)
 		console.log( "지도의 시작 위치:"+ GameMap.myPoX, GameMap.myPoY);
@@ -1287,7 +1277,7 @@ $(function(){
 		var $openCandImg = $(".open-cand-ani");
 		for(o=0; o<$openCandImg.length;o++){
 			$openCandImg.eq(o).delay(o*300).animate({"opacity":"1", "bottom":"0px"}, 700, "easeOutSine");
-			if(o == $openCandImg.length-1){
+			if(o == $openCandImg.length-1){	
 				$(".game-title-holder").removeClass("game-title-holder-zoom");
 				$("#OPENING_START").fadeIn(1500);
                 EnterPassStage = true;
@@ -1304,43 +1294,43 @@ $(function(){
 			}
 		};
 	}
-
-
+	
+	
 	var questInfoData = [
 	  {
 		"queTitle": "제로웨이스트샵에서 책자 구매하기",
 		"queThumb": "qu-info-b2.png",
-		"queDesc": "<p>무가당 제로웨이스트 샵에 가서 점장과 대화하고 항해에 필요한 두 가지 장비를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장이 친절히 소개해드립니다.</p>\n<p>무가당 제로웨이스트 샵은 지도의 왼편, 윗쪽에 있습니다.</p>"
+		"queDesc": "<p>무가당 제로웨이스트 샵에 가서 점장과 대화하고 항해에 필요한 두 가지 장비를 구매해야 합니다. 뭘 사야 할지 아직 모르시겠다고요? 걱정하지 마세요. 점장이 친절히 소개해드립니다.</p>\n<p>무가당 제로웨이스트 샵은 지도의 왼편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "여관 직원에게 부동산 정보 얻기",
 		"queThumb": "qu-info-b3.png",
-		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 무가당섬의 여관이 부동산 정보가 가장 빠르다고 합니다. 여관에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여관은 지도의 왼편, 아래에 있습니다.</p>"
+		"queDesc": "<p>항해를 떠나더라도 언젠가는 정착해야하는 당신, 부동산에 대한 관심을 빼놓을 수 없겠지요. 무가당섬의 여관이 부동산 정보가 가장 빠르다고 합니다. 여관에 방문해 직원으로부터 부동산에 대한 정보를 얻고 선택을 해야합니다. 아참! 그곳에서 깜박 잠들지 않게 잘 빠져나오셔야 합니다.</p>\n<p>여관은 지도의 왼편, 아래에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "중앙광장에서 시민과 대화하기",
 		"queThumb": "qu-info-b4.png",
-		"queDesc": "<p>이곳 중앙광장에서는 매주 다양한 퍼레이드가 열립니다. 오늘은 어떤 퍼레이드가 열렸을까요? 광장에서 퍼레이드에 참석한 이들과 대화해보세요. 맛있는 다과와 차도 준비되어 있다고 합니다.</p>\n<p>중앙광장은 지도의 중앙, 윗쪽에 있습니다.</p>"
+		"queDesc": "<p>이곳 중앙광장에서는 매주 다양한 퍼레이드가 열립니다. 오늘은 어떤 퍼레이드가 열렸을까요? 광장에서 퍼레이드에 참석한 이들과 대화해보세요. 맛있는 다과와 차도 준비되어 있다고 합니다.</p>\n<p>중앙광장은 지도의 중앙, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "도서관에서 세미나 구경하기",
 		"queThumb": "qu-info-b5.png",
-		"queDesc": "<p>무가당 학생들은 사회 이슈에 관심이 많습니다. 무가당 도서관에서 학생들은 다양한 세미나를 개최하지요. 도서관에 방문해 학생들이 개최한 세미나에 대한 소개도 듣고 구경도 해보세요.</p>\n<p>도서관은 지도의 중앙, 아래에 있습니다.</p>"
+		"queDesc": "<p>무가당 학생들은 사회 이슈에 관심이 많습니다. 무가당 도서관에서 학생들은 다양한 세미나를 개최하지요. 도서관에 방문해 학생들이 개최한 세미나에 대한 소개도 듣고 구경도 해보세요.</p>\n<p>도서관은 지도의 중앙, 아래에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "비밀스러운 곳에서 요원의 얘기 들어주기",
 		"queThumb": "qu-info-b6.png",
-		"queDesc": "<p>기지국에서는 무가당 섬의 다양한 외교 정사를 책임지고 있습니다. 기지국의 비밀요원 K가 아무래도 당신을 찾고 있는 것 같아요. 무슨 일인지는 모르겠지만... 직접 가보시겠어요?</p>\n<p>기지국은 지도의 오른편, 윗쪽에 있습니다.</p>"
+		"queDesc": "<p>기지국에서는 무가당 섬의 다양한 외교 정사를 책임지고 있습니다. 기지국의 비밀요원 K가 아무래도 당신을 찾고 있는 것 같아요. 무슨 일인지는 모르겠지만... 직접 가보시겠어요?</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "아고라에서 원로위원 만나기",
 		"queThumb": "qu-info-b7.png",
-		"queDesc": "<p>매일 원로위원들의 치열한 의견공방이 벌어지고 있는 무가당 아고라. 그곳에서 만난 원로위원이 당신의 항해를 도와줄 겁니다. 어떤 결정을 내리느냐에 따라 항해의 목적지가 달라질 수도 있어요! 어떻게 선택하느냐구요? 아마... 대화만 나눠도 바로 알 수 있으실겁니다.</p>\n<p>기지국은 지도의 오른편, 윗쪽에 있습니다.</p>"
+		"queDesc": "<p>매일 원로위원들의 치열한 의견공방이 벌어지고 있는 무가당 아고라. 그곳에서 만난 원로위원이 당신의 항해를 도와줄 겁니다. 어떤 결정을 내리느냐에 따라 항해의 목적지가 달라질 수도 있어요! 어떻게 선택하느냐구요? 아마... 대화만 나눠도 바로 알 수 있으실겁니다.</p>\n<p>기지국은 지도의 오른편, 윗쪽에 위치해있습니다.</p>"
 	  },
 	  {
 		"queTitle": "항구에서 동료 찾기",
 		"queThumb": "qu-info-b8.png",
-		"queDesc": "<p>항해에는 선원이 필요하죠! 동료를 찾기 위해 항구의 마당발을 만나야 합니다. 밀짚모자를 쓴 선원이 당신에게 다양한 동료들을 소개시켜줄거에요.</p>\n<p>그들은 지도의 왼편, 아래 항구 인근에 있습니다.</p>"
+		"queDesc": "<p>항해에는 선원이 필요하죠! 동료를 찾기 위해 항구의 마당발을 만나야 합니다. 밀짚모자를 쓴 선원이 당신에게 다양한 동료들을 소개시켜줄거에요.</p>\n<p>그들은 지도의 왼편, 아래 항구 인근에 위치해있습니다.</p>"
 	  }
 	];
 
@@ -1357,14 +1347,14 @@ $(function(){
 	$(".select-history ul li").on("click",function(e){
         e.preventDefault();
 		if( $(this).hasClass("done") ){
-
+            
         }else{
             //var qi = $(this).attr("data-q-index");
 			var qi = $(this).index();
             $(".map-panel").addClass("panel-block");
             $(".history-panel").addClass("panel-block");
             makeQuestInfoLayer(qi)
-
+            
 			GameMap.freezed = true;
 
         }
@@ -1391,7 +1381,7 @@ $(function(){
 	}
 	 $(".quest-info-close .warp").on("click",function(e){
         e.preventDefault();
-
+		
 		if(isMobile){
 			$(".select-history-back").hide();
 			$(".select-history").hide();
@@ -1422,7 +1412,7 @@ $(function(){
 				GameMap.freezed = false;
 				$(".history-panel").removeClass("panel-block");
 				$(".map-panel").removeClass("panel-block");
-
+				
 			});
 
 		});
@@ -1436,7 +1426,7 @@ $(function(){
 		$(".select-history-back").show();
 		$(".select-history").show();
 
-
+      
     });
 	$(".history-panel .quest-list-close").on("click",function(e){
         e.preventDefault();
@@ -1451,10 +1441,9 @@ $(function(){
 	//퀘스트완료-항해
     $(".map-button").on("click",function(e){
         e.preventDefault();
-        var bi = $(this).attr("data-npc-index");
+        var bi = $(this).attr("data-npc-index");       
 		if( bi=="222"||bi ==222){
 			if(userClearQuest == true){
-				$(".user-baloon").hide();
 				showBeforeSailingAlert();
 			}
         }
@@ -1467,26 +1456,26 @@ $(function(){
 		$(".game-alert").show();
         $(".alert-before-go-sailing").show();
 	};
-
+	
 	function goSailingStage(){
         countUserSelect();//사용자 선택 체크
 		console.log("항해시작");
         mute();
-
+		
 		$(".game-map").hide();
 		$(".player-holder").hide();
 		$(".each-panel").fadeOut();
 		$(".screen-bottom-panel").fadeOut();
 		$(".sailing-scene").fadeIn(1000);
 		$(".sailing-scene-wrap .user-boat").delay(500).animate({"left":"-20%"},4000, "swing", function(){
-
+			
 			checkUserSelectDouble();
-
+			
 		});
 	}
 
 	function checkUserSelectDouble(){
-
+		
 		if(MatchCandIdxArr.length == 1){ //한가지 국가
 			var c_idx = candName.indexOf(MatchCandIdxArr[0])
             endSailingStage(c_idx);
@@ -1495,7 +1484,7 @@ $(function(){
 			showChoiceStage(number)
 		}
 	};
-
+	
 	function showChoiceStage(n){
 		console.log("사용자 선택");
 		$(".sailing-scene").hide();
@@ -1510,7 +1499,7 @@ $(function(){
 		$(".sailing-choice-scene .select-btn-holder").html("");
 
 		MatchCandIdxArr.forEach(function(v,i,a){
-
+			
 			var c_temp ="";
 			if(v=="이재명"){
 				c_temp = "<div class='select-btn' data-usersel='0'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/lee-pixel.png' alt=''></div></div><div class='cand-info-bottom'><p class='flag-name'>숭늉나라</p><p class='nametag'>지도자 <span class='cand-name'>이재명</span></p><p></p></div></div>";
@@ -1525,7 +1514,7 @@ $(function(){
 		});
 
 		$(".sailing-choice-scene").fadeIn(1000);
-
+	
 	};
 	var userMatchedCand;
 	var allCandMathPer;
@@ -1533,12 +1522,12 @@ $(function(){
 		var u = $(this).attr("data-usersel");
 		userMatchedCand = u;
 		endSailingStage(u);
-
-	});
+		
+	});	
 
 	function endSailingStage(usi){
 		console.log("항해끝");
-		console.log(usi); // 매칭 후보 정해짐
+		console.log(usi); // 매칭 후보 정해짐 
 		$(".sailing-scene").hide();
 		$(".sailing-choice-scene").hide();
 		$(".alert-arriving-desc").find(".flag-name").html(candCountry[usi]);
@@ -1550,23 +1539,23 @@ $(function(){
 
 	}
 
-
+	
 	$("#GO_ENDING").on("click",function(e){
 		$(".arriving-scene").hide();
 		$(".main-stage").hide();
 		$(".main-stage").removeClass("main-stage-on");
 		var u = $(this).attr("data-btn-ui");
 		console.log(u);
-		drawResultPage(u) //결과 후보자에 따라서 화면 그려주는 함수 따로 필요함
-
+		drawResultPage(u) //결과 후보자에 따라서 화면 그려주는 함수 따로 필요함 
+		
 	});
-
+	
 	function drawResultPage(u){
 		console.log(u+"번째로 화면 그림");
 		//나라명, 후보자명
 		$(".user-result-panel .user-matched-candidate").find("#FLAG_NAME").html(candCountry[u]);
 		$(".user-result-panel .user-matched-candidate").find("#PRE_NAME").html(candName[u]);
-
+		
 		//후보자 매칭율
 		allCandMathPer = countArr.map( function(x){
 			return (x/14*100).toFixed(1);
@@ -1576,7 +1565,7 @@ $(function(){
 		var matchPercent = allCandMathPer[u];
 		console.log(matchPercent);
 		$(".user-result-panel .user-matched-candidate").find("#MATCH_PER").html(matchPercent+"%");
-
+		
 		$(".other-candidate-score-list ul").html("");
 		countArr.forEach(function(v,i,a){
 			if(i==u){ //매칭된 후보
@@ -1586,7 +1575,7 @@ $(function(){
 			}else{ //나머지 후보자들
 				var tmpStr = getCandBoxStr(i);
 				$(".other-candidate-score-list ul").append(tmpStr);
-			}
+			}	
 
 		});
 		$(".ending-stage .go-to-candidates-page").attr("onclick", "window.open('https://news.khan.co.kr/kh_storytelling/2022/candidates/"+candthumb[u]+".html', '_blank');")
@@ -1600,10 +1589,10 @@ $(function(){
 			var $candBox = $(".cand-info-box");
 			for(o=0; o<$candBox.length;o++){
 				$candBox.eq(o).delay(o*700).animate({"opacity":"1", "top":"0px"}, 1200, "easeOutSine");
-				if(o == $candBox.length-1){
+				if(o == $candBox.length-1){	
 					animateValue("MATCH_VALUE", 0, p, 1500);
 				}
-
+				
 			};
 		});
 	};
@@ -1613,22 +1602,22 @@ $(function(){
 		switch(i){
 			case 0:
 				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/lee-pixel.png' alt=''></div><p class='nametag'>이재명</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_01'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
-				return str;
+				return str; 
 				break;
 			case 1:
 				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/yoon-pixel.png' alt=''></div><p class='nametag'>윤석열</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_02'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
-				return str;
+				return str; 
 				break;
 			case 2:
 				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/sim-pixel.png' alt=''></div><p class='nametag'>심상정</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_03'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
-				return str;
+				return str; 
 				break;
 			case 3:
 				str = "<li><div class='other-candidate-info cand-info-box'><div class='cand-thumb-box'><div class='thumb-img'><img src='https://img.khan.co.kr/spko/storytelling/2022/greatelection/ahn-pixel.png' alt=''></div><p class='nametag'>안철수</p></div><div class='cand-match-score'><p class='head'>매칭율 <span class='score-value'id='OTHER_VALUE_04'>"+allCandMathPer[i]+"%</span></p></div></div></li>";
-				return str;
+				return str; 
 				break;
 		}
-
+	
 	}
 
 	function animateValue(id, start, end, duration) {
@@ -1655,7 +1644,7 @@ $(function(){
 	var buildingIndex;
 	var chatIndex = 0;
 	var phaseIndex = 1;
-	var userClearQuest = false;
+	var userClearQuest = false; 
 	var buildingNameObj = {
 		2: "제로웨이스트샵",
 		3: "호텔을 꿈꾸는 여관",
@@ -1676,13 +1665,13 @@ $(function(){
 		8: "말랑말랑해 보이는 선원"
 	};
 
-
+   
 
     $(".map-npc").on("click",function(e){
         e.preventDefault();
-        var bi = $(this).attr("data-npc-index");
+        var bi = $(this).attr("data-npc-index");       
 		if( $(this).hasClass("map-npc-done") ){
-
+            
         }else{
 			if(bi=="111"||bi ==111){ //무가당
 				alertLayerOn = true;
@@ -1707,7 +1696,7 @@ $(function(){
 				alertLayerType = "speak-maker";
 				$(".game-alert").show();
 				$(".alert-maker").show();
-
+				
 			}else if(bi=="7"||bi ==7){ //원로위원 -> 치트키
 				putRandVal();
 				console.log("치트키")
@@ -1715,30 +1704,30 @@ $(function(){
 				showAllQuestDoneAlert();
 				userClearQuest = true;
 				$(".btn-01").show();
+				
 
-
-
+				
 			}else if(bi=="9"||bi ==9){ //배
-
+				
 				console.log("배가 떠있다.")
-
-
+				
+				
 			}else{
 				GameMap.freezed = false;
 				showChatNpcAlert(bi);
-
+				
 			}
-
+            
         }
 	});
-
+    
     function showChatNpcAlert(bi){
 		if(bi==8){
 			$(".alert-chat-npc .npc-name").html("항구의 선원들");
 		}else{
 			$(".alert-chat-npc .npc-name").html( npcNameObj[bi]);
 		}
-
+        
         gameSound.alert.play();
 		alertLayerOn = true;
 		alertLayerType = "chat-npc";
@@ -1755,17 +1744,17 @@ $(function(){
 
             /* 개발중에 잠시 막음
 			GameMap.freezed = true;
-
+			
 			var map_idx = GameMap.map[GameMap.playerY][GameMap.playerX];
 
 			//이미 퀘스트 완료가 된 공간인지 체크
 			var biStr = "b"+map_idx;
 			var checkObj = userSelectData[biStr];
 			if( Object.values(checkObj).includes(null) ){ //완료되지 않음
-				buildingIndex = map_idx;
+				buildingIndex = map_idx; 
 				showEnterBuildingAlert(buildingIndex);
-
-			}else{ // 퀘스트 완료
+			
+			}else{ // 퀘스트 완료 
 				showBlockBuildingAlert(map_idx);
 			} */
             //if(GameMap.map[GameMap.playerY][GameMap.playerX]==2 || GameMap.map[GameMap.playerY][GameMap.playerX]==3 ){
@@ -1783,13 +1772,13 @@ $(function(){
                     values =Object.values(checkObj);
                 }
                 if( values.indexOf(null) !== -1  ){ //완료되지 않음
-                    buildingIndex = map_idx;
+                    buildingIndex = map_idx; 
 					if(buildingIndex==8){
 						showChatNpcAlert(buildingIndex);
 					}
                     showEnterBuildingAlert(buildingIndex);
-
-                }else{ // 퀘스트 완료
+                
+                }else{ // 퀘스트 완료 
                     showBlockBuildingAlert(map_idx);
                 }
 
@@ -1803,16 +1792,16 @@ $(function(){
 		}
 	}
 
-
+    
     /*function showAlertWaiting(bi){
 		gameSound.alert.play();
 		$(".game-alert").show();
 		$(".alert-enter-building").attr("data-building-idx", bi);
 		alertLayerType = "wait";
 		$(".alert-waiting").show();
-
+		
 	};*/
-
+    
 
 	function showEnterBuildingAlert(bi){
 		var buildingName = buildingNameObj[bi];
@@ -1822,7 +1811,7 @@ $(function(){
 		alertLayerType = "enter-building";
 		$(".alert-enter-building").attr("data-building-idx", bi);
 		$(".alert-enter-building").show();
-		alertLayerOn = true;
+		alertLayerOn = true; 
 	};
 
 	function showBlockBuildingAlert(map_idx){
@@ -1841,20 +1830,20 @@ $(function(){
 
 	$(window).scroll(function(){
 		var nowScroll = $(window).scrollTop();
-
+	
 	});
 
-
+   
    var currentKey = 40; // 디폴트는 아래
-   var isChrDirChange = false;
-   var EnterPassMsg = true;
-   var alertLayerOn = false;
-   var alertLayerType;
-   var EnterPassStage = false;
+   var isChrDirChange = false; 
+   var EnterPassMsg = true; 
+   var alertLayerOn = false; 
+   var alertLayerType; 
+   var EnterPassStage = false; 
 
    $(window).keydown(function(e){
 		//console.log("키누름");
-
+        
         //처음 시작 전
 		if(UserData.pageStage == 0 && event.keyCode == 13 && EnterPassStage==true){
             EnterPassStage=false;
@@ -1864,37 +1853,37 @@ $(function(){
 			showOpeningStage();
 		}else if(UserData.pageStage == 1&& event.keyCode == 13&& EnterPassStage==true){
 			gameSound.click.play();
-
+			
 			$(".opening-stage-el--01").hide();
 			$(".opening-stage-el--02").show();
-			UserData.pageStage = 2;
-
+			UserData.pageStage = 2; 
+			
 		}else if(UserData.pageStage == 2&& event.keyCode == 13 && ($("#userName").val() !== "")){
 			gameSound.click.play();
 			checkUserId($("#userName").val());
-
-		}else if(UserData.pageStage == 3){//게임 맵 있는 스테이지
+			
+		}else if(UserData.pageStage == 3){//게임 맵 있는 스테이지 
             if (KEY_STATUS.double === true || isMobile === true) return;
-
+            
             var keyCode = (e.keyCode) ? e.keyCode : e.charCode;
-
+                
             //key코드에 있는 키값이 입력되었을 때만 동작
             if (KEY_CODES[keyCode]) {
 		        e.preventDefault();
 				console.log(keyCode);
 				if(currentKey==keyCode){
 					isChrDirChange = false;
-
+					
 				}else{
 					isChrDirChange = true;
 					currentKey = keyCode;
 				}
-
+				
                 KEY_STATUS[KEY_CODES[keyCode]] = true;
 		        KEY_STATUS.double = true;
 
                 if (KEY_STATUS.left || KEY_STATUS.right ||KEY_STATUS.down || KEY_STATUS.up || KEY_STATUS.space) {
-
+					
                     if (KEY_STATUS.left) {
                         GameMap.moveleft(isChrDirChange);
                     } else if (KEY_STATUS.right) {
@@ -1906,21 +1895,21 @@ $(function(){
                     }
 					console.log( (GameMap.playerX*1+1)+", "+(GameMap.playerY*1+1) +"로 이동");
 					console.log( GameMap.map[GameMap.playerY][GameMap.playerX] )
-
+					
                 }
 				if(keyCode ==13 && alertLayerOn==true){ //엔터
 					clsoeAlertLayer();
 					afterCloseAlert(alertLayerType);
 				}
             }
-
+	
         }else if(UserData.pageStage == 4&& event.keyCode == 13 &&EnterPassMsg==true ){ //유저 대화중
 			EnterPassMsg= false;
 			gameSound.click.play();
 			$(".chat-inner-btn").hide();
 			chatIndex = chatIndex+1;
 			drawChatBox(buildingIndex, chatIndex);
-
+			
 		}
 
 	});
@@ -1951,9 +1940,9 @@ $(function(){
 			}
 
 			if(keyCode == "38"){
-				GameMap.moveup(isChrDirChange);
+				GameMap.moveup(isChrDirChange); 
 			}else if(keyCode == "40"){
-				GameMap.movedown(isChrDirChange);
+				GameMap.movedown(isChrDirChange); 
 			}else if(keyCode == "37"){
 				 GameMap.moveleft(isChrDirChange);
 			}else if(keyCode == "39"){
