@@ -595,7 +595,7 @@ $(function(){
 	$(".game-alert .close").on("click",function(){
 		var closeAlertType = $(this).attr("data-btn-type");
 		clsoeAlertLayer();
-		if(closeAlertType=="stay-building" || closeAlertType=="exit-building"||closeAlertType=="accept-sail" || closeAlertType=="reject-sail"){
+		if(closeAlertType=="stay-building" || closeAlertType=="exit-building"||closeAlertType=="accept-sail" || closeAlertType=="reject-sail" ||closeAlertType=="re-enter-building" ){
 			afterCloseAlert(closeAlertType);
 		}
 		afterCloseAlert(alertLayerType);
@@ -627,6 +627,8 @@ $(function(){
         }else if(closeAlertType == "block-building"){ //이미 완료가 장소
 			GameMap.freezed = false;
 			GameMap.movedown(true);
+		}else if(closeAlertType == "re-enter-building"){ //재 입장
+			enterBuilding(buildingIndex);
 		}else if(closeAlertType == "chat-npc"){ //NPC와 채팅
 			enterBuilding(buildingIndex);
             GameMap.freezed = false;
@@ -660,10 +662,10 @@ $(function(){
 
 		$(".player-holder").delay(500).fadeIn(1500, function(){
 			$(".user-baloon").show();
-			/*
+			
 			setTimeout(function(){
 				$(".user-baloon").hide();
-			}, 3000);*/
+			}, 5000);
 			GameMap.freezed = false;
 		});
 	}
@@ -1097,6 +1099,7 @@ $(function(){
 		$(".user-chat-select ul").html("");
 		$(".item-more-info-layer").hide();
 		phaseIndex = 1;
+		buildingIndex = null;
 		eraseBuilding();
 		$(".inside-building").fadeOut(1000);
 		mobileBottomPanelSwitch();
@@ -1130,6 +1133,7 @@ $(function(){
 			showAllQuestDoneAlert();
 			userClearQuest = true;
 			$(".btn-01").show();
+			$(".npc-06").addClass("npc-06-able");
 		}else{
 			//console.log("아직 남음")
 		}
@@ -1729,11 +1733,15 @@ $(function(){
 				showAllQuestDoneAlert();
 				userClearQuest = true;
 				$(".btn-01").show();
-
-
+				$(".npc-06").addClass("npc-06-able");
+				
 
 			}else if(bi=="9"||bi ==9){ //배
-
+				if(userClearQuest == true){
+					$(".user-baloon").hide();
+					showBeforeSailingAlert();
+				}
+		
 				//console.log("배가 떠있다.")
 
 
@@ -1804,6 +1812,7 @@ $(function(){
                     showEnterBuildingAlert(buildingIndex);
 
                 }else{ // 퀘스트 완료
+					buildingIndex = map_idx;
                     showBlockBuildingAlert(map_idx);
                 }
 

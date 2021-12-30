@@ -274,12 +274,13 @@ width: 100%; box-sizing:border-box;display: inline-block; padding-right:100px; f
 .question-icon { position: absolute; width: 50px; top: 0rem; left: 50%;margin-left: -25px;}
 .question-icon img { animation: jump 0.8s cubic-bezier(0, 0.5, 0.5, 1) infinite; }
 .npc-02 .question-icon {  top: -1.5rem;margin-left: -1rem; }
-.npc-01 { display:none;  }
+.npc-01 { display:none;   }
 .npc-01 .question-icon {  top: -1.8rem; }
 .npc-04 .question-icon {  top: -1.5rem;margin-left: -1rem; }
 .npc-04-2 .question-icon {  top: -1.5rem;margin-left: -1rem; }
 .npc-04-3 .question-icon {  top: -1.5rem;margin-left: -1rem; }
 .npc-06 {cursor: default; pointer-events: none;}
+.npc-06-able{ cursor: pointer;pointer-events: auto;}
 .npc-06 img {animation: wave 3s 0.4s infinite linear;}
 .map-npc-done { cursor: default; pointer-events: none; }
 .map-npc-done .question-icon { display:none; }
@@ -531,7 +532,7 @@ font-size: 1.5rem; display: none;  letter-spacing: -0.07rem; text-align: center;
 .ending-stage { width:100%; height:100%; z-index: 999;position: absolute; top: 0; left:0;background: #111; display:none; }
 .ending-stage-wrap {width:100%; height:100%;position: relative; }
 .ending-stage-wrap .ending-stage-back { width:100%; height:100%; position: absolute; top:0; left:0; background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/opening-stage-each-party.png") no-repeat; background-size: cover;background-position: center;opacity: 0.4;  }
-.ending-stage-wrap .user-result-panel {  position: relative;  width: 100%; box-sizing: border-box;  padding: 3% 0%;}
+.ending-stage-wrap .user-result-panel {  position: relative;  width: 100%; box-sizing: border-box;  padding: 1.5% 0%;}
 .user-result-panel .user-matched-candidate {max-width: 80%; margin: 0 auto;}
 .user-result-panel .user-matched-candidate .desc-para-box {width: 100%;background: url("https://img.khan.co.kr/spko/storytelling/2022/greatelection/info-panel-back-widever.jpg") no-repeat;background-size: 100% 100%; box-sizing: border-box; background-position: center;  padding: 3%;}
 .user-result-panel .user-matched-candidate .desc-para-box .para-holder {font-family: 'Noto Sans KR', 'notokr-regular';font-size: 1.2rem; line-height: 2rem; text-align: center;}
@@ -562,12 +563,16 @@ font-size: 1.5rem; display: none;  letter-spacing: -0.07rem; text-align: center;
 .other-candidate-info .cand-match-score p {font-size: 1.1rem;}
 .other-candidate-info .cand-match-score p .score-value {font-size: 1.5rem;}
 
+.user-result-panel .result-per-desc { text-align: center; color: #fff; font-family: 'Noto Sans KR', 'notokr-regular';font-size: 0.9rem; opacity: 0.7; }
 
 .bottom-game-button-panel {    position: absolute;  bottom: 0;  left: 0; width: 100%; box-sizing: border-box; padding: 0% 5%; padding-bottom: 2%;}
 .button-col-2 {width: 100%;position: relative; }
 .button-col-2 button { font-family: 'DungGeunMo', 'notokr-regular';background: #e4bc81; cursor: pointer;color: #111;font-size: 1.3rem; letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 2%;} 
 .bottom-game-button-panel .replay-game { float: left; background: #d7d0c5;}
-.bottom-game-button-panel .go-to-candidates-page { float: right;}
+.bottom-game-button-panel .go-to-candidates-page { float: right;background: #ffedc1;}
+.button-col-3 {width: 100%;position: relative; }
+.button-col-3 button { font-family: 'DungGeunMo', 'notokr-regular';background: #e4bc81; cursor: pointer;color: #111;font-size: 1.3rem; letter-spacing: -0.07rem; text-align: center; border-width: 1px solid #111; padding: 2%;} 
+.bottom-game-button-panel .go-article { float: right;    margin-left: 2%;} 
 
 .screen-bottom-panel { display:none; }
 .select-history-back{ display:none; }
@@ -776,10 +781,12 @@ font-size: 1.5rem; display: block;  letter-spacing: -0.07rem; text-align: center
 .quest-info-layer .quest-info-panel .quest-info-close::after { clear:both; content:""; display:block; }
 
 .alert-before-go-sailing { top: 15%; }
-.ending-stage-wrap .user-result-panel { padding: 35px 0; }
+.ending-stage-wrap .user-result-panel { padding: 35px 0; padding-bottom: 20px;}
 .user-result-panel .user-matched-candidate .desc-para-box { padding: 5%; }
 .user-result-panel .user-matched-candidate .desc-para-box .para-holder {font-size: 2rem; line-height: 3rem;text-align: left;} 
-.cand-matched-info { top: 0; left: 0; margin-top: 15px; width: 90%;  padding: 40px 20px;}
+.user-result-panel .result-per-desc {  font-size: 1.5rem;  width: 100%; box-sizing: border-box; padding: 3% 5%; text-align: left;}
+
+.cand-matched-info { top: 0; left: 0; margin-top: 15px; width: 100%;  padding: 40px 20px;}
 .cand-thumb-box { width:80px;height:80px; }
 .other-candidate-score-list ul { max-width:80%;}
 .cand-thumb-box .nametag{ font-size: 1.8rem; top:0px; }
@@ -787,7 +794,9 @@ font-size: 1.5rem; display: block;  letter-spacing: -0.07rem; text-align: center
 .other-candidate-info .cand-thumb-box .nametag {font-size: 1.6rem;}
 .other-candidate-info .cand-match-score p {  font-size: 1.8rem; } 
 .other-candidate-info .cand-match-score p .score-value { font-size: 2rem; }
-.bottom-game-button-panel .button-col-2 button {font-size:1.8rem;  }
+.bottom-game-button-panel { padding: 2%;position: relative; }
+.bottom-game-button-panel .button-col-3 button {font-size:2rem;width: 80%; margin: 0.3% auto; display: block; float:none;}
+
 
 .game-holder-touch-block { position: fixed; height:100vh; touch-action: none;-ms-touch-action: none;overflow:hidden; pointer-events: none; }
 

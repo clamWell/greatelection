@@ -604,9 +604,10 @@
 
 											<div class="alert-border alert-block-enter-building">
 												<div class="alert--basic">
-													<p>이미 퀘스트가 완료된 공간입니다.</p>
-													<p>다른 곳으로 이동해주세요.</p>
-													<button class="close" data-btn-type="block-enter-building">확인</button>
+													<p>이미 이곳의 퀘스트를 완료하였습니다.</p>
+													<p>다시 입장하시겠습니까? 재입장 시 선택지를 다시 선택하실 수 있습니다.</p>
+													<button class="close" data-btn-type="re-enter-building">재 입장하기</button>
+													<button class="close" data-btn-type="block-enter-building">닫기</button>
 												</div>	
 											</div>
 
@@ -801,12 +802,14 @@
 												</li>
 											</ul>
 										</div>
+										
 									</div>
-			
+									<p class="result-per-desc">후보자 정책 입장이 일치할 경우 중복 값이 발생해 전체 합계 수치는 100%를 초과할 수 있습니다. </p>
 								</div>
 								<div class="bottom-game-button-panel">
-									<div class="button-col-2">
+									<div class="button-col-3">
 										<button class="replay-game" id="REPLAY_BTN" onclick="window.location.href = 'https://news.khan.co.kr/kh_storytelling/2022/greatelection/'">게임 다시하기</button>
+										<button class="go-article" id="GO_ARTICLE" onclick="window.open('https://www.khan.co.kr/issue/articles/aha98', '_blank');">후보자 별 정책 기사로 보러가기</button>
 										<button class="go-to-candidates-page" id="GO_CAND_PAGE" onclick="window.open('https://news.khan.co.kr/kh_storytelling/2022/greatelection/candidates/', '_blank');">후보자 탐구 페이지로 가기</button>
 									</div>
 								</div>
